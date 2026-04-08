@@ -49,8 +49,8 @@ export function AboutTimeline() {
 
     const cards = cardsRef.current.filter(Boolean) as HTMLDivElement[];
 
-    gsap.set(progress, { scaleX: 0, transformOrigin: "left" });
-    gsap.set(cards, { opacity: 0, y: 40, scale: 0.95 });
+    gsap.set(progress, { scaleX: 0, transformOrigin: "left", force3D: true });
+    gsap.set(cards, { opacity: 0, y: 40, force3D: true });
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -58,25 +58,25 @@ export function AboutTimeline() {
         start: "top top",
         end: `+=${window.innerHeight * 3}`,
         pin: true,
-        scrub: 0.8,
+        scrub: true,
         anticipatePin: 1,
       },
     });
 
     // Animate progress line
-    tl.to(progress, { scaleX: 1, duration: 4, ease: "none" }, 0);
+    tl.to(progress, { scaleX: 1, duration: 4, ease: "none", force3D: true }, 0);
 
     // Stagger card entrances across the timeline
     cards.forEach((card, i) => {
       const startTime = i * 1;
       tl.to(card, {
-        opacity: 1, y: 0, scale: 1, duration: 0.8, ease: "power2.out",
+        opacity: 1, y: 0, duration: 0.8, ease: "none", force3D: true,
       }, startTime);
 
       // Dim previous card
       if (i > 0) {
         tl.to(cards[i - 1], {
-          scale: 0.97, opacity: 0.5, duration: 0.5,
+          opacity: 0.5, duration: 0.5, ease: "none",
         }, startTime);
       }
     });

@@ -34,7 +34,6 @@ export function AboutOrigin() {
         width={28}
         height={28}
         cr={0.6}
-        glow
         className="text-titanium-dark/30 mask-[radial-gradient(ellipse_60%_50%_at_50%_50%,black,transparent)]"
       />
 

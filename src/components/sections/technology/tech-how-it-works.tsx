@@ -54,24 +54,24 @@ export function TechHowItWorks() {
       scrollTrigger: {
         trigger: section,
         start: "top top",
-        end: `+=${window.innerHeight * 2.5}`,
+        end: `+=${window.innerHeight * 1.5}`,
         pin: true,
-        scrub: 0.8,
+        scrub: true,
         anticipatePin: 1,
       },
     });
 
     // Step 1 → Step 2
-    tl.to(stepEls[0], { opacity: 0, x: -80, duration: 0.8, ease: "power2.inOut" }, 0.5)
-      .to(dots[0], { scale: 1, backgroundColor: "#3A3A4E", duration: 0.3 }, 0.5)
-      .to(stepEls[1], { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" }, 0.8)
-      .to(dots[1], { scale: 1.4, backgroundColor: "#F5F5F8", duration: 0.3 }, 0.8);
+    tl.to(stepEls[0], { opacity: 0, x: -80, duration: 0.6, ease: "power2.inOut" }, 0.3)
+      .to(dots[0], { scale: 1, backgroundColor: "#3A3A4E", duration: 0.2 }, 0.3)
+      .to(stepEls[1], { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" }, 0.5)
+      .to(dots[1], { scale: 1.4, backgroundColor: "#F5F5F8", duration: 0.2 }, 0.5);
 
     // Step 2 → Step 3
-    tl.to(stepEls[1], { opacity: 0, x: -80, duration: 0.8, ease: "power2.inOut" }, 2)
-      .to(dots[1], { scale: 1, backgroundColor: "#3A3A4E", duration: 0.3 }, 2)
-      .to(stepEls[2], { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" }, 2.3)
-      .to(dots[2], { scale: 1.4, backgroundColor: "#F5F5F8", duration: 0.3 }, 2.3);
+    tl.to(stepEls[1], { opacity: 0, x: -80, duration: 0.6, ease: "power2.inOut" }, 1.2)
+      .to(dots[1], { scale: 1, backgroundColor: "#3A3A4E", duration: 0.2 }, 1.2)
+      .to(stepEls[2], { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" }, 1.4)
+      .to(dots[2], { scale: 1.4, backgroundColor: "#F5F5F8", duration: 0.2 }, 1.4);
 
     return () => {
       tl.kill();

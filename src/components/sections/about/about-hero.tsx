@@ -41,18 +41,16 @@ export function AboutHero() {
         }, "-=0.2");
 
       // ── Parallax exit on scroll ──
-      ScrollTrigger.create({
-        trigger: sectionRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: 0.5,
-        onUpdate: (self) => {
-          if (contentRef.current) {
-            gsap.set(contentRef.current, {
-              y: self.progress * -80,
-              opacity: 1 - self.progress * 1.5,
-            });
-          }
+      gsap.to(contentRef.current, {
+        y: -80,
+        opacity: 0,
+        ease: "none",
+        force3D: true,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
         },
       });
     }, sectionRef);

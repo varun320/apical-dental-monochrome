@@ -32,14 +32,12 @@ export function AboutMission() {
   return (
     <section className="relative bg-linear-to-b from-void via-deep-void to-void px-6 py-28 lg:py-36 overflow-hidden">
       {/* ── Background ── */}
-      <ParallaxSection speed={0.5} className="absolute inset-0">
-        <DotPattern
-          width={28}
-          height={28}
-          cr={0.6}
-          className="text-titanium-dark/20 mask-[radial-gradient(ellipse_70%_60%_at_50%_50%,black,transparent)]"
-        />
-      </ParallaxSection>
+      <DotPattern
+        width={28}
+        height={28}
+        cr={0.6}
+        className="absolute inset-0 text-titanium-dark/20 mask-[radial-gradient(ellipse_70%_60%_at_50%_50%,black,transparent)]"
+      />
 
       <div className="relative z-10 mx-auto max-w-[1100px]">
         {/* ── Headline ── */}
