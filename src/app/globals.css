@@ -1,0 +1,164 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Apical Dental — Void Black · Titanium · White (monochrome) */
+  --void:          #08080E;
+  --deep-void:     #1A1A2A;
+  --titanium-dark: #3A3A4E;
+  --titanium:      #6A6A80;
+  --titanium-light:#9A9AB0;
+  --white:         #F5F5F8;
+
+  /* shadcn semantic tokens — mapped to monochrome palette */
+  --background: var(--void);
+  --foreground: var(--white);
+  --card: var(--deep-void);
+  --card-foreground: var(--white);
+  --popover: var(--deep-void);
+  --popover-foreground: var(--white);
+  --primary: var(--white);
+  --primary-foreground: var(--void);
+  --secondary: var(--titanium-dark);
+  --secondary-foreground: var(--titanium-light);
+  --muted: var(--titanium-dark);
+  --muted-foreground: var(--titanium);
+  --accent: var(--titanium-dark);
+  --accent-foreground: var(--white);
+  --destructive: #d44;
+  --border: var(--titanium-dark);
+  --input: var(--titanium-dark);
+  --ring: var(--titanium-light);
+
+  --chart-1: var(--white);
+  --chart-2: var(--titanium-light);
+  --chart-3: var(--titanium);
+  --chart-4: var(--titanium-dark);
+  --chart-5: var(--deep-void);
+
+  --radius: 0.5rem;
+
+  --sidebar: var(--deep-void);
+  --sidebar-foreground: var(--white);
+  --sidebar-primary: var(--white);
+  --sidebar-primary-foreground: var(--void);
+  --sidebar-accent: var(--titanium-dark);
+  --sidebar-accent-foreground: var(--titanium-light);
+  --sidebar-border: var(--titanium-dark);
+  --sidebar-ring: var(--titanium-light);
+}
+
+@theme inline {
+  /* Apical Dental palette */
+  --color-void: var(--void);
+  --color-deep-void: var(--deep-void);
+  --color-titanium-dark: var(--titanium-dark);
+  --color-titanium: var(--titanium);
+  --color-titanium-light: var(--titanium-light);
+  --color-white-pure: var(--white);
+
+  /* Font families */
+  --font-display: var(--font-space-grotesk);
+  --font-body: var(--font-inter);
+
+  /* shadcn tokens */
+  --font-heading: var(--font-space-grotesk);
+  --font-sans: var(--font-sans);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+  --animate-ripple:          ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite;
+  @keyframes ripple {
+  0%, 100% {
+    transform:          translate(-50%, -50%) scale(1);
+    }
+  50% {
+    transform:          translate(-50%, -50%) scale(0.9);
+    }
+  }
+}
+
+/* Selection */
+::selection {
+  background: rgba(245, 245, 248, 0.15);
+  color: var(--white);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--void);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--titanium-dark);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--titanium);
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-void text-white-pure font-body;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+}
