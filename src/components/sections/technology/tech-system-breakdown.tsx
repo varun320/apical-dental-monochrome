@@ -48,32 +48,20 @@ export function TechSystemBreakdown() {
 
     const cards = cardsRef.current.filter(Boolean) as HTMLDivElement[];
 
-    gsap.set(cards, { opacity: 0, y: 40, scale: 0.95 });
+    gsap.set(cards, { opacity: 0, y: 30 });
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: section,
-        start: "top top",
-        end: `+=${window.innerHeight * 3}`,
-        pin: true,
-        scrub: 0.8,
-        anticipatePin: 1,
+    const trigger = ScrollTrigger.create({
+      trigger: section,
+      start: "top 70%",
+      once: true,
+      onEnter: () => {
+        gsap.to(cards, {
+          opacity: 1, y: 0, duration: 0.7, ease: "power3.out", stagger: 0.12,
+        });
       },
     });
 
-    // Reveal all cards sequentially but keep them all visible
-    cards.forEach((card, i) => {
-      tl.to(card, {
-        opacity: 1, y: 0, scale: 1, duration: 0.8, ease: "power2.out",
-      }, i * 0.6);
-    });
-
-    return () => {
-      tl.kill();
-      ScrollTrigger.getAll().forEach((t) => {
-        if (t.trigger === section) t.kill();
-      });
-    };
+    return () => trigger.kill();
   }, []);
 
   return (

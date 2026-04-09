@@ -2,63 +2,69 @@
 
 import { useEffect, useRef } from "react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
-import { StaggerFadeIn } from "@/components/animations/fade-in";
+import { FadeIn } from "@/components/animations/fade-in";
 import { NumberTicker } from "@/components/ui/number-ticker";
+import { BorderBeam } from "@/components/ui/border-beam";
+import { Crosshair, RotateCcw, Clock, Sparkles } from "lucide-react";
 
 const metrics = [
   {
+    icon: Crosshair,
     label: "Placement Accuracy",
-    traditional: { value: 85, label: "Traditional" },
-    robotic: { value: 99, label: "Robotic" },
+    traditional: 85,
+    robotic: 99.2,
     unit: "%",
+    roboticDecimals: 1,
+    description: "Consistent sub-millimeter precision on every procedure",
   },
   {
+    icon: RotateCcw,
     label: "Procedure Consistency",
-    traditional: { value: 72, label: "Traditional" },
-    robotic: { value: 98, label: "Robotic" },
+    traditional: 72,
+    robotic: 98,
     unit: "%",
+    roboticDecimals: 0,
+    description: "Repeatable results across hundreds of procedures",
   },
   {
+    icon: Clock,
     label: "Production Time",
-    traditional: { value: 100, label: "Traditional (baseline)" },
-    robotic: { value: 40, label: "Robotic" },
+    traditional: 100,
+    robotic: 40,
     unit: "%",
-    invertBetter: true,
+    roboticDecimals: 0,
+    suffix: " of baseline",
+    description: "60% faster turnaround than traditional methods",
   },
   {
+    icon: Sparkles,
     label: "Remake Rate",
-    traditional: { value: 8, label: "Traditional" },
-    robotic: { value: 0.5, label: "Robotic" },
+    traditional: 8,
+    robotic: 0.5,
     unit: "%",
-    invertBetter: true,
-    decimals: 1,
+    roboticDecimals: 1,
+    description: "Near-zero remakes eliminate waste and delays",
   },
 ] as const;
 
 export function TechComparison() {
   const sectionRef = useRef<HTMLElement>(null);
-  const barsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
 
-    const bars = barsRef.current.filter(Boolean) as HTMLDivElement[];
-    gsap.set(bars, { width: "0%" });
+    const cards = cardsRef.current.filter(Boolean) as HTMLDivElement[];
+    gsap.set(cards, { opacity: 0, y: 40 });
 
     const trigger = ScrollTrigger.create({
       trigger: section,
-      start: "top 65%",
+      start: "top 70%",
       once: true,
       onEnter: () => {
-        bars.forEach((bar, i) => {
-          const targetWidth = bar.dataset.width || "0";
-          gsap.to(bar, {
-            width: `${targetWidth}%`,
-            duration: 1.2,
-            delay: i * 0.15,
-            ease: "power3.out",
-          });
+        gsap.to(cards, {
+          opacity: 1, y: 0, duration: 0.7, ease: "power3.out", stagger: 0.1,
         });
       },
     });
@@ -66,84 +72,122 @@ export function TechComparison() {
     return () => trigger.kill();
   }, []);
 
-  let barIndex = 0;
-
   return (
     <section
       ref={sectionRef}
       className="relative bg-linear-to-b from-void via-deep-void to-void px-6 py-28 lg:py-36 overflow-hidden"
     >
-      <div className="relative z-10 mx-auto max-w-[900px]">
+      <div className="relative z-10 mx-auto max-w-[1100px]">
         {/* ── Section header ── */}
-        <p className="mb-4 font-display text-[11px] font-semibold uppercase tracking-[3px] text-titanium">
-          The Difference
-        </p>
-        <h2 className="mb-16 font-display text-[clamp(24px,4vw,30px)] font-bold leading-[1.1] tracking-[-0.5px] text-white-pure">
-          Precision you can measure.
-        </h2>
+        <FadeIn>
+          <p className="mb-4 font-display text-[11px] font-semibold uppercase tracking-[3px] text-titanium">
+            The Difference
+          </p>
+        </FadeIn>
+        <FadeIn delay={0.1}>
+          <h2 className="mb-6 font-display text-[clamp(24px,4vw,30px)] font-bold leading-[1.1] tracking-[-0.5px] text-white-pure">
+            Precision you can measure.
+          </h2>
+        </FadeIn>
 
-        {/* ── Comparison metrics ── */}
-        <StaggerFadeIn className="space-y-10" stagger={0.12}>
-          {metrics.map((metric) => {
-            const traditionalBarIdx = barIndex++;
-            const roboticBarIdx = barIndex++;
+        {/* ── Column headers ── */}
+        <FadeIn delay={0.15}>
+          <div className="mb-6 hidden items-center lg:grid lg:grid-cols-[1fr_140px_140px] gap-4">
+            <div />
+            <p className="text-center font-display text-[10px] font-semibold uppercase tracking-[2px] text-titanium">
+              Traditional
+            </p>
+            <p className="text-center font-display text-[10px] font-semibold uppercase tracking-[2px] text-titanium-light">
+              Robotic
+            </p>
+          </div>
+        </FadeIn>
+
+        {/* ── Metric rows ── */}
+        <div className="space-y-4">
+          {metrics.map((metric, i) => {
+            const Icon = metric.icon;
             return (
-              <div key={metric.label}>
-                <p className="mb-4 font-display text-[14px] font-semibold tracking-[-0.3px] text-white-pure">
-                  {metric.label}
-                </p>
-
-                {/* Traditional bar */}
-                <div className="mb-3">
-                  <div className="mb-1.5 flex items-baseline justify-between">
-                    <span className="font-display text-[10px] font-semibold uppercase tracking-[2px] text-titanium">
-                      {metric.traditional.label}
-                    </span>
-                    <span className="font-display text-[16px] font-bold tracking-[-0.5px] text-titanium">
-                      <NumberTicker
-                        value={metric.traditional.value}
-                        delay={0.3}
-                        decimalPlaces={metric.label === "Remake Rate" ? 0 : 0}
-                      />
-                      {metric.unit}
-                    </span>
+              <div
+                key={metric.label}
+                ref={(el) => { cardsRef.current[i] = el; }}
+                className="grid items-center gap-4 rounded-lg border border-titanium-dark bg-deep-void p-5 lg:grid-cols-[1fr_140px_140px]"
+              >
+                {/* Label + description */}
+                <div className="flex items-center gap-4">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-titanium-dark bg-void">
+                    <Icon className="h-5 w-5 text-titanium-light" strokeWidth={1.5} />
                   </div>
-                  <div className="h-2 w-full overflow-hidden rounded-full bg-titanium-dark/30">
-                    <div
-                      ref={(el) => { barsRef.current[traditionalBarIdx] = el; }}
-                      data-width={metric.traditional.value}
-                      className="h-full rounded-full bg-titanium-dark"
-                    />
+                  <div>
+                    <h3 className="font-display text-[16px] font-semibold tracking-[-0.3px] text-white-pure">
+                      {metric.label}
+                    </h3>
+                    <p className="mt-0.5 font-body text-[12px] leading-[1.5] text-titanium">
+                      {metric.description}
+                    </p>
                   </div>
                 </div>
 
-                {/* Robotic bar */}
-                <div>
-                  <div className="mb-1.5 flex items-baseline justify-between">
-                    <span className="font-display text-[10px] font-semibold uppercase tracking-[2px] text-titanium-light">
-                      {metric.robotic.label}
-                    </span>
-                    <span className="font-display text-[16px] font-bold tracking-[-0.5px] text-white-pure">
+                {/* Traditional value */}
+                <div className="flex items-center gap-3 lg:justify-center">
+                  <span className="font-display text-[10px] font-semibold uppercase tracking-[2px] text-titanium lg:hidden">
+                    Traditional
+                  </span>
+                  <span className="font-display text-[24px] font-bold tracking-[-1px] text-titanium">
+                    <NumberTicker value={metric.traditional} delay={0.3 + i * 0.1} />
+                    <span className="text-[14px]">{metric.unit}</span>
+                  </span>
+                </div>
+
+                {/* Robotic value — highlighted */}
+                <div className="relative flex items-center gap-3 lg:justify-center">
+                  <span className="font-display text-[10px] font-semibold uppercase tracking-[2px] text-titanium-light lg:hidden">
+                    Robotic
+                  </span>
+                  <div className="relative overflow-hidden rounded-md border border-titanium bg-void/50 px-4 py-2">
+                    <span className="font-display text-[24px] font-bold tracking-[-1px] text-white-pure">
                       <NumberTicker
-                        value={metric.robotic.value}
-                        delay={0.5}
-                        decimalPlaces={metric.label === "Remake Rate" ? 1 : 0}
+                        value={metric.robotic}
+                        delay={0.5 + i * 0.1}
+                        decimalPlaces={metric.roboticDecimals}
                       />
-                      {metric.unit}
+                      <span className="text-[14px]">{metric.unit}</span>
                     </span>
-                  </div>
-                  <div className="h-2 w-full overflow-hidden rounded-full bg-titanium-dark/30">
-                    <div
-                      ref={(el) => { barsRef.current[roboticBarIdx] = el; }}
-                      data-width={metric.robotic.value}
-                      className="h-full rounded-full bg-white-pure shadow-[0_0_12px_rgba(245,245,248,0.3)]"
-                    />
+                    {i === 0 && (
+                      <BorderBeam
+                        size={60}
+                        duration={6}
+                        colorFrom="#9A9AB0"
+                        colorTo="#3A3A4E"
+                        borderWidth={1}
+                      />
+                    )}
                   </div>
                 </div>
               </div>
             );
           })}
-        </StaggerFadeIn>
+        </div>
+
+        {/* ── Bottom highlight card ── */}
+        <FadeIn delay={0.4}>
+          <div className="relative mt-6 overflow-hidden rounded-lg border border-titanium bg-deep-void/80 p-6 text-center">
+            <p className="font-display text-[clamp(16px,2.5vw,20px)] font-semibold tracking-[-0.5px] text-white-pure">
+              Up to <span className="text-[clamp(24px,3.5vw,32px)] font-bold">16x</span> fewer remakes.{" "}
+              <span className="text-[clamp(24px,3.5vw,32px)] font-bold">60%</span> faster production.
+            </p>
+            <p className="mt-2 font-body text-[13px] text-titanium-light">
+              The numbers speak for themselves.
+            </p>
+            <BorderBeam
+              size={100}
+              duration={10}
+              colorFrom="#9A9AB0"
+              colorTo="#3A3A4E"
+              borderWidth={1}
+            />
+          </div>
+        </FadeIn>
       </div>
     </section>
   );
