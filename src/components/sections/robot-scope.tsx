@@ -3,6 +3,7 @@
 import { StaggerFadeIn } from "@/components/animations/fade-in";
 import { SectionHeader } from "@/components/ui/section-header";
 import { DotPattern } from "@/components/ui/dot-pattern";
+import { BorderBeam } from "@/components/ui/border-beam";
 import { cn } from "@/lib/utils";
 import { Crown, BrainCircuit, Sparkles, Package, MessageSquare, Wrench } from "lucide-react";
 
@@ -80,12 +81,12 @@ export function RobotScope() {
             return (
               <div
                 key={cap.title}
-                className={`rounded-lg border border-titanium-dark bg-void p-7 transition-colors hover:border-titanium/40 ${
-                  cap.featured ? "sm:col-span-2" : ""
+                className={`relative overflow-hidden rounded-lg border bg-void p-7 transition-colors hover:border-titanium/40 ${
+                  cap.featured ? "sm:col-span-2 border-titanium" : "border-titanium-dark"
                 }`}
               >
                 <Icon
-                  className={`mb-4 text-titanium ${cap.featured ? "h-8 w-8" : "h-6 w-6"}`}
+                  className={`mb-4 ${cap.featured ? "h-8 w-8 text-white-pure" : "h-6 w-6 text-titanium"}`}
                   strokeWidth={1.5}
                 />
                 <h3 className="font-display text-[18px] font-semibold leading-[1.4] text-white-pure">
@@ -94,6 +95,9 @@ export function RobotScope() {
                 <p className="mt-3 font-body text-[14px] leading-[1.75] text-titanium-light">
                   {cap.description}
                 </p>
+                {cap.title === "Prosthetic Fabrication" && (
+                  <BorderBeam size={80} duration={8} colorFrom="#9A9AB0" colorTo="#3A3A4E" borderWidth={1} />
+                )}
               </div>
             );
           })}

@@ -38,13 +38,18 @@ export function TechTrust() {
         >
           {badges.map((badge) => {
             const Icon = badge.icon;
+            const isHighlight = badge.title === "Zero Barriers";
             return (
               <div
                 key={badge.title}
-                className="rounded-lg border border-titanium-dark bg-deep-void/50 p-6"
+                className={`relative overflow-hidden rounded-lg border bg-deep-void/50 p-6 ${
+                  isHighlight ? "border-titanium" : "border-titanium-dark"
+                }`}
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-md border border-titanium-dark bg-void">
-                  <Icon className="h-5 w-5 text-titanium-light" strokeWidth={1.5} />
+                <div className={`flex h-10 w-10 items-center justify-center rounded-md border bg-void ${
+                  isHighlight ? "border-titanium" : "border-titanium-dark"
+                }`}>
+                  <Icon className={`h-5 w-5 ${isHighlight ? "text-white-pure" : "text-titanium-light"}`} strokeWidth={1.5} />
                 </div>
                 <h3 className="mt-4 font-display text-[16px] font-semibold leading-[1.2] tracking-[-0.3px] text-white-pure">
                   {badge.title}
@@ -52,6 +57,9 @@ export function TechTrust() {
                 <p className="mt-2 font-body text-[13px] leading-[1.7] text-titanium-light">
                   {badge.description}
                 </p>
+                {isHighlight && (
+                  <BorderBeam size={80} duration={8} colorFrom="#9A9AB0" colorTo="#3A3A4E" borderWidth={1} />
+                )}
               </div>
             );
           })}

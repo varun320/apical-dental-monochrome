@@ -49,7 +49,9 @@ export function DSOCase() {
             return (
               <div
                 key={b.title}
-                className="rounded-lg border border-titanium-dark bg-deep-void p-8 transition-colors hover:border-titanium/40"
+                className={`relative overflow-hidden rounded-lg border bg-deep-void p-8 transition-colors hover:border-titanium/40 ${
+                  b.title === "Robot-as-a-Service" ? "border-titanium" : "border-titanium-dark"
+                }`}
               >
                 <div className="flex items-center gap-2">
                   <Icon className="h-4 w-4 text-titanium" strokeWidth={1.5} />
@@ -68,6 +70,9 @@ export function DSOCase() {
                 <p className="mt-4 font-body text-[14px] leading-[1.75] text-titanium-light">
                   {b.description}
                 </p>
+                {b.title === "Robot-as-a-Service" && (
+                  <BorderBeam size={80} duration={8} colorFrom="#9A9AB0" colorTo="#3A3A4E" borderWidth={1} />
+                )}
               </div>
             );
           })}

@@ -2,8 +2,8 @@
 
 import { TextRevealByLine } from "@/components/animations/text-reveal";
 import { StaggerFadeIn } from "@/components/animations/fade-in";
-import { ParallaxSection } from "@/components/animations/parallax-section";
 import { NumberTicker } from "@/components/ui/number-ticker";
+import { BorderBeam } from "@/components/ui/border-beam";
 import { DotPattern } from "@/components/ui/dot-pattern";
 import { Crosshair, Building2, Lightbulb } from "lucide-react";
 
@@ -62,9 +62,11 @@ export function AboutMission() {
             return (
               <div
                 key={value.title}
-                className="rounded-lg border border-titanium-dark bg-deep-void/50 p-8"
+                className={`relative overflow-hidden rounded-lg border bg-deep-void/50 p-8 ${
+                  value.title === "Precision" ? "border-titanium" : "border-titanium-dark"
+                }`}
               >
-                <Icon className="mb-5 h-6 w-6 text-titanium" strokeWidth={1.5} />
+                <Icon className={`mb-5 h-6 w-6 ${value.title === "Precision" ? "text-white-pure" : "text-titanium"}`} strokeWidth={1.5} />
                 <h3 className="font-display text-[20px] font-semibold leading-[1.2] tracking-[-0.5px] text-white-pure">
                   {value.title}
                 </h3>
@@ -82,6 +84,9 @@ export function AboutMission() {
                     {value.metric.suffix}
                   </div>
                 </div>
+                {value.title === "Precision" && (
+                  <BorderBeam size={80} duration={8} colorFrom="#9A9AB0" colorTo="#3A3A4E" borderWidth={1} />
+                )}
               </div>
             );
           })}
