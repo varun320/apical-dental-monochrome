@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { StaggerFadeIn } from "@/components/animations/fade-in";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { NumberTicker } from "@/components/ui/number-ticker";
@@ -41,24 +42,29 @@ export function Problem() {
           stagger={0.12}
         >
           {/* ── Header Card (spans 2 cols, full height) ── */}
-          <div className="relative overflow-hidden rounded-lg border border-titanium-dark bg-deep-void p-8 md:col-span-2 md:row-span-3 flex flex-col justify-center">
-            <p className="font-display text-[11px] font-semibold uppercase tracking-[3px] text-titanium">
-              The Crisis
-            </p>
-            <h2 className="mt-4 font-display text-[clamp(24px,4vw,30px)] font-bold leading-[1.1] tracking-[-0.5px] text-white-pure">
-              The future of dental surgery<br />starts in the lab.
-            </h2>
-            <p className="mt-6 max-w-[500px] font-body text-[15px] leading-[1.7] text-titanium-light">
-              Dental lab technicians are retiring with no replacements. The industry
-              faces a workforce crisis with no scalable solution — until now. Robotics
-              is the only path forward.
-            </p>
-            {/* Watermark icon */}
-            <AlertTriangle
-              className="absolute bottom-6 right-6 text-titanium"
-              style={{ width: 120, height: 120, opacity: 0.04 }}
-              strokeWidth={1}
+          <div className="relative overflow-hidden rounded-lg border border-titanium-dark bg-deep-void md:col-span-2 md:row-span-3">
+            {/* Card background image */}
+            <Image
+              src="/images/problem-bg.png"
+              alt=""
+              fill
+              className="object-cover object-center grayscale-30 brightness-70 opacity-70"
+              sizes="(max-width: 768px) 100vw, 66vw"
             />
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(26,26,42,0.85)_40%,rgba(26,26,42,0.4)_100%)]" />
+            <div className="relative z-10 flex h-full flex-col justify-center p-8">
+              <p className="font-display text-[11px] font-semibold uppercase tracking-[3px] text-titanium">
+                The Crisis
+              </p>
+              <h2 className="mt-4 font-display text-[clamp(24px,4vw,30px)] font-bold leading-[1.1] tracking-[-0.5px] text-white-pure">
+                The future of dental surgery<br />starts in the lab.
+              </h2>
+              <p className="mt-6 max-w-[500px] font-body text-[15px] leading-[1.7] text-titanium-light">
+                Dental lab technicians are retiring with no replacements. The industry
+                faces a workforce crisis with no scalable solution — until now. Robotics
+                is the only path forward.
+              </p>
+            </div>
           </div>
 
           {/* ── Problem Cards (stacked in right column) ── */}

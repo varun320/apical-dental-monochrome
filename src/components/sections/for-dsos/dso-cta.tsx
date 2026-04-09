@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FadeIn } from "@/components/animations/fade-in";
 import { TextReveal } from "@/components/animations/text-reveal";
 import { BorderBeam } from "@/components/ui/border-beam";
+import Image from "next/image";
 import { NumberTicker } from "@/components/ui/number-ticker";
 import { StaggerFadeIn } from "@/components/animations/fade-in";
 import { Building2, Wrench, ShieldCheck } from "lucide-react";
@@ -16,7 +17,7 @@ const stats = [
 
 export function DSOCTA() {
   return (
-    <section className="relative bg-linear-to-b from-void via-deep-void to-deep-void px-6 py-28 lg:py-36 overflow-hidden">
+    <section className="relative bg-linear-to-b from-void via-deep-void to-deep-void px-6 py-20 lg:py-28 overflow-hidden">
       <div className="relative z-10 mx-auto max-w-[900px]">
         {/* Stats */}
         <StaggerFadeIn className="grid grid-cols-1 gap-6 sm:grid-cols-3" stagger={0.15}>
@@ -39,8 +40,15 @@ export function DSOCTA() {
 
         {/* CTA Card */}
         <FadeIn delay={0.3}>
-          <div className="relative mt-20 overflow-hidden rounded-lg border border-titanium-dark bg-deep-void/50 p-12 text-center">
-            <TextReveal className="font-display text-[clamp(22px,3.5vw,30px)] font-bold leading-[1.2] tracking-[-0.5px] text-white-pure">
+          <div className="relative mt-12 overflow-hidden rounded-lg border border-titanium-dark bg-deep-void/50 p-12 text-center">
+            <Image
+              src="/images/cta-texture.png"
+              alt=""
+              fill
+              className="object-cover opacity-40"
+              sizes="700px"
+            />
+            <TextReveal className="relative z-10 font-display text-[clamp(22px,3.5vw,30px)] font-bold leading-[1.2] tracking-[-0.5px] text-white-pure">
               Ready to transform your DSO operations?
             </TextReveal>
 

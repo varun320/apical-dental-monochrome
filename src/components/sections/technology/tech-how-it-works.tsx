@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { ImagePlaceholder } from "@/components/ui/image-placeholder";
 import { ScanSearch, Play, CheckCircle } from "lucide-react";
 
 const steps = [
@@ -10,18 +11,21 @@ const steps = [
     step: "01",
     title: "Plan",
     description: "The system captures a high-resolution 3D scan of the patient's dental anatomy, generating a precision digital model. AI algorithms analyze the geometry and plan optimal tool paths down to sub-millimeter tolerances.",
+    image: "/images/step-plan.png",
   },
   {
     icon: Play,
     step: "02",
     title: "Execute",
     description: "Tesla's Optimus follows the computed path with surgical-grade accuracy. Real-time force feedback and spatial awareness allow the robot to adapt to micro-variations, ensuring every cut, contour, and surface meets exact specifications.",
+    image: "/images/step-execute.png",
   },
   {
     icon: CheckCircle,
     step: "03",
     title: "Verify",
     description: "Post-procedure quality verification scans the finished work against the original plan. Deviations are measured in microns. Every piece is documented, traceable, and guaranteed to meet the highest standards of dental prosthetics.",
+    image: "/images/step-verify.png",
   },
 ] as const;
 
@@ -120,8 +124,14 @@ export function TechHowItWorks() {
                 ref={(el) => { stepsRef.current[i] = el; }}
                 className="absolute inset-0 flex flex-col items-center text-center"
               >
-                <div className="flex h-16 w-16 items-center justify-center rounded-full border border-titanium-dark bg-deep-void">
-                  <Icon className="h-7 w-7 text-white-pure" strokeWidth={1.5} />
+                <div className="relative flex h-20 w-20 items-center justify-center rounded-full border border-titanium-dark">
+                  <ImagePlaceholder
+                    src={step.image}
+                    alt={step.title}
+                    className="absolute inset-0 h-full w-full rounded-full border-0"
+                    overlay="dark"
+                  />
+                  <Icon className="relative z-10 h-7 w-7 text-white-pure" strokeWidth={1.5} />
                 </div>
                 <p className="mt-6 font-display text-[11px] font-semibold uppercase tracking-[3px] text-titanium">
                   Step {step.step}

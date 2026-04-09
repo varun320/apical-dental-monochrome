@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { FadeIn, StaggerFadeIn } from "@/components/animations/fade-in";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { Network, Layers, ShieldCheck, Zap, HeartHandshake, Settings } from "lucide-react";
@@ -40,6 +41,17 @@ const benefits = [
 export function DSOScale() {
   return (
     <section className="relative bg-linear-to-b from-void via-deep-void to-void px-6 py-28 lg:py-36 overflow-hidden">
+      {/* Network background */}
+      <div className="pointer-events-none absolute inset-0">
+        <Image
+          src="/images/hero-network.png"
+          alt=""
+          fill
+          className="object-cover grayscale-50 brightness-50 opacity-10"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_70%_at_50%_50%,transparent,rgba(8,8,14,1))]" />
+      </div>
       <div className="relative z-10 mx-auto max-w-[1100px]">
         <FadeIn>
           <p className="mb-4 font-display text-[11px] font-semibold uppercase tracking-[3px] text-titanium">

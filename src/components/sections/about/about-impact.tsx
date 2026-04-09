@@ -5,6 +5,7 @@ import { FadeIn, StaggerFadeIn } from "@/components/animations/fade-in";
 import { TextReveal } from "@/components/animations/text-reveal";
 import { NumberTicker } from "@/components/ui/number-ticker";
 import { BorderBeam } from "@/components/ui/border-beam";
+import Image from "next/image";
 import { Clock, Wrench, Building2 } from "lucide-react";
 
 const stats = [
@@ -42,6 +43,13 @@ export function AboutImpact() {
         {/* ── CTA Card ── */}
         <FadeIn delay={0.3}>
           <div className="relative mt-20 overflow-hidden rounded-lg border border-titanium-dark bg-deep-void/50 p-12 text-center">
+            <Image
+              src="/images/cta-texture.png"
+              alt=""
+              fill
+              className="object-cover opacity-40"
+              sizes="700px"
+            />
             <TextReveal className="font-display text-[clamp(22px,3.5vw,30px)] font-bold leading-[1.2] tracking-[-0.5px] text-white-pure">
               Ready to bring robotic precision to your practice?
             </TextReveal>

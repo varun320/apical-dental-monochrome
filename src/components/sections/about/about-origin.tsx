@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { ScrollRevealText } from "@/components/animations/scroll-reveal-text";
+import { ImagePlaceholder } from "@/components/ui/image-placeholder";
 import { DotPattern } from "@/components/ui/dot-pattern";
 import { Bot, ShieldCheck } from "lucide-react";
 
@@ -69,6 +70,16 @@ export function AboutOrigin() {
             Hundreds of adaptations later, the vision crystallized: integrate Tesla&apos;s Optimus humanoid robot into dental laboratory workflows, delivering surgical-grade accuracy at a scale previously unimaginable.
           </p>
         </ScrollRevealText>
+
+        {/* ── Lab image ── */}
+        <div className="mt-12">
+          <ImagePlaceholder
+            src="/images/origin-lab.png"
+            alt="Precision dental laboratory craftsmanship"
+            className="h-[280px] w-full"
+            overlay="gradient"
+          />
+        </div>
 
         {/* ── Pull quote ── */}
         <blockquote

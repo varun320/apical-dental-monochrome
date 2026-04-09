@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { NumberTicker } from "@/components/ui/number-ticker";
 import { BorderBeam } from "@/components/ui/border-beam";
+import { ImagePlaceholder } from "@/components/ui/image-placeholder";
 import { Landmark, Lightbulb, Building2, Rocket } from "lucide-react";
 
 const milestones = [
@@ -13,6 +14,7 @@ const milestones = [
     description: "Established with a vision to elevate dental precision beyond what was thought possible.",
     stat: { value: 40, suffix: "+", label: "Years of Expertise" },
     icon: Landmark,
+    image: "/images/timeline-1980.png",
   },
   {
     year: 2000,
@@ -20,6 +22,7 @@ const milestones = [
     description: "Pioneering robotic-assisted dental procedures, pushing the boundaries of what laboratory automation could achieve.",
     stat: { value: 800, suffix: "+", label: "Adaptations" },
     icon: Lightbulb,
+    image: "/images/timeline-2000.png",
   },
   {
     year: 2015,
@@ -27,6 +30,7 @@ const milestones = [
     description: "Expanding across dental service organizations nationwide, proving that precision at scale was not just possible — it was inevitable.",
     stat: { value: 500, suffix: "+", label: "DSO Offices" },
     icon: Building2,
+    image: "/images/timeline-2015.png",
   },
   {
     year: 2024,
@@ -34,6 +38,7 @@ const milestones = [
     description: "Leading the next generation of precision dentistry with Tesla's Optimus integration — zero regulatory barriers, infinite potential.",
     stat: { value: 0, suffix: "", label: "Regulatory Barriers" },
     icon: Rocket,
+    image: "/images/timeline-2024.png",
   },
 ] as const;
 
@@ -125,6 +130,14 @@ export function AboutTimeline() {
                   <div className="absolute -top-[17px] left-6">
                     <div className="h-2.5 w-2.5 rounded-full border border-titanium-dark bg-void" />
                   </div>
+
+                  {/* Era image strip */}
+                  <ImagePlaceholder
+                    src={milestone.image}
+                    alt={milestone.title}
+                    className="mb-4 h-[80px] w-full rounded-md border-0"
+                    overlay="dark"
+                  />
 
                   <Icon className="mb-4 h-5 w-5 text-titanium" strokeWidth={1.5} />
 

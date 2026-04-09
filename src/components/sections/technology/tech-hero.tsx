@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
 import { AnimatedGridPattern } from "@/components/ui/animated-grid-pattern";
 import { cn } from "@/lib/utils";
+import { ImagePlaceholder } from "@/components/ui/image-placeholder";
 import { Cpu, Crosshair, Gauge, ShieldCheck } from "lucide-react";
 
 const FLOATING_ICONS = [
@@ -105,23 +106,15 @@ export function TechHero() {
         </p>
       </div>
 
-      {/* ── Central system visual placeholder ── */}
-      <div
-        ref={visualRef}
-        className="relative z-10 mt-16 flex h-[200px] w-full max-w-[600px] items-center justify-center rounded-lg border border-titanium-dark bg-deep-void/30"
-      >
-        <div className="flex flex-col items-center gap-3">
-          <div className="flex gap-4">
-            <Cpu className="h-10 w-10 text-titanium" strokeWidth={1} />
-            <Crosshair className="h-10 w-10 text-titanium-light" strokeWidth={1} />
-            <Gauge className="h-10 w-10 text-titanium" strokeWidth={1} />
-          </div>
-          <p className="font-display text-[10px] font-semibold uppercase tracking-[3px] text-titanium">
-            Robotic Precision System
-          </p>
-        </div>
-        {/* Grid overlay for tech feel */}
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(58,58,78,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(58,58,78,0.1)_1px,transparent_1px)] bg-[size:20px_20px]" />
+      {/* ── Central system visual ── */}
+      <div ref={visualRef} className="relative z-10 mt-16 w-full max-w-[640px]">
+        <ImagePlaceholder
+          src="/images/hero-systems.png"
+          alt="Apical Dental robotic precision system"
+          className="h-[220px] w-full"
+          overlay="gradient"
+          priority
+        />
       </div>
     </section>
   );

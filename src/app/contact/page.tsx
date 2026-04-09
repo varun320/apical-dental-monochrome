@@ -7,6 +7,7 @@ import { Footer } from "@/components/layout/footer";
 import { FadeIn, StaggerFadeIn } from "@/components/animations/fade-in";
 import { FormInput, FormTextarea } from "@/components/ui/form-input";
 import { BorderBeam } from "@/components/ui/border-beam";
+import { ImagePlaceholder } from "@/components/ui/image-placeholder";
 import { cn } from "@/lib/utils";
 import {
   Building2, Stethoscope, Bot, Mail, Phone, MapPin,
@@ -99,6 +100,16 @@ export default function ContactPage() {
                 <p className="c-sub mt-6 max-w-[440px] font-body text-[16px] leading-[1.7] text-titanium-light">
                   Whether you run a DSO network, an independent practice, or you&apos;re exploring a robotics partnership — we&apos;d love to hear from you.
                 </p>
+
+                {/* Team image */}
+                <div className="mt-8 hidden lg:block">
+                  <ImagePlaceholder
+                    src="/images/hero-team.png"
+                    alt="Apical Dental team"
+                    className="h-[140px] w-full"
+                    overlay="gradient"
+                  />
+                </div>
               </div>
 
               {/* Right — get in touch cards */}

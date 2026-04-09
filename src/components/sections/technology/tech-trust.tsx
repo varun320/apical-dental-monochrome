@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FadeIn, StaggerFadeIn } from "@/components/animations/fade-in";
 import { TextReveal } from "@/components/animations/text-reveal";
 import { BorderBeam } from "@/components/ui/border-beam";
+import Image from "next/image";
 import { ShieldCheck, FileCheck, Award, Lock, HeartPulse, Scale } from "lucide-react";
 
 const badges = [
@@ -68,7 +69,14 @@ export function TechTrust() {
         {/* ── CTA Card ── */}
         <FadeIn delay={0.3}>
           <div className="relative mt-20 overflow-hidden rounded-lg border border-titanium-dark bg-deep-void/50 p-12 text-center">
-            <TextReveal className="font-display text-[clamp(22px,3.5vw,30px)] font-bold leading-[1.2] tracking-[-0.5px] text-white-pure">
+            <Image
+              src="/images/cta-texture.png"
+              alt=""
+              fill
+              className="object-cover opacity-40"
+              sizes="700px"
+            />
+            <TextReveal className="relative z-10 font-display text-[clamp(22px,3.5vw,30px)] font-bold leading-[1.2] tracking-[-0.5px] text-white-pure">
               See the technology in action.
             </TextReveal>
 

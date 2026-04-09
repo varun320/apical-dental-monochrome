@@ -4,6 +4,7 @@ import { StaggerFadeIn } from "@/components/animations/fade-in";
 import { SectionHeader } from "@/components/ui/section-header";
 import { NumberTicker } from "@/components/ui/number-ticker";
 import { BorderBeam } from "@/components/ui/border-beam";
+import { ImagePlaceholder } from "@/components/ui/image-placeholder";
 import { Clock, Cog, Building2, GraduationCap, UserRound, Cpu } from "lucide-react";
 
 const authorityStats = [
@@ -76,17 +77,24 @@ export function Authority() {
             );
           })}
 
-          {/* ─ Video Placeholder (spans 2 cols) ─ */}
-          <div className="flex aspect-video items-center justify-center rounded-lg border border-titanium-dark bg-void md:col-span-2">
-            <div className="text-center">
-              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-titanium-dark bg-deep-void">
-                <svg className="ml-1 h-5 w-5 text-white-pure" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
+          {/* ─ Video / Image (spans 2 cols) ─ */}
+          <div className="relative aspect-video overflow-hidden rounded-lg border border-titanium-dark bg-void md:col-span-2">
+            <ImagePlaceholder
+              alt="Dr. Ted Lewis demonstrating robotic dental procedures"
+              className="absolute inset-0 h-full w-full rounded-none border-0"
+              overlay="dark"
+            />
+            <div className="absolute inset-0 flex items-center justify-center z-10">
+              <div className="text-center">
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-titanium-dark bg-deep-void/80 backdrop-blur-sm">
+                  <svg className="ml-1 h-5 w-5 text-white-pure" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+                <p className="mt-3 font-display text-[10px] font-semibold uppercase tracking-[2px] text-titanium">
+                  Watch Demo
+                </p>
               </div>
-              <p className="mt-3 font-display text-[10px] font-semibold uppercase tracking-[2px] text-titanium">
-                Demo Video Coming Soon
-              </p>
             </div>
           </div>
 

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { gsap } from "@/lib/gsap";
 import { NumberTicker } from "@/components/ui/number-ticker";
 import { AnimatedGridPattern } from "@/components/ui/animated-grid-pattern";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
 import { Crown, Bot, Cpu, ShieldCheck, Clock, Wrench, Building2 } from "lucide-react";
@@ -59,16 +60,32 @@ export function Hero() {
     >
       {/* ── Background ── */}
       <div className="pointer-events-none absolute inset-0">
+        {/* Hero robot image — anchored bottom, fading upward */}
+        <div className="absolute inset-x-0 bottom-0 h-[65%]">
+          <Image
+            src="/images/hero-robot.png"
+            alt=""
+            fill
+            className="object-cover grayscale-[50%] brightness-50"
+            sizes="100vw"
+            priority
+          />
+          {/* Top fade: void into image */}
+          <div className="absolute inset-x-0 top-0 h-[30%] bg-[linear-gradient(to_bottom,rgba(8,8,14,1),transparent)]" />
+          {/* Bottom fade: image into deep-void — seamless into next section */}
+          <div className="absolute inset-x-0 bottom-0 h-[35%] bg-[linear-gradient(to_top,rgba(26,26,42,1),transparent)]" />
+          {/* Overall darken */}
+          <div className="absolute inset-0 bg-void/30" />
+        </div>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(154,154,176,0.08),transparent)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(26,26,42,0.3)_0%,transparent_50%)]" />
         <AnimatedGridPattern
           numSquares={30}
-          maxOpacity={0.1}
+          maxOpacity={0.2}
           duration={5}
-          repeatDelay={2}
+          repeatDelay={1}
           className={cn(
             "absolute inset-0 h-full w-full",
-            "mask-[radial-gradient(500px_circle_at_50%_60%,white,transparent)]"
+            "mask-[radial-gradient(600px_circle_at_50%_60%,white,transparent)]"
           )}
         />
       </div>
