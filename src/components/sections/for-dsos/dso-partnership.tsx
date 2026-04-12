@@ -63,7 +63,7 @@ export function DSOPartnership() {
 
     // Steps stagger in once
     gsap.set(stepEls, { opacity: 0, x: -20 });
-    gsap.set(dotEls, { scale: 0, backgroundColor: "#08080E" });
+    gsap.set(dotEls, { scale: 0, backgroundColor: "#E2E8F0" });
 
     ScrollTrigger.create({
       trigger: timeline,
@@ -78,7 +78,7 @@ export function DSOPartnership() {
         dotEls.forEach((dot, i) => {
           gsap.to(dot, {
             scale: 1,
-            backgroundColor: "#F5F5F8",
+            backgroundColor: "#5EAFC5",
             duration: 0.4,
             delay: i * 0.2 + 0.1,
             ease: "back.out(2)",
@@ -95,15 +95,15 @@ export function DSOPartnership() {
   }, []);
 
   return (
-    <section className="relative bg-void px-6 py-28 lg:py-36 overflow-hidden">
+    <section className="relative bg-light-bg px-6 py-28 lg:py-36 overflow-hidden">
       <div className="relative z-10 mx-auto max-w-[800px]">
         <FadeIn>
-          <p className="mb-4 font-display text-[11px] font-semibold uppercase tracking-[3px] text-titanium">
+          <p className="mb-4 font-display text-[11px] font-semibold uppercase tracking-[3px] text-light-muted">
             The Partnership
           </p>
         </FadeIn>
         <FadeIn delay={0.1}>
-          <h2 className="mb-16 font-display text-[clamp(24px,4vw,30px)] font-bold leading-[1.1] tracking-[-0.5px] text-white-pure">
+          <h2 className="mb-16 font-display text-[clamp(24px,4vw,30px)] font-bold leading-[1.1] tracking-[-0.5px] text-light-text">
             From pilot to full deployment.
           </h2>
         </FadeIn>
@@ -111,8 +111,8 @@ export function DSOPartnership() {
         {/* ── Vertical timeline ── */}
         <div ref={timelineRef} className="relative">
           {/* Vertical line track — centered at left 5px (center of 10px dot) */}
-          <div className="absolute left-[5px] top-0 bottom-0 w-px bg-titanium-dark">
-            <div ref={lineRef} className="h-full w-full origin-top bg-white-pure" />
+          <div className="absolute left-[5px] top-0 bottom-0 w-px bg-light-border">
+            <div ref={lineRef} className="h-full w-full origin-top bg-cyan" />
           </div>
 
           <div className="space-y-10">
@@ -127,21 +127,21 @@ export function DSOPartnership() {
                   {/* Dot on line — centered on the line at left 0 */}
                   <div
                     ref={(el) => { dotsRef.current[i] = el; }}
-                    className="absolute left-0 top-3 h-[10px] w-[10px] rounded-full border border-titanium-dark"
+                    className="absolute left-0 top-3 h-[10px] w-[10px] rounded-full border border-light-border"
                   />
 
                   <div className="flex items-start gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-titanium-dark bg-deep-void">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-light-border bg-light-card">
                       <Icon className="h-5 w-5 text-titanium-light" strokeWidth={1.5} />
                     </div>
                     <div>
-                      <p className="font-display text-[10px] font-semibold uppercase tracking-[2px] text-titanium">
+                      <p className="font-display text-[10px] font-semibold uppercase tracking-[2px] text-light-muted">
                         Step {step.step}
                       </p>
-                      <h3 className="font-display text-[18px] font-semibold leading-[1.2] tracking-[-0.5px] text-white-pure">
+                      <h3 className="font-display text-[18px] font-semibold leading-[1.2] tracking-[-0.5px] text-light-text">
                         {step.title}
                       </h3>
-                      <p className="mt-2 font-body text-[14px] leading-[1.75] text-titanium-light">
+                      <p className="mt-2 font-body text-[14px] leading-[1.75] text-light-muted">
                         {step.description}
                       </p>
                     </div>

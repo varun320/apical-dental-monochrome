@@ -22,13 +22,13 @@ export function DSOHero() {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ delay: 0.3 });
 
-      tl.from(".dso-kicker", { opacity: 0, y: 20, duration: 0.7, ease: "power3.out" })
-        .from(".dso-headline", { opacity: 0, y: 50, duration: 0.9, ease: "power3.out" }, "-=0.3")
-        .from(".dso-sub", { opacity: 0, y: 20, duration: 0.7, ease: "power3.out" }, "-=0.4")
-        .from(".dso-cta-row", { opacity: 0, y: 15, duration: 0.6, ease: "power3.out" }, "-=0.3")
+      tl.from(".dso-kicker", { opacity: 0, y: 12, duration: 0.6, ease: "power2.out" })
+        .from(".dso-headline", { opacity: 0, y: 30, duration: 0.7, ease: "power2.out" }, "-=0.3")
+        .from(".dso-sub", { opacity: 0, y: 16, duration: 0.6, ease: "power2.out" }, "-=0.3")
+        .from(".dso-cta-row", { opacity: 0, y: 12, duration: 0.5, ease: "power2.out" }, "-=0.3")
         .from(".dso-stat-card", {
-          opacity: 0, y: 30, duration: 0.7, ease: "power3.out", stagger: 0.1,
-        }, "-=0.4");
+          opacity: 0, y: 20, duration: 0.6, ease: "power2.out", stagger: 0.08,
+        }, "-=0.3");
     }, sectionRef);
 
     return () => ctx.revert();
@@ -37,41 +37,42 @@ export function DSOHero() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-linear-to-b from-void via-void to-deep-void px-6 pt-36 pb-28 lg:pt-44 lg:pb-36"
+      className="relative overflow-hidden bg-light-bg px-6 pt-36 pb-28 lg:pt-44 lg:pb-36"
     >
       {/* Background */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_30%_-10%,rgba(154,154,176,0.08),transparent)]" />
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(58,58,78,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(58,58,78,0.04)_1px,transparent_1px)] bg-[size:60px_60px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_30%_-10%,rgba(94,175,197,0.06),transparent)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.18)_1px,transparent_1px)] bg-[size:48px_48px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_100%_60%_at_50%_50%,transparent_40%,rgba(241,245,249,1))]" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-[1100px]">
         <div className="grid items-center gap-12 lg:grid-cols-[1.2fr_1fr] lg:gap-20">
           {/* ── Left: Text ── */}
           <div ref={leftRef}>
-            <p className="dso-kicker mb-6 font-display text-[11px] font-semibold uppercase tracking-[3px] text-titanium">
+            <p className="dso-kicker mb-6 font-display text-[11px] font-semibold uppercase tracking-[3px] text-light-muted">
               For DSO Partners
             </p>
-            <h1 className="dso-headline font-display text-[clamp(32px,5vw,50px)] font-bold leading-[1.05] tracking-[-2px] text-white-pure">
+            <h1 className="dso-headline font-display text-[clamp(32px,5vw,50px)] font-bold leading-[1.05] tracking-[-2px] text-light-text">
               Scale Precision<br />
-              <span className="bg-linear-to-r from-white-pure via-titanium-light to-titanium bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-light-text via-titanium to-titanium-light bg-clip-text text-transparent">
                 Across Every Office
               </span>
             </h1>
-            <p className="dso-sub mt-6 max-w-[480px] font-body text-[16px] leading-[1.7] text-titanium-light">
+            <p className="dso-sub mt-6 max-w-[480px] font-body text-[16px] leading-[1.7] text-light-muted">
               Robotic-assisted dental lab automation built for multi-location operations.
               Reduce remakes, accelerate turnaround, and standardize quality at scale.
             </p>
             <div className="dso-cta-row mt-8 flex flex-wrap gap-4">
               <Link
                 href="/contact"
-                className="rounded-md bg-white-pure px-7 py-3.5 text-[12px] font-bold tracking-[0.5px] text-void transition-opacity hover:opacity-80"
+                className="rounded-md bg-light-text px-7 py-3.5 text-[12px] font-bold tracking-[0.5px] text-white transition-opacity hover:opacity-80"
               >
                 Request a Demo &rarr;
               </Link>
               <Link
                 href="/technology"
-                className="rounded-md border border-titanium-dark bg-deep-void px-7 py-3.5 text-[12px] font-medium tracking-[0.5px] text-titanium-light transition-all hover:border-titanium hover:text-white-pure"
+                className="rounded-md border border-light-border bg-light-card px-7 py-3.5 text-[12px] font-medium tracking-[0.5px] text-light-muted transition-all hover:border-titanium hover:text-light-text shadow-sm"
               >
                 See the Technology
               </Link>
@@ -85,13 +86,13 @@ export function DSOHero() {
               return (
                 <div
                   key={stat.label}
-                  className="dso-stat-card relative overflow-hidden rounded-lg border border-titanium-dark bg-deep-void p-6 flex items-center gap-5"
+                  className="dso-stat-card relative overflow-hidden rounded-lg border border-light-border bg-light-card p-6 flex items-center gap-5 shadow-sm transition-all hover:shadow-lg hover:-translate-y-1.5 hover:border-cyan-muted/30"
                 >
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md border border-titanium-dark bg-void">
-                    <Icon className="h-6 w-6 text-titanium-light" strokeWidth={1.5} />
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md border border-light-border bg-light-bg">
+                    <Icon className="h-6 w-6 text-light-muted" strokeWidth={1.5} />
                   </div>
                   <div>
-                    <div className="font-display text-[32px] font-bold leading-none tracking-[-1.5px] text-white-pure">
+                    <div className="font-display text-[32px] font-bold leading-none tracking-[-1.5px] text-mint">
                       <NumberTicker
                         value={stat.value}
                         delay={0.6 + i * 0.15}
@@ -99,7 +100,7 @@ export function DSOHero() {
                       />
                       {stat.suffix}
                     </div>
-                    <p className="mt-1 font-display text-[10px] font-semibold uppercase tracking-[2px] text-titanium">
+                    <p className="mt-1 font-display text-[10px] font-semibold uppercase tracking-[2px] text-light-muted">
                       {stat.label}
                     </p>
                   </div>
@@ -108,8 +109,8 @@ export function DSOHero() {
                     <BorderBeam
                       size={80}
                       duration={8}
-                      colorFrom="#9A9AB0"
-                      colorTo="#3A3A4E"
+                      colorFrom="#5EAFC5"
+                      colorTo="#3D7A8F"
                       borderWidth={1}
                     />
                   )}

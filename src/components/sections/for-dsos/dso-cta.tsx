@@ -17,7 +17,7 @@ const stats = [
 
 export function DSOCTA() {
   return (
-    <section className="relative bg-linear-to-b from-void via-deep-void to-deep-void px-6 py-20 lg:py-28 overflow-hidden">
+    <section className="section-dark relative bg-void px-6 py-20 lg:py-28 overflow-hidden">
       <div className="relative z-10 mx-auto max-w-[900px]">
         {/* Stats */}
         <StaggerFadeIn className="grid grid-cols-1 gap-6 sm:grid-cols-3" stagger={0.15}>
@@ -26,7 +26,7 @@ export function DSOCTA() {
             return (
               <div key={stat.label} className="text-center">
                 <Icon className="mx-auto mb-3 h-5 w-5 text-titanium" strokeWidth={1.5} />
-                <div className="font-display text-[clamp(36px,5vw,48px)] font-bold leading-none tracking-[-2px] text-white-pure">
+                <div className="font-display text-[clamp(36px,5vw,48px)] font-bold leading-none tracking-[-2px] text-mint">
                   <NumberTicker value={stat.value} delay={0.3} />
                   {stat.suffix}
                 </div>
@@ -72,8 +72,8 @@ export function DSOCTA() {
             <BorderBeam
               size={100}
               duration={10}
-              colorFrom="#9A9AB0"
-              colorTo="#3A3A4E"
+              colorFrom="#5EAFC5"
+              colorTo="#3D7A8F"
               borderWidth={1}
             />
           </div>

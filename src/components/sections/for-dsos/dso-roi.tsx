@@ -39,20 +39,20 @@ const roiMetrics = [
 
 export function DSOBusinessCase() {
   return (
-    <section className="relative bg-linear-to-b from-deep-void via-void to-void px-6 py-28 lg:py-36 overflow-hidden">
+    <section className="relative bg-light-bg px-6 py-28 lg:py-36 overflow-hidden">
       <div className="relative z-10 mx-auto max-w-[1100px]">
         <FadeIn>
-          <p className="mb-4 font-display text-[11px] font-semibold uppercase tracking-[3px] text-titanium">
+          <p className="mb-4 font-display text-[11px] font-semibold uppercase tracking-[3px] text-light-muted">
             The Business Case
           </p>
         </FadeIn>
         <FadeIn delay={0.1}>
-          <h2 className="mb-6 font-display text-[clamp(24px,4vw,30px)] font-bold leading-[1.1] tracking-[-0.5px] text-white-pure">
+          <h2 className="mb-6 font-display text-[clamp(24px,4vw,30px)] font-bold leading-[1.1] tracking-[-0.5px] text-light-text">
             Numbers that make the decision easy.
           </h2>
         </FadeIn>
         <FadeIn delay={0.15}>
-          <p className="mb-16 max-w-[640px] font-body text-[15px] leading-[1.7] text-titanium-light">
+          <p className="mb-16 max-w-[640px] font-body text-[15px] leading-[1.7] text-light-muted">
             Every metric that matters to DSO operations improves with robotic automation.
             Here&apos;s what our partners see in the first year.
           </p>
@@ -64,10 +64,10 @@ export function DSOBusinessCase() {
             return (
               <div
                 key={metric.label}
-                className="relative overflow-hidden rounded-lg border border-titanium-dark bg-deep-void p-8"
+                className="relative overflow-hidden rounded-lg border border-light-border bg-light-card shadow-sm p-8 transition-all hover:shadow-lg hover:-translate-y-1.5 hover:border-cyan-muted/30"
               >
                 <Icon className="mb-4 h-6 w-6 text-titanium" strokeWidth={1.5} />
-                <div className="font-display text-[clamp(36px,5vw,48px)] font-bold leading-none tracking-[-2px] text-white-pure">
+                <div className="font-display text-[clamp(36px,5vw,48px)] font-bold leading-none tracking-[-2px] text-mint">
                   <NumberTicker
                     value={metric.value}
                     delay={0.3 + i * 0.1}
@@ -75,10 +75,10 @@ export function DSOBusinessCase() {
                   />
                   {metric.suffix}
                 </div>
-                <p className="mt-2 font-display text-[11px] font-semibold uppercase tracking-[2px] text-titanium">
+                <p className="mt-2 font-display text-[11px] font-semibold uppercase tracking-[2px] text-light-muted">
                   {metric.label}
                 </p>
-                <p className="mt-3 font-body text-[14px] leading-[1.75] text-titanium-light">
+                <p className="mt-3 font-body text-[14px] leading-[1.75] text-light-muted">
                   {metric.description}
                 </p>
 
@@ -86,8 +86,8 @@ export function DSOBusinessCase() {
                   <BorderBeam
                     size={80}
                     duration={8}
-                    colorFrom="#9A9AB0"
-                    colorTo="#3A3A4E"
+                    colorFrom="#5EAFC5"
+                    colorTo="#3D7A8F"
                     borderWidth={1}
                   />
                 )}

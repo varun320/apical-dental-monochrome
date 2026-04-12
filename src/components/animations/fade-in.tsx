@@ -16,9 +16,9 @@ export function FadeIn({
   children,
   className = "",
   delay = 0,
-  duration = 0.8,
+  duration = 0.6,
   direction = "up",
-  distance = 40,
+  distance = 20,
 }: FadeInProps) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -47,7 +47,7 @@ export function FadeIn({
           y: 0,
           duration,
           delay,
-          ease: "power3.out",
+          ease: "power2.out",
         });
       },
     });
@@ -82,7 +82,7 @@ export function StaggerFadeIn({
     if (!el) return;
 
     const items = el.children;
-    gsap.set(items, { opacity: 0, y: 30 });
+    gsap.set(items, { opacity: 0, y: 16 });
 
     const trigger = ScrollTrigger.create({
       trigger: el,
@@ -92,9 +92,9 @@ export function StaggerFadeIn({
         gsap.to(items, {
           opacity: 1,
           y: 0,
-          duration: 0.7,
+          duration: 0.6,
           delay,
-          ease: "power3.out",
+          ease: "power2.out",
           stagger,
         });
       },

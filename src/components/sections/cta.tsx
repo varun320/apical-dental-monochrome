@@ -24,7 +24,7 @@ export function CTA() {
   ) => setFormData((prev) => ({ ...prev, [field]: e.target.value }));
 
   return (
-    <section className="relative bg-linear-to-b from-void via-deep-void to-deep-void px-6 py-28 lg:py-36 overflow-hidden">
+    <section className="section-dark relative bg-void px-6 py-28 lg:py-36 overflow-hidden">
       {/* ── Floating contact icons ── */}
       <div className="pointer-events-none absolute inset-x-0 top-16 flex justify-center gap-16">
         {[
@@ -58,12 +58,14 @@ export function CTA() {
           <form onSubmit={handleSubmit} className="mt-12 flex flex-col gap-5">
             <div className="grid gap-5 md:grid-cols-2">
               <FormInput
+                variant="dark"
                 type="text"
                 placeholder="Name"
                 value={formData.name}
                 onChange={updateField("name")}
               />
               <FormInput
+                variant="dark"
                 type="email"
                 placeholder="Email"
                 value={formData.email}
@@ -72,12 +74,14 @@ export function CTA() {
             </div>
             <div className="grid gap-5 md:grid-cols-2">
               <FormInput
+                variant="dark"
                 type="text"
                 placeholder="Organization"
                 value={formData.organization}
                 onChange={updateField("organization")}
               />
               <FormInput
+                variant="dark"
                 type="text"
                 placeholder="Role"
                 value={formData.role}
@@ -85,6 +89,7 @@ export function CTA() {
               />
             </div>
             <FormTextarea
+              variant="dark"
               placeholder="How can we help?"
               rows={4}
               value={formData.message}

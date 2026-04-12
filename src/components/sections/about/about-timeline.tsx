@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { FadeIn } from "@/components/animations/fade-in";
 import { NumberTicker } from "@/components/ui/number-ticker";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { ImagePlaceholder } from "@/components/ui/image-placeholder";
@@ -43,76 +44,46 @@ const milestones = [
 ] as const;
 
 export function AboutTimeline() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const progressRef = useRef<HTMLDivElement>(null);
-  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const lineRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const section = sectionRef.current;
-    const progress = progressRef.current;
-    if (!section || !progress) return;
+    const line = lineRef.current;
+    const track = trackRef.current;
+    if (!line || !track) return;
 
-    const cards = cardsRef.current.filter(Boolean) as HTMLDivElement[];
+    gsap.set(line, { scaleX: 0, transformOrigin: "left" });
 
-    gsap.set(progress, { scaleX: 0, transformOrigin: "left", force3D: true });
-    gsap.set(cards, { opacity: 0, y: 40, force3D: true });
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: section,
-        start: "top top",
-        end: `+=${window.innerHeight * 3}`,
-        pin: true,
-        scrub: true,
-        anticipatePin: 1,
+    const trigger = ScrollTrigger.create({
+      trigger: track,
+      start: "top 70%",
+      end: "bottom 50%",
+      onUpdate: (self) => {
+        gsap.set(line, { scaleX: self.progress });
       },
     });
 
-    // Animate progress line
-    tl.to(progress, { scaleX: 1, duration: 4, ease: "none", force3D: true }, 0);
-
-    // Stagger card entrances across the timeline
-    cards.forEach((card, i) => {
-      const startTime = i * 1;
-      tl.to(card, {
-        opacity: 1, y: 0, duration: 0.8, ease: "none", force3D: true,
-      }, startTime);
-
-      // Dim previous card
-      if (i > 0) {
-        tl.to(cards[i - 1], {
-          opacity: 0.5, duration: 0.5, ease: "none",
-        }, startTime);
-      }
-    });
-
-    return () => {
-      tl.kill();
-      ScrollTrigger.getAll().forEach((t) => {
-        if (t.trigger === section) t.kill();
-      });
-    };
+    return () => trigger.kill();
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative bg-void px-6 py-28 lg:py-36 overflow-hidden"
-    >
+    <section className="relative bg-white px-6 py-28 lg:py-36 overflow-hidden">
       <div className="relative z-10 mx-auto max-w-[1100px]">
-        {/* ── Section header ── */}
-        <p className="mb-4 font-display text-[11px] font-semibold uppercase tracking-[3px] text-titanium">
-          The Evolution
-        </p>
-        <h2 className="font-display text-[clamp(24px,4vw,30px)] font-bold leading-[1.1] tracking-[-0.5px] text-white-pure">
-          Four decades of relentless progress.
-        </h2>
+        <FadeIn>
+          <p className="mb-4 font-display text-[11px] font-semibold uppercase tracking-[3px] text-light-muted">
+            The Evolution
+          </p>
+        </FadeIn>
+        <FadeIn delay={0.1}>
+          <h2 className="font-display text-[clamp(24px,4vw,30px)] font-bold leading-[1.1] tracking-[-0.5px] text-light-text">
+            Four decades of relentless progress.
+          </h2>
+        </FadeIn>
 
-        {/* ── Timeline track ── */}
-        <div className="relative mt-20">
+        <div ref={trackRef} className="relative mt-20">
           {/* Progress line */}
-          <div className="absolute top-0 left-0 right-0 h-px bg-titanium-dark">
-            <div ref={progressRef} className="h-full w-full bg-white-pure" />
+          <div className="absolute top-0 left-0 right-0 h-px bg-light-border">
+            <div ref={lineRef} className="h-full w-full bg-cyan" />
           </div>
 
           {/* Milestone cards */}
@@ -121,57 +92,53 @@ export function AboutTimeline() {
               const Icon = milestone.icon;
               const isLast = i === milestones.length - 1;
               return (
-                <div
-                  key={milestone.year}
-                  ref={(el) => { cardsRef.current[i] = el; }}
-                  className="relative overflow-hidden rounded-lg border border-titanium-dark bg-deep-void p-6"
-                >
-                  {/* Dot on the line */}
-                  <div className="absolute -top-[17px] left-6">
-                    <div className="h-2.5 w-2.5 rounded-full border border-titanium-dark bg-void" />
-                  </div>
-
-                  {/* Era image strip */}
-                  <ImagePlaceholder
-                    src={milestone.image}
-                    alt={milestone.title}
-                    className="mb-4 h-[80px] w-full rounded-md border-0"
-                    overlay="dark"
-                  />
-
-                  <Icon className="mb-4 h-5 w-5 text-titanium" strokeWidth={1.5} />
-
-                  <p className="font-display text-[28px] font-bold leading-none tracking-[-1.5px] text-white-pure">
-                    {milestone.year}
-                  </p>
-                  <h3 className="mt-2 font-display text-[18px] font-semibold leading-[1.2] tracking-[-0.5px] text-white-pure">
-                    {milestone.title}
-                  </h3>
-                  <p className="mt-2 font-body text-[14px] leading-[1.75] text-titanium-light">
-                    {milestone.description}
-                  </p>
-
-                  {/* Stat */}
-                  <div className="mt-4 border-t border-titanium-dark pt-4">
-                    <div className="font-display text-[22px] font-bold leading-none tracking-[-1px] text-white-pure">
-                      <NumberTicker value={milestone.stat.value} delay={0.5} />
-                      {milestone.stat.suffix}
+                <FadeIn key={milestone.year} delay={i * 0.12} direction="up" distance={30}>
+                  <div className="relative overflow-hidden rounded-lg border border-light-border bg-light-card p-6 shadow-sm h-full transition-all hover:shadow-lg hover:-translate-y-1.5 hover:border-cyan-muted/30">
+                    {/* Dot on the line */}
+                    <div className="absolute -top-[17px] left-6">
+                      <div className="h-2.5 w-2.5 rounded-full border border-light-border bg-white" />
                     </div>
-                    <p className="mt-1 font-display text-[9px] font-semibold uppercase tracking-[2px] text-titanium">
-                      {milestone.stat.label}
-                    </p>
-                  </div>
 
-                  {isLast && (
-                    <BorderBeam
-                      size={80}
-                      duration={8}
-                      colorFrom="#9A9AB0"
-                      colorTo="#3A3A4E"
-                      borderWidth={1}
+                    <ImagePlaceholder
+                      src={milestone.image}
+                      alt={milestone.title}
+                      className="mb-4 h-[80px] w-full rounded-md border-0"
+                      overlay="light"
                     />
-                  )}
-                </div>
+
+                    <Icon className="mb-4 h-5 w-5 text-light-muted" strokeWidth={1.5} />
+
+                    <p className="font-display text-[28px] font-bold leading-none tracking-[-1.5px] text-light-text">
+                      {milestone.year}
+                    </p>
+                    <h3 className="mt-2 font-display text-[18px] font-semibold leading-[1.2] tracking-[-0.5px] text-light-text">
+                      {milestone.title}
+                    </h3>
+                    <p className="mt-2 font-body text-[14px] leading-[1.75] text-light-muted">
+                      {milestone.description}
+                    </p>
+
+                    <div className="mt-4 border-t border-light-border pt-4">
+                      <div className="font-display text-[22px] font-bold leading-none tracking-[-1px] text-mint">
+                        <NumberTicker value={milestone.stat.value} delay={0.5} />
+                        {milestone.stat.suffix}
+                      </div>
+                      <p className="mt-1 font-display text-[9px] font-semibold uppercase tracking-[2px] text-light-muted">
+                        {milestone.stat.label}
+                      </p>
+                    </div>
+
+                    {isLast && (
+                      <BorderBeam
+                        size={80}
+                        duration={8}
+                        colorFrom="#5EAFC5"
+                        colorTo="#3D7A8F"
+                        borderWidth={1}
+                      />
+                    )}
+                  </div>
+                </FadeIn>
               );
             })}
           </div>

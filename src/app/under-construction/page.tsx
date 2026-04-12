@@ -29,13 +29,13 @@ export default function UnderConstructionPage() {
       <Navbar />
       <main
         ref={contentRef}
-        className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-linear-to-b from-void via-void to-deep-void px-6"
+        className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-light-bg px-6"
       >
         {/* Background */}
         <div className="pointer-events-none absolute inset-0">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(154,154,176,0.06),transparent)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(148,163,184,0.06),transparent)]" />
           <AnimatedGridPattern
-            numSquares={20}
+            numSquares={12}
             maxOpacity={0.08}
             duration={6}
             repeatDelay={3}
@@ -47,21 +47,21 @@ export default function UnderConstructionPage() {
         </div>
 
         <div className="relative z-10 flex max-w-[500px] flex-col items-center text-center">
-          <div className="uc-icon flex h-16 w-16 items-center justify-center rounded-full border border-titanium-dark bg-deep-void">
-            <Construction className="h-7 w-7 text-titanium-light" strokeWidth={1.5} />
+          <div className="uc-icon flex h-16 w-16 items-center justify-center rounded-full border border-light-border bg-light-card shadow-sm">
+            <Construction className="h-7 w-7 text-light-muted" strokeWidth={1.5} />
           </div>
 
-          <h1 className="uc-heading mt-8 font-display text-[clamp(28px,5vw,40px)] font-bold leading-[1.1] tracking-[-1.5px] text-white-pure">
+          <h1 className="uc-heading mt-8 font-display text-[clamp(28px,5vw,40px)] font-bold leading-[1.1] tracking-[-1.5px] text-light-text">
             Under Construction
           </h1>
 
-          <p className="uc-text mt-4 font-body text-[16px] leading-[1.7] text-titanium-light">
+          <p className="uc-text mt-4 font-body text-[16px] leading-[1.7] text-light-muted">
             We&apos;re building something extraordinary. This page is coming soon — precision takes time.
           </p>
 
           <Link
             href="/"
-            className="uc-cta mt-10 inline-flex items-center gap-2 rounded-md bg-white-pure px-6 py-3.5 font-display text-[12px] font-bold tracking-[0.5px] text-void transition-opacity hover:opacity-80"
+            className="uc-cta mt-10 inline-flex items-center gap-2 rounded-md bg-light-text px-6 py-3.5 font-display text-[12px] font-bold tracking-[0.5px] text-white transition-opacity hover:opacity-80"
           >
             <ArrowLeft className="h-4 w-4" strokeWidth={2} />
             Back to Home

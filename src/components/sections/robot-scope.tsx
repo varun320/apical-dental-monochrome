@@ -54,14 +54,14 @@ const capabilities = [
 
 export function RobotScope() {
   return (
-    <section className="relative bg-linear-to-b from-void via-deep-void to-deep-void px-6 py-28 lg:py-36 overflow-hidden">
+    <section className="relative bg-white px-6 py-28 lg:py-36 overflow-hidden">
       {/* Subtle dot pattern background */}
       <DotPattern
         width={28}
         height={28}
         cr={0.6}
         className={cn(
-          
+          "[&_circle]:fill-titanium-light/20",
           "mask-[radial-gradient(500px_circle_at_0%_50%,white,transparent)]"
         )}
       />
@@ -70,6 +70,7 @@ export function RobotScope() {
           label="Full Scope"
           title="One robot. Every role."
           description="Optimus doesn't just handle lab work. It assumes full practice automation — from fabrication to facility maintenance. In-office placement, staff training, location-specific customization, and ongoing service subscription included."
+          light
         />
 
         <StaggerFadeIn
@@ -78,25 +79,33 @@ export function RobotScope() {
         >
           {capabilities.map((cap) => {
             const Icon = cap.icon;
+            const isDark = cap.title === "Facility Maintenance";
             return (
               <div
                 key={cap.title}
-                className={`relative overflow-hidden rounded-lg border bg-void p-7 transition-colors hover:border-titanium/40 ${
-                  cap.featured ? "sm:col-span-2 border-titanium" : "border-titanium-dark"
+                className={`relative overflow-hidden rounded-lg border p-7 shadow-sm transition-all hover:shadow-lg hover:-translate-y-1.5 ${
+                  isDark
+                    ? "bg-void border-titanium-dark hover:border-titanium"
+                    : cap.featured
+                      ? "sm:col-span-2 bg-light-card border-cyan-muted/30 hover:border-cyan-muted/30"
+                      : "bg-light-card border-light-border hover:border-cyan-muted/30"
                 }`}
               >
                 <Icon
-                  className={`mb-4 ${cap.featured ? "h-8 w-8 text-white-pure" : "h-6 w-6 text-titanium"}`}
+                  className={`mb-4 ${
+                    isDark ? "h-6 w-6 text-titanium-light"
+                    : cap.featured ? "h-8 w-8 text-light-text" : "h-6 w-6 text-light-muted"
+                  }`}
                   strokeWidth={1.5}
                 />
-                <h3 className="font-display text-[18px] font-semibold leading-[1.4] text-white-pure">
+                <h3 className={`font-display text-[18px] font-semibold leading-[1.4] ${isDark ? "text-white-pure" : "text-light-text"}`}>
                   {cap.title}
                 </h3>
-                <p className="mt-3 font-body text-[14px] leading-[1.75] text-titanium-light">
+                <p className={`mt-3 font-body text-[14px] leading-[1.75] ${isDark ? "text-titanium-light" : "text-light-muted"}`}>
                   {cap.description}
                 </p>
                 {cap.title === "Prosthetic Fabrication" && (
-                  <BorderBeam size={80} duration={8} colorFrom="#9A9AB0" colorTo="#3A3A4E" borderWidth={1} />
+                  <BorderBeam size={80} duration={8} colorFrom="#5EAFC5" colorTo="#3D7A8F" borderWidth={1} />
                 )}
               </div>
             );

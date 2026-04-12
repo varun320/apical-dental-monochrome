@@ -67,45 +67,45 @@ export function TechSystemBreakdown() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-linear-to-b from-deep-void via-void to-void px-6 py-28 "
+      className="relative bg-light-bg px-6 py-28 "
     >
       {/* ── Grid overlay for tech aesthetic ── */}
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(58,58,78,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(58,58,78,0.05)_1px,transparent_1px)] bg-[size:40px_40px]" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(30,41,59,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(30,41,59,0.05)_1px,transparent_1px)] bg-[size:40px_40px]" />
 
       <div className="relative z-10 mx-auto max-w-[1100px]">
         {/* ── Section header ── */}
-        <p className="mb-2 font-display text-[11px] font-semibold uppercase tracking-[3px] text-titanium">
+        <p className="mb-2 font-display text-[11px] font-semibold uppercase tracking-[3px] text-light-muted">
           System Architecture
         </p>
-        <h2 className="mb-12 font-display text-[clamp(24px,4vw,30px)] font-bold leading-[1.1] tracking-[-0.5px] text-white-pure">
+        <h2 className="mb-12 font-display text-[clamp(24px,4vw,30px)] font-bold leading-[1.1] tracking-[-0.5px] text-light-text">
           Every component, purpose-built.
         </h2>
 
         {/* ── Featured cards: 2 full-width ── */}
-        <div className="grid gap-2">
+        <div className="grid gap-5">
           {components.slice(0, 2).map((component, i) => {
             const Icon = component.icon;
             return (
               <div
                 key={component.name}
                 ref={(el) => { cardsRef.current[i] = el; }}
-                className="relative overflow-hidden rounded-lg border border-titanium-dark bg-deep-void p-6"
+                className="relative overflow-hidden rounded-lg border border-light-border bg-light-card shadow-sm p-6 transition-all hover:shadow-lg hover:-translate-y-1.5 hover:border-cyan-muted/30"
               >
                 <div className="flex items-start gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-titanium-dark bg-void">
-                    <Icon className="h-5 w-5 text-titanium-light" strokeWidth={1.5} />
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-light-border bg-light-bg">
+                    <Icon className="h-5 w-5 text-light-muted" strokeWidth={1.5} />
                   </div>
                   <div className="flex-1">
-                    <p className="font-display text-[9px] font-semibold uppercase tracking-[2px] text-titanium">
+                    <p className="font-display text-[9px] font-semibold uppercase tracking-[2px] text-light-muted">
                       Component {String(i + 1).padStart(2, "0")}
                     </p>
-                    <h3 className="mt-1 font-display text-[18px] font-semibold leading-[1.2] tracking-[-0.5px] text-white-pure">
+                    <h3 className="mt-1 font-display text-[18px] font-semibold leading-[1.2] tracking-[-0.5px] text-light-text">
                       {component.name}
                     </h3>
-                    <p className="mt-2 font-body text-[13px] leading-[1.7] text-titanium-light">
+                    <p className="mt-2 font-body text-[13px] leading-[1.7] text-light-muted">
                       {component.description}
                     </p>
-                    <p className="mt-2 font-display text-[10px] font-semibold uppercase tracking-[2px] text-titanium">
+                    <p className="mt-2 font-display text-[10px] font-semibold uppercase tracking-[2px] text-light-muted">
                       {component.spec}
                     </p>
                   </div>
@@ -114,8 +114,8 @@ export function TechSystemBreakdown() {
                 <BorderBeam
                   size={80}
                   duration={8}
-                  colorFrom="#9A9AB0"
-                  colorTo="#3A3A4E"
+                  colorFrom="#5EAFC5"
+                  colorTo="#3D7A8F"
                   borderWidth={1}
                 />
               </div>
@@ -123,32 +123,39 @@ export function TechSystemBreakdown() {
           })}
         </div>
 
-        {/* ── Remaining cards: 3 in a row ── */}
-        <div className="mt-2 grid gap-4 lg:grid-cols-3">
+        {/* ── Remaining cards: 3 in a row — last one dark ── */}
+        <div className="mt-5 grid gap-5 lg:grid-cols-3">
           {components.slice(2).map((component, i) => {
             const Icon = component.icon;
             const idx = i + 2;
+            const isLast = idx === components.length - 1;
             return (
               <div
                 key={component.name}
                 ref={(el) => { cardsRef.current[idx] = el; }}
-                className="relative overflow-hidden rounded-lg border border-titanium-dark bg-deep-void p-6"
+                className={`relative overflow-hidden rounded-lg border shadow-sm p-6 transition-all hover:shadow-lg hover:-translate-y-1.5 ${
+                  isLast
+                    ? "bg-void border-titanium-dark hover:border-titanium"
+                    : "bg-light-card border-light-border hover:border-cyan-muted/30"
+                }`}
               >
                 <div className="flex items-start gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-titanium-dark bg-void">
-                    <Icon className="h-5 w-5 text-titanium-light" strokeWidth={1.5} />
+                  <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-md border ${
+                    isLast ? "border-titanium-dark bg-deep-void" : "border-light-border bg-light-bg"
+                  }`}>
+                    <Icon className={`h-5 w-5 ${isLast ? "text-titanium-light" : "text-light-muted"}`} strokeWidth={1.5} />
                   </div>
                   <div className="flex-1">
-                    <p className="font-display text-[9px] font-semibold uppercase tracking-[2px] text-titanium">
+                    <p className={`font-display text-[9px] font-semibold uppercase tracking-[2px] ${isLast ? "text-titanium" : "text-light-muted"}`}>
                       Component {String(idx + 1).padStart(2, "0")}
                     </p>
-                    <h3 className="mt-1 font-display text-[18px] font-semibold leading-[1.2] tracking-[-0.5px] text-white-pure">
+                    <h3 className={`mt-1 font-display text-[18px] font-semibold leading-[1.2] tracking-[-0.5px] ${isLast ? "text-white-pure" : "text-light-text"}`}>
                       {component.name}
                     </h3>
-                    <p className="mt-2 font-body text-[13px] leading-[1.7] text-titanium-light">
+                    <p className={`mt-2 font-body text-[13px] leading-[1.7] ${isLast ? "text-titanium-light" : "text-light-muted"}`}>
                       {component.description}
                     </p>
-                    <p className="mt-2 font-display text-[10px] font-semibold uppercase tracking-[2px] text-titanium">
+                    <p className={`mt-2 font-display text-[10px] font-semibold uppercase tracking-[2px] ${isLast ? "text-titanium" : "text-light-muted"}`}>
                       {component.spec}
                     </p>
                   </div>

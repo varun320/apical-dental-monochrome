@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { FadeIn, StaggerFadeIn } from "@/components/animations/fade-in";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { Network, Layers, ShieldCheck, Zap, HeartHandshake, Settings } from "lucide-react";
@@ -40,60 +39,48 @@ const benefits = [
 
 export function DSOScale() {
   return (
-    <section className="relative bg-linear-to-b from-void via-deep-void to-void px-6 py-28 lg:py-36 overflow-hidden">
-      {/* Network background */}
-      <div className="pointer-events-none absolute inset-0">
-        <Image
-          src="/images/hero-network.png"
-          alt=""
-          fill
-          className="object-cover grayscale-50 brightness-50 opacity-10"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_70%_at_50%_50%,transparent,rgba(8,8,14,1))]" />
-      </div>
+    <section className="relative bg-white px-6 py-28 lg:py-36 overflow-hidden">
+      {/* Subtle grid background */}
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(30,41,59,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(30,41,59,0.04)_1px,transparent_1px)] bg-[size:40px_40px]" />
       <div className="relative z-10 mx-auto max-w-[1100px]">
         <FadeIn>
-          <p className="mb-4 font-display text-[11px] font-semibold uppercase tracking-[3px] text-titanium">
+          <p className="mb-4 font-display text-[11px] font-semibold uppercase tracking-[3px] text-light-muted">
             Built for Scale
           </p>
         </FadeIn>
         <FadeIn delay={0.1}>
-          <h2 className="mb-16 font-display text-[clamp(24px,4vw,30px)] font-bold leading-[1.1] tracking-[-0.5px] text-white-pure">
+          <h2 className="mb-16 font-display text-[clamp(24px,4vw,30px)] font-bold leading-[1.1] tracking-[-0.5px] text-light-text">
             Enterprise-grade from day one.
           </h2>
         </FadeIn>
 
         <StaggerFadeIn className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3" stagger={0.1}>
-          {benefits.map((benefit, i) => {
+          {benefits.map((benefit) => {
             const Icon = benefit.icon;
+            const isDark = benefit.title === "Zero Regulatory Friction";
             return (
               <div
                 key={benefit.title}
-                className={`relative overflow-hidden rounded-lg border bg-deep-void p-6 ${
-                  benefit.title === "Zero Regulatory Friction" ? "border-titanium" : "border-titanium-dark"
+                className={`relative overflow-hidden rounded-lg border p-6 shadow-sm transition-all hover:shadow-lg hover:-translate-y-1.5 ${
+                  isDark
+                    ? "bg-void border-titanium-dark hover:border-titanium"
+                    : "bg-light-card border-light-border hover:border-cyan-muted/30"
                 }`}
               >
-                <div className={`flex h-10 w-10 items-center justify-center rounded-md border bg-void ${
-                  benefit.title === "Zero Regulatory Friction" ? "border-titanium" : "border-titanium-dark"
+                <div className={`flex h-10 w-10 items-center justify-center rounded-md border ${
+                  isDark ? "border-titanium-dark bg-deep-void" : "border-light-border bg-light-bg"
                 }`}>
-                  <Icon className={`h-5 w-5 ${benefit.title === "Zero Regulatory Friction" ? "text-white-pure" : "text-titanium-light"}`} strokeWidth={1.5} />
+                  <Icon className={`h-5 w-5 ${isDark ? "text-cyan" : "text-light-muted"}`} strokeWidth={1.5} />
                 </div>
-                <h3 className="mt-4 font-display text-[16px] font-semibold leading-[1.2] tracking-[-0.3px] text-white-pure">
+                <h3 className={`mt-4 font-display text-[16px] font-semibold leading-[1.2] tracking-[-0.3px] ${isDark ? "text-white-pure" : "text-light-text"}`}>
                   {benefit.title}
                 </h3>
-                <p className="mt-2 font-body text-[13px] leading-[1.7] text-titanium-light">
+                <p className={`mt-2 font-body text-[13px] leading-[1.7] ${isDark ? "text-titanium-light" : "text-light-muted"}`}>
                   {benefit.description}
                 </p>
 
-                {benefit.title === "Zero Regulatory Friction" && (
-                  <BorderBeam
-                    size={80}
-                    duration={8}
-                    colorFrom="#9A9AB0"
-                    colorTo="#3A3A4E"
-                    borderWidth={1}
-                  />
+                {isDark && (
+                  <BorderBeam size={80} duration={8} colorFrom="#5EAFC5" colorTo="#3D7A8F" borderWidth={1} />
                 )}
               </div>
             );

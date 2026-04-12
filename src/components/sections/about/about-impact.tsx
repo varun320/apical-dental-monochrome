@@ -16,7 +16,7 @@ const stats = [
 
 export function AboutImpact() {
   return (
-    <section className="relative bg-linear-to-b from-void via-deep-void to-deep-void px-6 py-28 lg:py-36 overflow-hidden">
+    <section className="relative bg-light-bg px-6 py-28 lg:py-36 overflow-hidden">
       <div className="relative z-10 mx-auto max-w-[900px]">
         {/* ── Stats row ── */}
         <StaggerFadeIn
@@ -27,12 +27,12 @@ export function AboutImpact() {
             const Icon = stat.icon;
             return (
               <div key={stat.label} className="text-center">
-                <Icon className="mx-auto mb-3 h-5 w-5 text-titanium" strokeWidth={1.5} />
-                <div className="font-display text-[clamp(36px,5vw,52px)] font-bold leading-none tracking-[-2px] text-white-pure">
+                <Icon className="mx-auto mb-3 h-5 w-5 text-light-muted" strokeWidth={1.5} />
+                <div className="font-display text-[clamp(36px,5vw,52px)] font-bold leading-none tracking-[-2px] text-mint">
                   <NumberTicker value={stat.value} delay={0.3} />
                   {stat.suffix}
                 </div>
-                <p className="mt-2 font-display text-[10px] font-semibold uppercase tracking-[2px] text-titanium">
+                <p className="mt-2 font-display text-[10px] font-semibold uppercase tracking-[2px] text-light-muted">
                   {stat.label}
                 </p>
               </div>
@@ -42,7 +42,7 @@ export function AboutImpact() {
 
         {/* ── CTA Card ── */}
         <FadeIn delay={0.3}>
-          <div className="relative mt-20 overflow-hidden rounded-lg border border-titanium-dark bg-deep-void/50 p-12 text-center">
+          <div className="section-dark relative mt-20 overflow-hidden rounded-lg border border-titanium-dark bg-deep-void p-12 text-center">
             <Image
               src="/images/cta-texture.png"
               alt=""
@@ -66,8 +66,8 @@ export function AboutImpact() {
             <BorderBeam
               size={100}
               duration={10}
-              colorFrom="#9A9AB0"
-              colorTo="#3A3A4E"
+              colorFrom="#5EAFC5"
+              colorTo="#3D7A8F"
               borderWidth={1}
             />
           </div>

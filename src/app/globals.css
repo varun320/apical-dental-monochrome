@@ -5,13 +5,30 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Apical Dental — Void Black · Titanium · White (monochrome) */
-  --void:          #08080E;
-  --deep-void:     #1A1A2A;
-  --titanium-dark: #3A3A4E;
-  --titanium:      #6A6A80;
-  --titanium-light:#9A9AB0;
-  --white:         #F5F5F8;
+  /* Apical Dental — Void Black · Slate · White (cool-blue base) */
+  --void:          #06070D;
+  --deep-void:     #111827;
+  --titanium-dark: #1E293B;
+  --titanium:      #475569;
+  --titanium-light:#94A3B8;
+  --white:         #F1F5F9;
+
+  /* Accent — Muted Cyan (subtle, clean) */
+  --cyan:          #5EAFC5;
+  --cyan-muted:    #3D7A8F;
+  /* Success — Soft Sage (understated positivity) */
+  --mint:          #6DB89B;
+  --mint-muted:    #4A8A72;
+  /* Authority — Warm Taupe (quiet expertise) */
+  --gold:          #B8A078;
+  --gold-muted:    #8A7A5E;
+
+  /* Light section palette */
+  --light-bg:      #F1F5F9;
+  --light-card:    #FFFFFF;
+  --light-border:  #E2E8F0;
+  --light-text:    #0F172A;
+  --light-muted:   #64748B;
 
   /* shadcn semantic tokens — mapped to monochrome palette */
   --background: var(--void);
@@ -59,6 +76,21 @@
   --color-titanium: var(--titanium);
   --color-titanium-light: var(--titanium-light);
   --color-white-pure: var(--white);
+
+  /* Accent colors */
+  --color-cyan: var(--cyan);
+  --color-cyan-muted: var(--cyan-muted);
+  --color-mint: var(--mint);
+  --color-mint-muted: var(--mint-muted);
+  --color-gold: var(--gold);
+  --color-gold-muted: var(--gold-muted);
+
+  /* Light section palette */
+  --color-light-bg: var(--light-bg);
+  --color-light-card: var(--light-card);
+  --color-light-border: var(--light-border);
+  --color-light-text: var(--light-text);
+  --color-light-muted: var(--light-muted);
 
   /* Font families */
   --font-display: var(--font-space-grotesk);
@@ -118,23 +150,23 @@
 
 /* Selection */
 ::selection {
-  background: rgba(245, 245, 248, 0.15);
-  color: var(--white);
+  background: rgba(94, 175, 197, 0.2);
+  color: var(--light-text);
 }
 
-/* Scrollbar */
+/* Scrollbar — light theme */
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--void);
+  background: var(--light-bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--titanium-dark);
+  background: var(--light-border);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--titanium);
+  background: var(--titanium-light);
 }
 
 html {
@@ -143,13 +175,23 @@ html {
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-light-border outline-ring/50;
   }
   body {
-    @apply bg-void text-white-pure font-body;
+    @apply bg-light-bg text-light-text font-body;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+}
+
+/* Dark section utility — apply to hero/CTA sections */
+.section-dark {
+  background: var(--void);
+  color: var(--white);
+}
+.section-dark ::selection {
+  background: rgba(245, 245, 248, 0.15);
+  color: var(--white);
 }
 
 @keyframes float {

@@ -75,29 +75,31 @@ export default function ContactPage() {
   return (
     <>
       <Navbar />
-      <main className="relative min-h-screen bg-linear-to-b from-void via-void to-deep-void">
+      <main className="relative min-h-screen">
         {/* ══════════════════════════════════════════════
             SECTION 1 — Hero (split: text left, info right)
         ══════════════════════════════════════════════ */}
-        <section className="relative overflow-hidden px-6 pt-36 pb-20 lg:pt-44 lg:pb-28">
+        <section className="relative overflow-hidden bg-light-bg px-6 pt-36 pb-20 lg:pt-44 lg:pb-28">
           <div className="pointer-events-none absolute inset-0">
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_20%_-10%,rgba(154,154,176,0.07),transparent)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_20%_-10%,rgba(94,175,197,0.06),transparent)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.18)_1px,transparent_1px)] bg-[size:48px_48px]" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_100%_60%_at_50%_50%,transparent_40%,rgba(241,245,249,1))]" />
           </div>
 
           <div ref={heroRef} className="relative z-10 mx-auto max-w-[1100px]">
             <div className="grid items-start gap-12 lg:grid-cols-[1.3fr_1fr] lg:gap-20">
               {/* Left — text */}
               <div>
-                <p className="c-kicker mb-6 font-display text-[11px] font-semibold uppercase tracking-[3px] text-titanium">
+                <p className="c-kicker mb-6 font-display text-[11px] font-semibold uppercase tracking-[3px] text-light-muted">
                   Contact Us
                 </p>
-                <h1 className="c-headline font-display text-[clamp(32px,5vw,48px)] font-bold leading-[1.05] tracking-[-2px] text-white-pure">
+                <h1 className="c-headline font-display text-[clamp(32px,5vw,48px)] font-bold leading-[1.05] tracking-[-2px] text-light-text">
                   Let&apos;s start a<br />
-                  <span className="bg-linear-to-r from-white-pure via-titanium-light to-titanium bg-clip-text text-transparent">
+                  <span className="bg-linear-to-r from-light-text via-titanium to-titanium-light bg-clip-text text-transparent">
                     conversation.
                   </span>
                 </h1>
-                <p className="c-sub mt-6 max-w-[440px] font-body text-[16px] leading-[1.7] text-titanium-light">
+                <p className="c-sub mt-6 max-w-[440px] font-body text-[16px] leading-[1.7] text-light-muted">
                   Whether you run a DSO network, an independent practice, or you&apos;re exploring a robotics partnership — we&apos;d love to hear from you.
                 </p>
 
@@ -107,7 +109,7 @@ export default function ContactPage() {
                     src="/images/hero-team.png"
                     alt="Apical Dental team"
                     className="h-[140px] w-full"
-                    overlay="gradient"
+                    overlay="light"
                   />
                 </div>
               </div>
@@ -123,16 +125,16 @@ export default function ContactPage() {
                   return (
                     <div
                       key={info.label}
-                      className="flex items-center gap-4 rounded-lg border border-titanium-dark bg-deep-void p-5"
+                      className="flex items-center gap-4 rounded-lg border border-light-border bg-light-card p-5 shadow-sm transition-all hover:shadow-lg hover:-translate-y-1.5 hover:border-cyan-muted/30"
                     >
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-titanium-dark bg-void">
-                        <Icon className="h-5 w-5 text-titanium-light" strokeWidth={1.5} />
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-light-border bg-light-bg">
+                        <Icon className="h-5 w-5 text-light-muted" strokeWidth={1.5} />
                       </div>
                       <div>
-                        <p className="font-display text-[14px] font-semibold tracking-[-0.3px] text-white-pure">
+                        <p className="font-display text-[14px] font-semibold tracking-[-0.3px] text-light-text">
                           {info.value}
                         </p>
-                        <p className="mt-0.5 font-body text-[12px] text-titanium">
+                        <p className="mt-0.5 font-body text-[12px] text-light-muted">
                           {info.sub}
                         </p>
                       </div>
@@ -147,18 +149,18 @@ export default function ContactPage() {
         {/* ══════════════════════════════════════════════
             SECTION 2 — Contact Form with Path Selector
         ══════════════════════════════════════════════ */}
-        <section className="relative bg-linear-to-b from-deep-void via-void to-void px-6 py-28 lg:py-36">
+        <section className="relative bg-light-bg px-6 py-28 lg:py-36">
           <div className="relative z-10 mx-auto max-w-[700px]">
             <FadeIn>
               <div className="flex items-center gap-3 mb-4">
-                <MessageSquare className="h-5 w-5 text-titanium" strokeWidth={1.5} />
-                <p className="font-display text-[11px] font-semibold uppercase tracking-[3px] text-titanium">
+                <MessageSquare className="h-5 w-5 text-light-muted" strokeWidth={1.5} />
+                <p className="font-display text-[11px] font-semibold uppercase tracking-[3px] text-light-muted">
                   Send a Message
                 </p>
               </div>
             </FadeIn>
             <FadeIn delay={0.1}>
-              <h2 className="mb-10 font-display text-[clamp(24px,4vw,30px)] font-bold leading-[1.1] tracking-[-0.5px] text-white-pure">
+              <h2 className="mb-10 font-display text-[clamp(24px,4vw,30px)] font-bold leading-[1.1] tracking-[-0.5px] text-light-text">
                 Tell us about yourself.
               </h2>
             </FadeIn>
@@ -176,25 +178,25 @@ export default function ContactPage() {
                       className={cn(
                         "relative overflow-hidden rounded-lg border p-5 text-left transition-all",
                         isActive
-                          ? "border-titanium bg-deep-void"
-                          : "border-titanium-dark bg-deep-void/50 hover:border-titanium"
+                          ? "border-cyan-muted bg-light-card shadow-md"
+                          : "border-light-border bg-light-card hover:border-titanium shadow-sm"
                       )}
                     >
                       <Icon
-                        className={cn("mb-3 h-5 w-5", isActive ? "text-white-pure" : "text-titanium")}
+                        className={cn("mb-3 h-5 w-5", isActive ? "text-cyan-muted" : "text-light-muted")}
                         strokeWidth={1.5}
                       />
                       <p className={cn(
                         "font-display text-[14px] font-semibold tracking-[-0.3px]",
-                        isActive ? "text-white-pure" : "text-titanium-light"
+                        isActive ? "text-light-text" : "text-light-muted"
                       )}>
                         {path.label}
                       </p>
-                      <p className="mt-0.5 font-body text-[12px] text-titanium">
+                      <p className="mt-0.5 font-body text-[12px] text-light-muted">
                         {path.description}
                       </p>
                       {isActive && (
-                        <BorderBeam size={60} duration={6} colorFrom="#9A9AB0" colorTo="#3A3A4E" borderWidth={1} />
+                        <BorderBeam size={60} duration={6} colorFrom="#5EAFC5" colorTo="#3D7A8F" borderWidth={1} />
                       )}
                     </button>
                   );
@@ -231,7 +233,7 @@ export default function ContactPage() {
                   />
                   <button
                     type="submit"
-                    className="mt-2 rounded-md bg-white-pure px-8 py-4 font-display text-[14px] font-bold tracking-[0.5px] text-void transition-opacity hover:opacity-80"
+                    className="mt-2 rounded-md bg-light-text px-8 py-4 font-display text-[14px] font-bold tracking-[0.5px] text-light-bg transition-opacity hover:opacity-80"
                   >
                     Send Message
                   </button>
@@ -255,18 +257,18 @@ export default function ContactPage() {
         {/* ══════════════════════════════════════════════
             SECTION 3 — FAQs
         ══════════════════════════════════════════════ */}
-        <section className="relative bg-linear-to-b from-void via-deep-void to-deep-void px-6 py-28 lg:py-36">
+        <section className="relative bg-white px-6 py-28 lg:py-36">
           <div className="relative z-10 mx-auto max-w-[700px]">
             <FadeIn>
               <div className="flex items-center gap-3 mb-4">
-                <Clock className="h-5 w-5 text-titanium" strokeWidth={1.5} />
-                <p className="font-display text-[11px] font-semibold uppercase tracking-[3px] text-titanium">
+                <Clock className="h-5 w-5 text-light-muted" strokeWidth={1.5} />
+                <p className="font-display text-[11px] font-semibold uppercase tracking-[3px] text-light-muted">
                   Frequently Asked
                 </p>
               </div>
             </FadeIn>
             <FadeIn delay={0.1}>
-              <h2 className="mb-12 font-display text-[clamp(24px,4vw,30px)] font-bold leading-[1.1] tracking-[-0.5px] text-white-pure">
+              <h2 className="mb-12 font-display text-[clamp(24px,4vw,30px)] font-bold leading-[1.1] tracking-[-0.5px] text-light-text">
                 Common questions, answered.
               </h2>
             </FadeIn>
@@ -279,7 +281,7 @@ export default function ContactPage() {
                     key={i}
                     className={cn(
                       "overflow-hidden rounded-lg border transition-colors",
-                      isOpen ? "border-titanium bg-deep-void" : "border-titanium-dark bg-deep-void/50"
+                      isOpen ? "border-cyan-muted/30 bg-light-card shadow-sm" : "border-light-border bg-light-card"
                     )}
                   >
                     <button
@@ -288,13 +290,13 @@ export default function ContactPage() {
                     >
                       <p className={cn(
                         "font-display text-[15px] font-semibold tracking-[-0.3px]",
-                        isOpen ? "text-white-pure" : "text-titanium-light"
+                        isOpen ? "text-light-text" : "text-light-muted"
                       )}>
                         {faq.q}
                       </p>
                       <ChevronDown
                         className={cn(
-                          "h-4 w-4 shrink-0 text-titanium transition-transform duration-300",
+                          "h-4 w-4 shrink-0 text-light-muted transition-transform duration-300",
                           isOpen && "rotate-180"
                         )}
                         strokeWidth={2}
@@ -307,7 +309,7 @@ export default function ContactPage() {
                       )}
                     >
                       <div className="overflow-hidden">
-                        <p className="px-5 pb-5 font-body text-[14px] leading-[1.75] text-titanium-light">
+                        <p className="px-5 pb-5 font-body text-[14px] leading-[1.75] text-light-muted">
                           {faq.a}
                         </p>
                       </div>

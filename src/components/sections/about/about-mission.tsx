@@ -30,23 +30,16 @@ const values = [
 
 export function AboutMission() {
   return (
-    <section className="relative bg-linear-to-b from-void via-deep-void to-void px-6 py-28 lg:py-36 overflow-hidden">
-      {/* ── Background ── */}
-      <DotPattern
-        width={28}
-        height={28}
-        cr={0.6}
-        className="absolute inset-0 text-titanium-dark/20 mask-[radial-gradient(ellipse_70%_60%_at_50%_50%,black,transparent)]"
-      />
+    <section className="relative bg-light-bg px-6 py-28 lg:py-36 overflow-hidden">
 
       <div className="relative z-10 mx-auto max-w-[1100px]">
         {/* ── Headline ── */}
         <div className="text-center">
-          <p className="mb-4 font-display text-[11px] font-semibold uppercase tracking-[3px] text-titanium">
+          <p className="mb-4 font-display text-[11px] font-semibold uppercase tracking-[3px] text-light-muted">
             Our Mission
           </p>
           <TextRevealByLine
-            className="font-display text-[clamp(30px,5vw,48px)] font-bold leading-[1.1] tracking-[-1.5px] text-white-pure"
+            className="font-display text-[clamp(30px,5vw,48px)] font-bold leading-[1.1] tracking-[-1.5px] text-light-text"
           >
             {["Human Expertise.", "Amplified."]}
           </TextRevealByLine>
@@ -62,19 +55,19 @@ export function AboutMission() {
             return (
               <div
                 key={value.title}
-                className={`relative overflow-hidden rounded-lg border bg-deep-void/50 p-8 ${
-                  value.title === "Precision" ? "border-titanium" : "border-titanium-dark"
+                className={`relative overflow-hidden rounded-lg border bg-light-card p-8 shadow-sm transition-all hover:shadow-lg hover:-translate-y-1.5 hover:border-cyan-muted/30 ${
+                  value.title === "Precision" ? "border-cyan-muted" : "border-light-border"
                 }`}
               >
-                <Icon className={`mb-5 h-6 w-6 ${value.title === "Precision" ? "text-white-pure" : "text-titanium"}`} strokeWidth={1.5} />
-                <h3 className="font-display text-[20px] font-semibold leading-[1.2] tracking-[-0.5px] text-white-pure">
+                <Icon className={`mb-5 h-6 w-6 ${value.title === "Precision" ? "text-cyan-muted" : "text-light-muted"}`} strokeWidth={1.5} />
+                <h3 className="font-display text-[20px] font-semibold leading-[1.2] tracking-[-0.5px] text-light-text">
                   {value.title}
                 </h3>
-                <p className="mt-3 font-body text-[14px] leading-[1.75] text-titanium-light">
+                <p className="mt-3 font-body text-[14px] leading-[1.75] text-light-muted">
                   {value.description}
                 </p>
-                <div className="mt-5 border-t border-titanium-dark pt-5">
-                  <div className="font-display text-[28px] font-bold leading-none tracking-[-1.5px] text-white-pure">
+                <div className="mt-5 border-t border-light-border pt-5">
+                  <div className="font-display text-[28px] font-bold leading-none tracking-[-1.5px] text-mint">
                     {value.metric.prefix}
                     <NumberTicker
                       value={value.metric.value}
@@ -85,7 +78,7 @@ export function AboutMission() {
                   </div>
                 </div>
                 {value.title === "Precision" && (
-                  <BorderBeam size={80} duration={8} colorFrom="#9A9AB0" colorTo="#3A3A4E" borderWidth={1} />
+                  <BorderBeam size={80} duration={8} colorFrom="#5EAFC5" colorTo="#3D7A8F" borderWidth={1} />
                 )}
               </div>
             );

@@ -18,16 +18,16 @@ const badges = [
 
 export function TechTrust() {
   return (
-    <section className="relative bg-linear-to-b from-void via-deep-void to-deep-void px-6 py-28 lg:py-36 overflow-hidden">
+    <section className="relative bg-light-bg px-6 py-28 lg:py-36 overflow-hidden">
       <div className="relative z-10 mx-auto max-w-[1100px]">
         {/* ── Section header ── */}
         <FadeIn>
-          <p className="mb-4 font-display text-[11px] font-semibold uppercase tracking-[3px] text-titanium">
+          <p className="mb-4 font-display text-[11px] font-semibold uppercase tracking-[3px] text-light-muted">
             Trust & Safety
           </p>
         </FadeIn>
         <FadeIn delay={0.1}>
-          <h2 className="mb-16 font-display text-[clamp(24px,4vw,30px)] font-bold leading-[1.1] tracking-[-0.5px] text-white-pure">
+          <h2 className="mb-16 font-display text-[clamp(24px,4vw,30px)] font-bold leading-[1.1] tracking-[-0.5px] text-light-text">
             Built on trust. Backed by science.
           </h2>
         </FadeIn>
@@ -43,23 +43,25 @@ export function TechTrust() {
             return (
               <div
                 key={badge.title}
-                className={`relative overflow-hidden rounded-lg border bg-deep-void/50 p-6 ${
-                  isHighlight ? "border-titanium" : "border-titanium-dark"
+                className={`relative overflow-hidden rounded-lg border p-6 shadow-sm transition-all hover:shadow-lg hover:-translate-y-1.5 ${
+                  isHighlight
+                    ? "bg-void border-titanium-dark hover:border-titanium"
+                    : "bg-light-card border-light-border hover:border-cyan-muted/30"
                 }`}
               >
-                <div className={`flex h-10 w-10 items-center justify-center rounded-md border bg-void ${
-                  isHighlight ? "border-titanium" : "border-titanium-dark"
+                <div className={`flex h-10 w-10 items-center justify-center rounded-md border ${
+                  isHighlight ? "border-titanium-dark bg-deep-void" : "border-light-border bg-light-bg"
                 }`}>
-                  <Icon className={`h-5 w-5 ${isHighlight ? "text-white-pure" : "text-titanium-light"}`} strokeWidth={1.5} />
+                  <Icon className={`h-5 w-5 ${isHighlight ? "text-cyan" : "text-light-muted"}`} strokeWidth={1.5} />
                 </div>
-                <h3 className="mt-4 font-display text-[16px] font-semibold leading-[1.2] tracking-[-0.3px] text-white-pure">
+                <h3 className={`mt-4 font-display text-[16px] font-semibold leading-[1.2] tracking-[-0.3px] ${isHighlight ? "text-white-pure" : "text-light-text"}`}>
                   {badge.title}
                 </h3>
-                <p className="mt-2 font-body text-[13px] leading-[1.7] text-titanium-light">
+                <p className={`mt-2 font-body text-[13px] leading-[1.7] ${isHighlight ? "text-titanium-light" : "text-light-muted"}`}>
                   {badge.description}
                 </p>
                 {isHighlight && (
-                  <BorderBeam size={80} duration={8} colorFrom="#9A9AB0" colorTo="#3A3A4E" borderWidth={1} />
+                  <BorderBeam size={80} duration={8} colorFrom="#5EAFC5" colorTo="#3D7A8F" borderWidth={1} />
                 )}
               </div>
             );
@@ -68,7 +70,7 @@ export function TechTrust() {
 
         {/* ── CTA Card ── */}
         <FadeIn delay={0.3}>
-          <div className="relative mt-20 overflow-hidden rounded-lg border border-titanium-dark bg-deep-void/50 p-12 text-center">
+          <div className="section-dark relative mt-20 overflow-hidden rounded-lg border border-titanium-dark bg-deep-void p-12 text-center">
             <Image
               src="/images/cta-texture.png"
               alt=""
@@ -100,8 +102,8 @@ export function TechTrust() {
             <BorderBeam
               size={100}
               duration={10}
-              colorFrom="#9A9AB0"
-              colorTo="#3A3A4E"
+              colorFrom="#5EAFC5"
+              colorTo="#3D7A8F"
               borderWidth={1}
             />
           </div>

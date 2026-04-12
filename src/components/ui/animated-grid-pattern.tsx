@@ -38,7 +38,7 @@ export function AnimatedGridPattern({
   strokeDasharray = 0,
   numSquares = 50,
   className,
-  maxOpacity = 0.5,
+  maxOpacity = 0.8,
   duration = 4,
   repeatDelay = 0.5,
   ...props

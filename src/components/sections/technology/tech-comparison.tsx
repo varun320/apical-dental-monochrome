@@ -75,17 +75,17 @@ export function TechComparison() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-linear-to-b from-void via-deep-void to-void px-6 py-28 lg:py-36 overflow-hidden"
+      className="relative bg-light-bg px-6 py-28 lg:py-36 overflow-hidden"
     >
       <div className="relative z-10 mx-auto max-w-[1100px]">
         {/* ── Section header ── */}
         <FadeIn>
-          <p className="mb-4 font-display text-[11px] font-semibold uppercase tracking-[3px] text-titanium">
+          <p className="mb-4 font-display text-[11px] font-semibold uppercase tracking-[3px] text-light-muted">
             The Difference
           </p>
         </FadeIn>
         <FadeIn delay={0.1}>
-          <h2 className="mb-6 font-display text-[clamp(24px,4vw,30px)] font-bold leading-[1.1] tracking-[-0.5px] text-white-pure">
+          <h2 className="mb-6 font-display text-[clamp(24px,4vw,30px)] font-bold leading-[1.1] tracking-[-0.5px] text-light-text">
             Precision you can measure.
           </h2>
         </FadeIn>
@@ -94,10 +94,10 @@ export function TechComparison() {
         <FadeIn delay={0.15}>
           <div className="mb-6 hidden items-center lg:grid lg:grid-cols-[1fr_140px_140px] gap-4">
             <div />
-            <p className="text-center font-display text-[10px] font-semibold uppercase tracking-[2px] text-titanium">
+            <p className="text-center font-display text-[10px] font-semibold uppercase tracking-[2px] text-light-muted">
               Traditional
             </p>
-            <p className="text-center font-display text-[10px] font-semibold uppercase tracking-[2px] text-titanium-light">
+            <p className="text-center font-display text-[10px] font-semibold uppercase tracking-[2px] text-light-muted">
               Robotic
             </p>
           </div>
@@ -111,18 +111,18 @@ export function TechComparison() {
               <div
                 key={metric.label}
                 ref={(el) => { cardsRef.current[i] = el; }}
-                className="grid items-center gap-4 rounded-lg border border-titanium-dark bg-deep-void p-5 lg:grid-cols-[1fr_140px_140px]"
+                className="grid items-center gap-4 rounded-lg border border-light-border bg-light-card shadow-sm p-5 lg:grid-cols-[1fr_140px_140px]"
               >
                 {/* Label + description */}
                 <div className="flex items-center gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-titanium-dark bg-void">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-light-border bg-light-bg">
                     <Icon className="h-5 w-5 text-titanium-light" strokeWidth={1.5} />
                   </div>
                   <div>
-                    <h3 className="font-display text-[16px] font-semibold tracking-[-0.3px] text-white-pure">
+                    <h3 className="font-display text-[16px] font-semibold tracking-[-0.3px] text-light-text">
                       {metric.label}
                     </h3>
-                    <p className="mt-0.5 font-body text-[12px] leading-[1.5] text-titanium">
+                    <p className="mt-0.5 font-body text-[12px] leading-[1.5] text-light-muted">
                       {metric.description}
                     </p>
                   </div>
@@ -133,7 +133,7 @@ export function TechComparison() {
                   <span className="font-display text-[10px] font-semibold uppercase tracking-[2px] text-titanium lg:hidden">
                     Traditional
                   </span>
-                  <span className="font-display text-[24px] font-bold tracking-[-1px] text-titanium">
+                  <span className="font-display text-[24px] font-bold tracking-[-1px] text-light-muted">
                     <NumberTicker value={metric.traditional} delay={0.3 + i * 0.1} />
                     <span className="text-[14px]">{metric.unit}</span>
                   </span>
@@ -144,8 +144,8 @@ export function TechComparison() {
                   <span className="font-display text-[10px] font-semibold uppercase tracking-[2px] text-titanium-light lg:hidden">
                     Robotic
                   </span>
-                  <div className="relative overflow-hidden rounded-md border border-titanium bg-void/50 px-4 py-2">
-                    <span className="font-display text-[24px] font-bold tracking-[-1px] text-white-pure">
+                  <div className="relative overflow-hidden rounded-md border border-mint-muted/30 bg-mint/5 px-4 py-2">
+                    <span className="font-display text-[24px] font-bold tracking-[-1px] text-mint">
                       <NumberTicker
                         value={metric.robotic}
                         delay={0.5 + i * 0.1}
@@ -157,8 +157,8 @@ export function TechComparison() {
                       <BorderBeam
                         size={60}
                         duration={6}
-                        colorFrom="#9A9AB0"
-                        colorTo="#3A3A4E"
+                        colorFrom="#5EAFC5"
+                        colorTo="#3D7A8F"
                         borderWidth={1}
                       />
                     )}
@@ -171,19 +171,19 @@ export function TechComparison() {
 
         {/* ── Bottom highlight card ── */}
         <FadeIn delay={0.4}>
-          <div className="relative mt-6 overflow-hidden rounded-lg border border-titanium bg-deep-void/80 p-6 text-center">
-            <p className="font-display text-[clamp(16px,2.5vw,20px)] font-semibold tracking-[-0.5px] text-white-pure">
-              Up to <span className="text-[clamp(24px,3.5vw,32px)] font-bold">16x</span> fewer remakes.{" "}
-              <span className="text-[clamp(24px,3.5vw,32px)] font-bold">60%</span> faster production.
+          <div className="relative mt-6 overflow-hidden rounded-lg border border-light-border bg-light-card p-6 text-center shadow-sm">
+            <p className="font-display text-[clamp(16px,2.5vw,20px)] font-semibold tracking-[-0.5px] text-light-text">
+              Up to <span className="text-[clamp(24px,3.5vw,32px)] font-bold text-mint">16x</span> fewer remakes.{" "}
+              <span className="text-[clamp(24px,3.5vw,32px)] font-bold text-mint">60%</span> faster production.
             </p>
-            <p className="mt-2 font-body text-[13px] text-titanium-light">
+            <p className="mt-2 font-body text-[13px] text-light-muted">
               The numbers speak for themselves.
             </p>
             <BorderBeam
               size={100}
               duration={10}
-              colorFrom="#9A9AB0"
-              colorTo="#3A3A4E"
+              colorFrom="#5EAFC5"
+              colorTo="#3D7A8F"
               borderWidth={1}
             />
           </div>

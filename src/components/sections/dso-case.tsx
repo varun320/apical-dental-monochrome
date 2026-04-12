@@ -34,56 +34,55 @@ const benefits = [
 
 export function DSOCase() {
   return (
-    <section className="relative bg-linear-to-b from-deep-void via-void to-void px-6 py-28 lg:py-36 overflow-hidden">
+    <section className="relative bg-light-bg px-6 py-28 lg:py-36 overflow-hidden">
       <div className="relative z-10 mx-auto max-w-[1100px]">
         <SectionHeader
           label="For DSOs"
           title="The business case writes itself."
           description="Replace the cost of hiring, training, and retaining lab technicians with a single subscription. AI-backed diagnostics reduce insurance costs. Robotic precision eliminates rework."
+          light
         />
 
-        {/* ── Benefit Cards (3-column) ── */}
         <StaggerFadeIn className="mt-16 grid gap-4 md:grid-cols-3" stagger={0.1}>
           {benefits.map((b) => {
             const Icon = b.icon;
             return (
               <div
                 key={b.title}
-                className={`relative overflow-hidden rounded-lg border bg-deep-void p-8 transition-colors hover:border-titanium/40 ${
-                  b.title === "Robot-as-a-Service" ? "border-titanium" : "border-titanium-dark"
+                className={`relative overflow-hidden rounded-lg border bg-light-card p-8 shadow-sm transition-all hover:shadow-lg hover:-translate-y-1.5 hover:border-cyan-muted/30 ${
+                  b.title === "Robot-as-a-Service" ? "border-cyan-muted" : "border-light-border"
                 }`}
               >
                 <div className="flex items-center gap-2">
-                  <Icon className="h-4 w-4 text-titanium" strokeWidth={1.5} />
-                  <p className="font-display text-[10px] font-semibold uppercase tracking-[2px] text-titanium">
+                  <Icon className="h-4 w-4 text-light-muted" strokeWidth={1.5} />
+                  <p className="font-display text-[10px] font-semibold uppercase tracking-[2px] text-light-muted">
                     {b.title}
                   </p>
                 </div>
                 <div className="mt-3 flex items-baseline gap-1">
-                  <span className="font-display text-[36px] font-bold leading-none tracking-[-1px] text-white-pure">
+                  <span className="font-display text-[36px] font-bold leading-none tracking-[-1px] text-mint">
                     {b.value}
                   </span>
-                  <span className="font-display text-[11px] font-semibold uppercase tracking-[1px] text-titanium">
+                  <span className="font-display text-[11px] font-semibold uppercase tracking-[1px] text-light-muted">
                     {b.unit}
                   </span>
                 </div>
-                <p className="mt-4 font-body text-[14px] leading-[1.75] text-titanium-light">
+                <p className="mt-4 font-body text-[14px] leading-[1.75] text-light-muted">
                   {b.description}
                 </p>
                 {b.title === "Robot-as-a-Service" && (
-                  <BorderBeam size={80} duration={8} colorFrom="#9A9AB0" colorTo="#3A3A4E" borderWidth={1} />
+                  <BorderBeam size={80} duration={8} colorFrom="#5EAFC5" colorTo="#3D7A8F" borderWidth={1} />
                 )}
               </div>
             );
           })}
         </StaggerFadeIn>
 
-        {/* ── Scale Projection (full-width card with BorderBeam) ── */}
         <FadeIn delay={0.4}>
           <div className="relative mt-4 overflow-hidden rounded-lg border border-titanium-dark bg-deep-void p-8">
             <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
               <div className="flex items-start gap-4">
-                <Rocket className="mt-1 h-6 w-6 shrink-0 text-titanium" strokeWidth={1.5} />
+                <Rocket className="mt-1 h-6 w-6 shrink-0 text-titanium-light" strokeWidth={1.5} />
                 <div>
                   <h3 className="font-display text-[24px] font-semibold leading-[1.2] tracking-[-0.5px] text-white-pure">
                     Scale projection
@@ -96,7 +95,7 @@ export function DSOCase() {
                 </div>
               </div>
               <div className="shrink-0 text-right">
-                <div className="font-display text-[44px] font-bold leading-none tracking-[-1.5px] text-white-pure">
+                <div className="font-display text-[44px] font-bold leading-none tracking-[-1.5px] text-mint">
                   $11M+
                 </div>
                 <p className="mt-1 font-display text-[10px] font-semibold uppercase tracking-[2px] text-titanium">
@@ -107,8 +106,8 @@ export function DSOCase() {
             <BorderBeam
               size={100}
               duration={10}
-              colorFrom="#9A9AB0"
-              colorTo="#3A3A4E"
+              colorFrom="#5EAFC5"
+              colorTo="#3D7A8F"
               borderWidth={1}
             />
           </div>

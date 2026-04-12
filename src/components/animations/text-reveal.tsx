@@ -25,7 +25,7 @@ export function TextReveal({
     const lines = el.querySelectorAll(".reveal-line");
     if (lines.length === 0) return;
 
-    gsap.set(lines, { y: "100%", opacity: 0 });
+    gsap.set(lines, { y: "60%", opacity: 0 });
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -39,8 +39,8 @@ export function TextReveal({
     tl.to(lines, {
       y: "0%",
       opacity: 1,
-      duration: 0.8,
-      ease: "power3.out",
+      duration: 0.6,
+      ease: "power2.out",
       stagger,
     });
 
@@ -78,7 +78,7 @@ export function TextRevealByLine({
 
     const lines = el.querySelectorAll(".reveal-line");
 
-    gsap.set(lines, { y: 60, opacity: 0 });
+    gsap.set(lines, { y: 24, opacity: 0 });
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -92,8 +92,8 @@ export function TextRevealByLine({
     tl.to(lines, {
       y: 0,
       opacity: 1,
-      duration: 0.9,
-      ease: "power3.out",
+      duration: 0.7,
+      ease: "power2.out",
       stagger,
     });
 
