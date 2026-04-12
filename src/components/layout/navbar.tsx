@@ -44,7 +44,7 @@ export function Navbar() {
           <span className="relative">
             Apical Dental
             <span className={`absolute -bottom-1 left-0 h-px w-0 transition-all duration-300 group-hover:w-full ${
-              onDark ? "bg-cyan" : "bg-cyan"
+              onDark ? "bg-white-pure" : "bg-light-text"
             }`} />
           </span>
         </Link>
@@ -58,7 +58,7 @@ export function Navbar() {
                 href={item.href}
                 className={`group relative font-display text-[11px] font-semibold uppercase tracking-[2px] transition-all duration-300 py-1 ${
                   isActive
-                    ? onDark ? "text-cyan" : "text-cyan"
+                    ? onDark ? "text-white-pure" : "text-light-text"
                     : onDark ? "text-titanium hover:text-white-pure" : "text-light-muted hover:text-light-text"
                 }`}
               >
@@ -66,8 +66,8 @@ export function Navbar() {
                 {/* Underline animation */}
                 <span className={`absolute -bottom-0.5 left-0 h-px transition-all duration-300 ${
                   isActive
-                    ? "w-full bg-cyan"
-                    : "w-0 group-hover:w-full bg-cyan"
+                    ? onDark ? "w-full bg-white-pure" : "w-full bg-light-text"
+                    : onDark ? "w-0 group-hover:w-full bg-white-pure/50" : "w-0 group-hover:w-full bg-light-text/50"
                 }`} />
               </Link>
             );
@@ -78,8 +78,8 @@ export function Navbar() {
           href={siteConfig.cta.href}
           className={`hidden rounded-md px-5 py-2.5 text-[12px] font-bold tracking-wide transition-all duration-300 md:block ${
             onDark
-              ? "bg-white-pure text-void hover:bg-cyan hover:text-void hover:shadow-[0_0_24px_rgba(94,175,197,0.25)]"
-              : "bg-light-text text-white hover:bg-cyan hover:shadow-[0_0_24px_rgba(94,175,197,0.2)]"
+              ? "bg-white-pure text-void hover:bg-cyan hover:text-void hover:shadow-[0_0_30px_rgba(94,175,197,0.5)]"
+              : "bg-light-text text-white hover:bg-cyan hover:shadow-[0_0_30px_rgba(94,175,197,0.45)]"
           }`}
         >
           {siteConfig.cta.primary}
@@ -125,8 +125,8 @@ export function Navbar() {
                   className={`py-3 font-display text-[11px] font-semibold uppercase tracking-[2px] transition-all duration-300 border-l-2 pl-4 ${
                     isActive
                       ? onDark
-                        ? "text-cyan border-cyan"
-                        : "text-cyan border-cyan"
+                        ? "text-white-pure border-white-pure"
+                        : "text-light-text border-light-text"
                       : onDark
                         ? "text-titanium-light hover:text-white-pure border-transparent hover:border-titanium"
                         : "text-light-muted hover:text-light-text border-transparent hover:border-light-border"

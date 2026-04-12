@@ -150,7 +150,7 @@
 
 /* Selection */
 ::selection {
-  background: rgba(94, 175, 197, 0.2);
+  background: rgba(94,175,197,0.2);
   color: var(--light-text);
 }
 
@@ -192,6 +192,20 @@ html {
 .section-dark ::selection {
   background: rgba(245, 245, 248, 0.15);
   color: var(--white);
+}
+
+/* Cyan glow utilities */
+.glow-cyan {
+  box-shadow: 0 0 24px rgba(94,175,197,0.35), 0 0 60px rgba(94,175,197,0.12);
+}
+.glow-cyan-strong {
+  box-shadow: 0 0 40px rgba(94,175,197,0.5), 0 0 80px rgba(94,175,197,0.2);
+}
+.glow-cyan-subtle {
+  box-shadow: 0 4px 24px rgba(94,175,197,0.25);
+}
+.drop-shadow-cyan {
+  filter: drop-shadow(0 4px 16px rgba(94,175,197,0.4));
 }
 
 @keyframes float {

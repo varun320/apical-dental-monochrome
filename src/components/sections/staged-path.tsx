@@ -1,9 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
-import { FadeIn } from "@/components/animations/fade-in";
-import { SectionHeader } from "@/components/ui/section-header";
+import { FadeIn, StaggerFadeIn } from "@/components/animations/fade-in";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { FlaskRound, Stethoscope, Scissors, Bot } from "lucide-react";
 
@@ -47,108 +44,74 @@ const stages = [
 ];
 
 export function StagedPath() {
-  const lineRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
-  const dotsRef = useRef<(HTMLDivElement | null)[]>([]);
-
-  useEffect(() => {
-    const line = lineRef.current;
-    const track = trackRef.current;
-    const dots = dotsRef.current.filter(Boolean) as HTMLDivElement[];
-    if (!line || !track) return;
-
-    gsap.set(line, { scaleX: 0, transformOrigin: "left" });
-
-    const trigger = ScrollTrigger.create({
-      trigger: track,
-      start: "top 70%",
-      end: "bottom 50%",
-      onUpdate: (self) => {
-        gsap.set(line, { scaleX: self.progress });
-        // Fill dots as line reaches each one (at 0%, 33%, 66%, 100%)
-        dots.forEach((dot, i) => {
-          const threshold = i / (dots.length - 1);
-          if (self.progress >= threshold) {
-            gsap.to(dot, { backgroundColor: "#5EAFC5", borderColor: "#5EAFC5", boxShadow: "0 0 6px rgba(94,175,197,0.4)", duration: 0.3 });
-          } else {
-            gsap.to(dot, { backgroundColor: "#FFFFFF", borderColor: "#E2E8F0", boxShadow: "none", duration: 0.3 });
-          }
-        });
-      },
-    });
-
-    return () => trigger.kill();
-  }, []);
-
   return (
-    <section className="relative bg-light-bg px-6 py-28 lg:py-36 overflow-hidden">
+    <section className="relative bg-white px-6 py-32 lg:py-40 overflow-hidden">
       <div className="relative z-10 mx-auto max-w-[1100px]">
-        <SectionHeader
-          label="The Path"
-          title="Staged entry. Zero resistance."
-          description="The dental laboratory is the zero-resistance entry point. No regulatory barriers exist. From there, Optimus expands into every aspect of practice operation."
-          light
-        />
-
-        <div ref={trackRef} className="relative mt-16">
-          {/* ── Progress line ── */}
-          <div className="absolute top-0 left-0 right-0 z-10 hidden lg:block">
-            <div className="h-px w-full bg-light-border" />
-            <div className="absolute top-0 left-0 h-px w-full origin-left" ref={lineRef}>
-              <div className="h-px w-full bg-linear-to-r from-cyan via-cyan-muted to-cyan" />
+        {/* 50/50 split — text left, cards right */}
+        <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-16 items-start">
+          {/* Left — sticky header */}
+          <FadeIn>
+            <div className="lg:sticky lg:top-32">
+              <p className="font-display text-[11px] font-semibold uppercase tracking-[3px] text-light-muted">
+                The Path
+              </p>
+              <h2 className="mt-4 font-display text-[clamp(28px,4vw,36px)] font-bold leading-[1.1] tracking-[-1px] text-light-text">
+                Staged entry.<br />Zero resistance.
+              </h2>
+              <p className="mt-6 font-body text-[16px] leading-[1.7] text-light-muted">
+                The dental laboratory is the zero-resistance entry point. No regulatory barriers exist. From there, Optimus expands into every aspect of practice operation.
+              </p>
+              <div className="mt-8 flex items-center gap-3">
+                <div className="h-2 w-2 rounded-full bg-cyan" />
+                <p className="font-display text-[11px] font-semibold uppercase tracking-[2px] text-cyan-muted">
+                  Phase 01 is live today
+                </p>
+              </div>
             </div>
-          </div>
+          </FadeIn>
 
-          {/* ── Phase Cards ── */}
-          <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 pt-8">
-            {stages.map((stage, i) => {
+          {/* Right — phase cards in 2x2 grid */}
+          <StaggerFadeIn className="grid gap-4 sm:grid-cols-2" stagger={0.1}>
+            {stages.map((stage) => {
               const Icon = stage.icon;
               const isLast = stage.phase === "Phase 04";
               return (
-                <FadeIn key={stage.phase} delay={i * 0.1} direction="up" distance={25} className="h-full">
-                  <div className="relative h-full">
-                    <div className="absolute -top-[37px] left-6 hidden lg:block">
-                      <div
-                        ref={(el) => { dotsRef.current[i] = el; }}
-                        className="h-2.5 w-2.5 rounded-full border border-light-border bg-white"
-                      />
-                    </div>
+                <div
+                  key={stage.phase}
+                  className={`relative overflow-hidden rounded-xl border p-6 transition-all hover:shadow-lg hover:-translate-y-1.5 ${
+                    isLast
+                      ? "bg-void border-titanium-dark hover:border-cyan-muted hover:shadow-[0_0_40px_rgba(94,175,197,0.35)]"
+                      : stage.active
+                        ? "bg-light-card border-cyan-muted shadow-sm hover:border-titanium-light/50"
+                        : "bg-light-card border-light-border shadow-sm hover:border-titanium-light/50"
+                  }`}
+                >
+                  <Icon
+                    className={`mb-3 h-5 w-5 ${isLast ? "text-titanium-light" : stage.active ? "text-light-muted" : "text-light-muted"}`}
+                    strokeWidth={1.5}
+                  />
+                  <p className={`font-display text-[10px] font-semibold uppercase tracking-[2px] ${isLast ? "text-titanium" : "text-light-muted"}`}>
+                    {stage.phase}
+                  </p>
+                  <h3 className={`mt-1 font-display text-[18px] font-semibold leading-[1.2] tracking-[-0.5px] ${isLast ? "text-white-pure" : "text-light-text"}`}>
+                    {stage.title}
+                  </h3>
+                  <span className={`mt-1 inline-block font-display text-[10px] font-semibold uppercase tracking-[2px] ${
+                    isLast ? "text-white-pure" : stage.active ? "text-light-muted" : "text-light-muted"
+                  }`}>
+                    {stage.status}
+                  </span>
+                  <p className={`mt-2 font-body text-[13px] leading-[1.75] ${isLast ? "text-titanium-light" : "text-light-muted"}`}>
+                    {stage.description}
+                  </p>
 
-                    <div className={`h-full overflow-hidden rounded-lg border p-6 shadow-sm transition-all hover:shadow-lg hover:-translate-y-1.5 ${
-                      isLast
-                        ? "bg-void border-titanium-dark hover:border-titanium"
-                        : stage.active
-                          ? "bg-light-card border-cyan-muted hover:border-cyan-muted/30"
-                          : "bg-light-card border-light-border hover:border-cyan-muted/30"
-                    }`}>
-                      <Icon
-                        className={`mb-4 h-5 w-5 ${isLast ? "text-titanium-light" : stage.active ? "text-cyan-muted" : "text-light-muted"}`}
-                        strokeWidth={1.5}
-                      />
-                      <p className={`font-display text-[11px] font-semibold uppercase tracking-[3px] ${isLast ? "text-titanium" : "text-light-muted"}`}>
-                        {stage.phase}
-                      </p>
-                      <h3 className={`mt-1 font-display text-[20px] font-semibold leading-[1.2] tracking-[-0.5px] ${isLast ? "text-white-pure" : "text-light-text"}`}>
-                        {stage.title}
-                      </h3>
-                      <span className={`mt-1 inline-block font-display text-[10px] font-semibold uppercase tracking-[2px] ${
-                        isLast ? "text-cyan" : stage.active ? "text-cyan-muted" : "text-light-muted"
-                      }`}>
-                        {stage.status}
-                      </span>
-                      <p className={`mt-2 font-body text-[14px] leading-[1.75] ${isLast ? "text-titanium-light" : "text-light-muted"}`}>
-                        {stage.description}
-                      </p>
-
-                      {stage.active && (
-                        <BorderBeam size={80} duration={8} colorFrom="#5EAFC5" colorTo="#3D7A8F" borderWidth={1} />
-                      )}
-                    </div>
-                  </div>
-                </FadeIn>
+                  {stage.active && (
+                    <BorderBeam size={80} duration={8} colorFrom="#5EAFC5" colorTo="#3D7A8F" borderWidth={1} />
+                  )}
+                </div>
               );
             })}
-          </div>
+          </StaggerFadeIn>
         </div>
       </div>
     </section>

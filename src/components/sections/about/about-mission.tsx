@@ -30,7 +30,7 @@ const values = [
 
 export function AboutMission() {
   return (
-    <section className="relative bg-light-bg px-6 py-28 lg:py-36 overflow-hidden">
+    <section className="relative bg-light-bg px-6 py-32 lg:py-40 overflow-hidden">
 
       <div className="relative z-10 mx-auto max-w-[1100px]">
         {/* ── Headline ── */}
@@ -55,11 +55,11 @@ export function AboutMission() {
             return (
               <div
                 key={value.title}
-                className={`relative overflow-hidden rounded-lg border bg-light-card p-8 shadow-sm transition-all hover:shadow-lg hover:-translate-y-1.5 hover:border-cyan-muted/30 ${
+                className={`relative overflow-hidden rounded-lg border bg-light-card p-8 shadow-sm transition-all hover:shadow-lg hover:-translate-y-1.5 hover:border-titanium-light/50 ${
                   value.title === "Precision" ? "border-cyan-muted" : "border-light-border"
                 }`}
               >
-                <Icon className={`mb-5 h-6 w-6 ${value.title === "Precision" ? "text-cyan-muted" : "text-light-muted"}`} strokeWidth={1.5} />
+                <Icon className={`mb-5 h-6 w-6 ${value.title === "Precision" ? "text-light-muted" : "text-light-muted"}`} strokeWidth={1.5} />
                 <h3 className="font-display text-[20px] font-semibold leading-[1.2] tracking-[-0.5px] text-light-text">
                   {value.title}
                 </h3>
@@ -67,7 +67,7 @@ export function AboutMission() {
                   {value.description}
                 </p>
                 <div className="mt-5 border-t border-light-border pt-5">
-                  <div className="font-display text-[28px] font-bold leading-none tracking-[-1.5px] text-mint">
+                  <div className="font-display text-[28px] font-bold leading-none tracking-[-1.5px] text-light-text">
                     {value.metric.prefix}
                     <NumberTicker
                       value={value.metric.value}

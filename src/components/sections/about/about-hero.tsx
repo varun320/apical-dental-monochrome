@@ -68,13 +68,12 @@ export function AboutHero() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-light-bg px-6"
+      className="section-dark relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-void px-6"
     >
       {/* ── Background ── */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(94,175,197,0.06),transparent)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.18)_1px,transparent_1px)] bg-[size:48px_48px]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_100%_60%_at_50%_50%,transparent_40%,rgba(241,245,249,1))]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(94,175,197,0.08),transparent)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.06)_1px,transparent_1px)] bg-[size:48px_48px]" />
       </div>
 
       {/* ── Floating icons ── */}
@@ -83,7 +82,7 @@ export function AboutHero() {
           <Icon
             key={i}
             className="absolute text-titanium-light animate-float"
-            style={{ top, left, width: size, height: size, opacity: 0.15, animationDelay: delay }}
+            style={{ top, left, width: size, height: size, opacity: 0.08, animationDelay: delay }}
             strokeWidth={1}
           />
         ))}
@@ -93,7 +92,7 @@ export function AboutHero() {
       <div ref={contentRef} className="relative z-10 mx-auto flex max-w-[800px] flex-col items-center text-center">
         <p
           ref={kickerRef}
-          className="mb-8 font-display text-[11px] font-semibold uppercase tracking-[3px] text-light-muted"
+          className="mb-8 font-display text-[11px] font-semibold uppercase tracking-[3px] text-titanium-light"
         >
           Our Story
         </p>
@@ -102,17 +101,17 @@ export function AboutHero() {
           ref={headlineRef}
           className="font-display text-[clamp(36px,6vw,56px)] font-bold leading-[1.05] tracking-[-2px]"
         >
-          <span className="headline-line block text-light-text">
+          <span className="headline-line block text-white-pure">
             Where Precision
           </span>
-          <span className="headline-line block bg-linear-to-r from-light-text via-titanium to-titanium-light bg-clip-text text-transparent">
+          <span className="headline-line block bg-linear-to-r from-white-pure via-titanium-light to-titanium bg-clip-text text-transparent">
             Began
           </span>
         </h1>
 
         <p
           ref={subRef}
-          className="mt-8 max-w-[620px] font-body text-[17px] leading-[1.7] text-light-muted"
+          className="mt-8 max-w-[620px] font-body text-[17px] leading-[1.7] text-titanium-light"
         >
           Four decades of redefining what&apos;s possible in dentistry. From a single lab
           to a 500+ office network — one doctor&apos;s obsession with precision became the
@@ -122,10 +121,10 @@ export function AboutHero() {
 
       {/* ── Scroll indicator ── */}
       <div ref={scrollIndicatorRef} className="absolute bottom-12 flex flex-col items-center gap-2">
-        <span className="font-display text-[9px] font-semibold uppercase tracking-[3px] text-light-muted">
+        <span className="font-display text-[9px] font-semibold uppercase tracking-[3px] text-titanium-light">
           Scroll
         </span>
-        <div className="h-8 w-px bg-light-border animate-float" />
+        <div className="h-8 w-px bg-titanium-dark animate-float" />
       </div>
     </section>
   );

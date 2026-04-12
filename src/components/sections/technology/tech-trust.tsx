@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { FadeIn, StaggerFadeIn } from "@/components/animations/fade-in";
 import { TextReveal } from "@/components/animations/text-reveal";
 import { BorderBeam } from "@/components/ui/border-beam";
-import Image from "next/image";
+
 import { ShieldCheck, FileCheck, Award, Lock, HeartPulse, Scale } from "lucide-react";
 
 const badges = [
@@ -18,16 +19,21 @@ const badges = [
 
 export function TechTrust() {
   return (
-    <section className="relative bg-light-bg px-6 py-28 lg:py-36 overflow-hidden">
+    <section className="section-dark relative bg-void px-6 py-32 lg:py-40 overflow-hidden">
+      {/* Background */}
+      <div className="pointer-events-none absolute inset-0">
+        <Image src="/images/hero-systems.png" alt="" fill className="object-cover grayscale-50 brightness-[0.15] opacity-50" sizes="100vw" />
+        <div className="absolute inset-0 bg-void/70" />
+      </div>
       <div className="relative z-10 mx-auto max-w-[1100px]">
         {/* ── Section header ── */}
         <FadeIn>
-          <p className="mb-4 font-display text-[11px] font-semibold uppercase tracking-[3px] text-light-muted">
+          <p className="mb-4 font-display text-[11px] font-semibold uppercase tracking-[3px] text-titanium-light">
             Trust & Safety
           </p>
         </FadeIn>
         <FadeIn delay={0.1}>
-          <h2 className="mb-16 font-display text-[clamp(24px,4vw,30px)] font-bold leading-[1.1] tracking-[-0.5px] text-light-text">
+          <h2 className="mb-16 font-display text-[clamp(24px,4vw,30px)] font-bold leading-[1.1] tracking-[-0.5px] text-white-pure">
             Built on trust. Backed by science.
           </h2>
         </FadeIn>
@@ -43,21 +49,15 @@ export function TechTrust() {
             return (
               <div
                 key={badge.title}
-                className={`relative overflow-hidden rounded-lg border p-6 shadow-sm transition-all hover:shadow-lg hover:-translate-y-1.5 ${
-                  isHighlight
-                    ? "bg-void border-titanium-dark hover:border-titanium"
-                    : "bg-light-card border-light-border hover:border-cyan-muted/30"
-                }`}
+                className="relative overflow-hidden rounded-lg border border-titanium-dark bg-deep-void p-6 transition-all hover:border-titanium hover:-translate-y-1.5"
               >
-                <div className={`flex h-10 w-10 items-center justify-center rounded-md border ${
-                  isHighlight ? "border-titanium-dark bg-deep-void" : "border-light-border bg-light-bg"
-                }`}>
-                  <Icon className={`h-5 w-5 ${isHighlight ? "text-cyan" : "text-light-muted"}`} strokeWidth={1.5} />
+                <div className="flex h-10 w-10 items-center justify-center rounded-md border border-titanium-dark bg-void">
+                  <Icon className="h-5 w-5 text-titanium-light" strokeWidth={1.5} />
                 </div>
-                <h3 className={`mt-4 font-display text-[16px] font-semibold leading-[1.2] tracking-[-0.3px] ${isHighlight ? "text-white-pure" : "text-light-text"}`}>
+                <h3 className="mt-4 font-display text-[16px] font-semibold leading-[1.2] tracking-[-0.3px] text-white-pure">
                   {badge.title}
                 </h3>
-                <p className={`mt-2 font-body text-[13px] leading-[1.7] ${isHighlight ? "text-titanium-light" : "text-light-muted"}`}>
+                <p className="mt-2 font-body text-[13px] leading-[1.7] text-titanium-light">
                   {badge.description}
                 </p>
                 {isHighlight && (
@@ -70,7 +70,7 @@ export function TechTrust() {
 
         {/* ── CTA Card ── */}
         <FadeIn delay={0.3}>
-          <div className="section-dark relative mt-20 overflow-hidden rounded-lg border border-titanium-dark bg-deep-void p-12 text-center">
+          <div className="section-dark relative mt-20 overflow-hidden rounded-lg border border-titanium-dark bg-deep-void p-12 shadow-[0_0_50px_rgba(94,175,197,0.25)] text-center">
             <Image
               src="/images/cta-texture.png"
               alt=""
@@ -86,7 +86,7 @@ export function TechTrust() {
               <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
                 <Link
                   href="/contact"
-                  className="rounded-md bg-white-pure px-8 py-4 font-display text-[14px] font-bold tracking-[0.5px] text-void transition-opacity hover:opacity-80"
+                  className="rounded-md bg-white-pure px-8 py-4 font-display text-[14px] font-bold tracking-[0.5px] text-void transition-all hover:shadow-[0_0_30px_rgba(94,175,197,0.5)] hover:opacity-90"
                 >
                   Request a Demo &rarr;
                 </Link>

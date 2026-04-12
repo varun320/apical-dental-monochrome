@@ -29,7 +29,7 @@ export default function UnderConstructionPage() {
       <Navbar />
       <main
         ref={contentRef}
-        className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-light-bg px-6"
+        className="section-dark relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-void px-6"
       >
         {/* Background */}
         <div className="pointer-events-none absolute inset-0">
@@ -47,21 +47,21 @@ export default function UnderConstructionPage() {
         </div>
 
         <div className="relative z-10 flex max-w-[500px] flex-col items-center text-center">
-          <div className="uc-icon flex h-16 w-16 items-center justify-center rounded-full border border-light-border bg-light-card shadow-sm">
-            <Construction className="h-7 w-7 text-light-muted" strokeWidth={1.5} />
+          <div className="uc-icon flex h-16 w-16 items-center justify-center rounded-full border border-titanium-dark bg-deep-void">
+            <Construction className="h-7 w-7 text-titanium-light" strokeWidth={1.5} />
           </div>
 
-          <h1 className="uc-heading mt-8 font-display text-[clamp(28px,5vw,40px)] font-bold leading-[1.1] tracking-[-1.5px] text-light-text">
+          <h1 className="uc-heading mt-8 font-display text-[clamp(28px,5vw,40px)] font-bold leading-[1.1] tracking-[-1.5px] text-white-pure">
             Under Construction
           </h1>
 
-          <p className="uc-text mt-4 font-body text-[16px] leading-[1.7] text-light-muted">
+          <p className="uc-text mt-4 font-body text-[16px] leading-[1.7] text-titanium-light">
             We&apos;re building something extraordinary. This page is coming soon — precision takes time.
           </p>
 
           <Link
             href="/"
-            className="uc-cta mt-10 inline-flex items-center gap-2 rounded-md bg-light-text px-6 py-3.5 font-display text-[12px] font-bold tracking-[0.5px] text-white transition-opacity hover:opacity-80"
+            className="uc-cta mt-10 inline-flex items-center gap-2 rounded-md bg-white-pure px-6 py-3.5 font-display text-[12px] font-bold tracking-[0.5px] text-void transition-all hover:bg-cyan hover:shadow-[0_0_30px_rgba(94,175,197,0.5)]"
           >
             <ArrowLeft className="h-4 w-4" strokeWidth={2} />
             Back to Home

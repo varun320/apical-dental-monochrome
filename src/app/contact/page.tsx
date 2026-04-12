@@ -11,7 +11,7 @@ import { ImagePlaceholder } from "@/components/ui/image-placeholder";
 import { cn } from "@/lib/utils";
 import {
   Building2, Stethoscope, Bot, Mail, Phone, MapPin,
-  ChevronDown, MessageSquare, Clock, Globe,
+  ChevronDown, MessageSquare, Clock, Globe, Loader2, CheckCircle,
 } from "lucide-react";
 
 /* ── Path selector data ── */
@@ -47,6 +47,12 @@ const faqs = [
   },
 ] as const;
 
+type FormState = "idle" | "submitting" | "success";
+
+function validateEmail(email: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
 export default function ContactPage() {
   const [selectedPath, setSelectedPath] = useState<PathId | null>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -55,6 +61,8 @@ export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "", email: "", organization: "", role: "", locations: "", message: "",
   });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [formState, setFormState] = useState<FormState>("idle");
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -66,11 +74,29 @@ export default function ContactPage() {
     return () => ctx.revert();
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => { e.preventDefault(); };
+  const validate = () => {
+    const errs: Record<string, string> = {};
+    if (!formData.name.trim()) errs.name = "Name is required";
+    if (!formData.email.trim()) errs.email = "Email is required";
+    else if (!validateEmail(formData.email)) errs.email = "Enter a valid email";
+    if (!formData.message.trim()) errs.message = "Message is required";
+    setErrors(errs);
+    return Object.keys(errs).length === 0;
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!validate()) return;
+    setFormState("submitting");
+    setTimeout(() => setFormState("success"), 1500);
+  };
 
   const updateField = (field: keyof typeof formData) => (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => setFormData((prev) => ({ ...prev, [field]: e.target.value }));
+  ) => {
+    setFormData((prev) => ({ ...prev, [field]: e.target.value }));
+    if (errors[field]) setErrors((prev) => ({ ...prev, [field]: "" }));
+  };
 
   return (
     <>
@@ -79,27 +105,26 @@ export default function ContactPage() {
         {/* ══════════════════════════════════════════════
             SECTION 1 — Hero (split: text left, info right)
         ══════════════════════════════════════════════ */}
-        <section className="relative overflow-hidden bg-light-bg px-6 pt-36 pb-20 lg:pt-44 lg:pb-28">
+        <section className="section-dark relative overflow-hidden bg-void px-6 pt-36 pb-20 lg:pt-44 lg:pb-28">
           <div className="pointer-events-none absolute inset-0">
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_20%_-10%,rgba(94,175,197,0.06),transparent)]" />
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.18)_1px,transparent_1px)] bg-[size:48px_48px]" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_100%_60%_at_50%_50%,transparent_40%,rgba(241,245,249,1))]" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_20%_-10%,rgba(94,175,197,0.08),transparent)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.06)_1px,transparent_1px)] bg-[size:48px_48px]" />
           </div>
 
           <div ref={heroRef} className="relative z-10 mx-auto max-w-[1100px]">
             <div className="grid items-start gap-12 lg:grid-cols-[1.3fr_1fr] lg:gap-20">
               {/* Left — text */}
               <div>
-                <p className="c-kicker mb-6 font-display text-[11px] font-semibold uppercase tracking-[3px] text-light-muted">
+                <p className="c-kicker mb-6 font-display text-[11px] font-semibold uppercase tracking-[3px] text-titanium-light">
                   Contact Us
                 </p>
-                <h1 className="c-headline font-display text-[clamp(32px,5vw,48px)] font-bold leading-[1.05] tracking-[-2px] text-light-text">
+                <h1 className="c-headline font-display text-[clamp(32px,5vw,48px)] font-bold leading-[1.05] tracking-[-2px] text-white-pure">
                   Let&apos;s start a<br />
-                  <span className="bg-linear-to-r from-light-text via-titanium to-titanium-light bg-clip-text text-transparent">
+                  <span className="bg-linear-to-r from-white-pure via-titanium-light to-titanium bg-clip-text text-transparent">
                     conversation.
                   </span>
                 </h1>
-                <p className="c-sub mt-6 max-w-[440px] font-body text-[16px] leading-[1.7] text-light-muted">
+                <p className="c-sub mt-6 max-w-[440px] font-body text-[16px] leading-[1.7] text-titanium-light">
                   Whether you run a DSO network, an independent practice, or you&apos;re exploring a robotics partnership — we&apos;d love to hear from you.
                 </p>
 
@@ -109,7 +134,7 @@ export default function ContactPage() {
                     src="/images/hero-team.png"
                     alt="Apical Dental team"
                     className="h-[140px] w-full"
-                    overlay="light"
+                    overlay="dark"
                   />
                 </div>
               </div>
@@ -125,16 +150,16 @@ export default function ContactPage() {
                   return (
                     <div
                       key={info.label}
-                      className="flex items-center gap-4 rounded-lg border border-light-border bg-light-card p-5 shadow-sm transition-all hover:shadow-lg hover:-translate-y-1.5 hover:border-cyan-muted/30"
+                      className="flex items-center gap-4 rounded-lg border border-titanium-dark bg-deep-void p-5 transition-all hover:border-titanium hover:-translate-y-1.5"
                     >
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-light-border bg-light-bg">
-                        <Icon className="h-5 w-5 text-light-muted" strokeWidth={1.5} />
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-titanium-dark bg-void">
+                        <Icon className="h-5 w-5 text-titanium-light" strokeWidth={1.5} />
                       </div>
                       <div>
-                        <p className="font-display text-[14px] font-semibold tracking-[-0.3px] text-light-text">
+                        <p className="font-display text-[14px] font-semibold tracking-[-0.3px] text-white-pure">
                           {info.value}
                         </p>
-                        <p className="mt-0.5 font-body text-[12px] text-light-muted">
+                        <p className="mt-0.5 font-body text-[12px] text-titanium-light">
                           {info.sub}
                         </p>
                       </div>
@@ -149,7 +174,7 @@ export default function ContactPage() {
         {/* ══════════════════════════════════════════════
             SECTION 2 — Contact Form with Path Selector
         ══════════════════════════════════════════════ */}
-        <section className="relative bg-light-bg px-6 py-28 lg:py-36">
+        <section className="relative bg-light-bg px-6 py-32 lg:py-40">
           <div className="relative z-10 mx-auto max-w-[700px]">
             <FadeIn>
               <div className="flex items-center gap-3 mb-4">
@@ -205,12 +230,26 @@ export default function ContactPage() {
             </FadeIn>
 
             {/* Form */}
-            {selectedPath && (
+            {selectedPath && formState === "success" ? (
+              <FadeIn delay={0.1} direction="up" distance={20}>
+                <div className="mt-8 flex flex-col items-center text-center py-12">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full border border-cyan-muted/30 bg-cyan/5">
+                    <CheckCircle className="h-8 w-8 text-cyan" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="mt-6 font-display text-[24px] font-bold tracking-[-0.5px] text-light-text">
+                    Message sent.
+                  </h3>
+                  <p className="mt-2 font-body text-[15px] text-light-muted">
+                    We&apos;ll be in touch within 24 hours.
+                  </p>
+                </div>
+              </FadeIn>
+            ) : selectedPath ? (
               <FadeIn delay={0.1} direction="up" distance={20}>
                 <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-5">
                   <div className="grid gap-5 sm:grid-cols-2">
-                    <FormInput type="text" placeholder="Name" value={formData.name} onChange={updateField("name")} />
-                    <FormInput type="email" placeholder="Email" value={formData.email} onChange={updateField("email")} />
+                    <FormInput type="text" placeholder="Name *" value={formData.name} onChange={updateField("name")} error={errors.name} />
+                    <FormInput type="email" placeholder="Email *" value={formData.email} onChange={updateField("email")} error={errors.email} />
                   </div>
                   <div className="grid gap-5 sm:grid-cols-2">
                     <FormInput type="text" placeholder="Organization" value={formData.organization} onChange={updateField("organization")} />
@@ -222,30 +261,39 @@ export default function ContactPage() {
                   <FormTextarea
                     placeholder={
                       selectedPath === "dso"
-                        ? "Tell us about your DSO and what you're looking to achieve..."
+                        ? "Tell us about your DSO and what you're looking to achieve... *"
                         : selectedPath === "tesla"
-                          ? "Tell us about the collaboration opportunity..."
-                          : "Tell us about your practice and how we can help..."
+                          ? "Tell us about the collaboration opportunity... *"
+                          : "Tell us about your practice and how we can help... *"
                     }
                     rows={4}
                     value={formData.message}
                     onChange={updateField("message")}
+                    error={errors.message}
                   />
                   <button
                     type="submit"
-                    className="mt-2 rounded-md bg-light-text px-8 py-4 font-display text-[14px] font-bold tracking-[0.5px] text-light-bg transition-opacity hover:opacity-80"
+                    disabled={formState === "submitting"}
+                    className="mt-2 flex items-center justify-center gap-2 rounded-md bg-light-text px-8 py-4 font-display text-[14px] font-bold tracking-[0.5px] text-light-bg transition-all hover:shadow-[0_0_30px_rgba(94,175,197,0.5)] hover:opacity-90 disabled:opacity-60"
                   >
-                    Send Message
+                    {formState === "submitting" ? (
+                      <>
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      "Send Message"
+                    )}
                   </button>
                 </form>
               </FadeIn>
-            )}
+            ) : null}
 
             {!selectedPath && (
               <FadeIn delay={0.3}>
                 <div className="mt-8 flex items-center gap-2 justify-center">
-                  <Globe className="h-4 w-4 text-titanium" strokeWidth={1.5} />
-                  <p className="font-body text-[13px] text-titanium">
+                  <Globe className="h-4 w-4 text-titanium-light" strokeWidth={1.5} />
+                  <p className="font-body text-[13px] text-titanium-light">
                     Select who you are above to get started
                   </p>
                 </div>
@@ -257,21 +305,26 @@ export default function ContactPage() {
         {/* ══════════════════════════════════════════════
             SECTION 3 — FAQs
         ══════════════════════════════════════════════ */}
-        <section className="relative bg-white px-6 py-28 lg:py-36">
-          <div className="relative z-10 mx-auto max-w-[700px]">
-            <FadeIn>
-              <div className="flex items-center gap-3 mb-4">
-                <Clock className="h-5 w-5 text-light-muted" strokeWidth={1.5} />
-                <p className="font-display text-[11px] font-semibold uppercase tracking-[3px] text-light-muted">
-                  Frequently Asked
-                </p>
-              </div>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <h2 className="mb-12 font-display text-[clamp(24px,4vw,30px)] font-bold leading-[1.1] tracking-[-0.5px] text-light-text">
-                Common questions, answered.
-              </h2>
-            </FadeIn>
+        <section className="relative bg-white px-6 py-32 lg:py-40">
+          <div className="relative z-10 mx-auto max-w-[1100px]">
+            {/* 50/50 — header left, accordion right */}
+            <div className="grid gap-12 lg:grid-cols-[1fr_1.3fr] lg:gap-16 items-start">
+              <FadeIn>
+                <div className="lg:sticky lg:top-32">
+                  <div className="flex items-center gap-3 mb-4">
+                    <Clock className="h-5 w-5 text-light-muted" strokeWidth={1.5} />
+                    <p className="font-display text-[11px] font-semibold uppercase tracking-[3px] text-light-muted">
+                      Frequently Asked
+                    </p>
+                  </div>
+                  <h2 className="font-display text-[clamp(28px,4vw,36px)] font-bold leading-[1.1] tracking-[-1px] text-light-text">
+                    Common questions, answered.
+                  </h2>
+                  <p className="mt-6 font-body text-[16px] leading-[1.7] text-light-muted">
+                    Everything you need to know about getting started with robotic dental automation.
+                  </p>
+                </div>
+              </FadeIn>
 
             <StaggerFadeIn className="flex flex-col gap-3" stagger={0.08}>
               {faqs.map((faq, i) => {
@@ -318,6 +371,7 @@ export default function ContactPage() {
                 );
               })}
             </StaggerFadeIn>
+            </div>
           </div>
         </section>
       </main>

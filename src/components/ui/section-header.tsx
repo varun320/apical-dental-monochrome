@@ -22,7 +22,7 @@ export function SectionHeader({
   return (
     <div className={alignment}>
       <FadeIn>
-        <p className={`font-display text-[11px] font-semibold uppercase tracking-[3px] ${light ? "text-light-muted" : "text-titanium"}`}>
+        <p className={`font-display text-[11px] font-semibold uppercase tracking-[3px] ${light ? "text-light-muted" : "text-titanium-light"}`}>
           {label}
         </p>
       </FadeIn>

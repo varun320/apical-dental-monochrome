@@ -95,7 +95,7 @@ export function DSOPartnership() {
   }, []);
 
   return (
-    <section className="relative bg-light-bg px-6 py-28 lg:py-36 overflow-hidden">
+    <section className="relative bg-light-bg px-6 py-32 lg:py-40 overflow-hidden">
       <div className="relative z-10 mx-auto max-w-[800px]">
         <FadeIn>
           <p className="mb-4 font-display text-[11px] font-semibold uppercase tracking-[3px] text-light-muted">

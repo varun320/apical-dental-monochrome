@@ -2,21 +2,16 @@
 
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { Cpu } from "lucide-react";
 
 interface ImagePlaceholderProps {
   src?: string;
   alt: string;
   className?: string;
-  /** Overlay style: 'gradient' fades edges, 'dark' is full dark overlay, 'subtle' is very light, 'light' for light-themed sections */
   overlay?: "gradient" | "dark" | "subtle" | "light";
   priority?: boolean;
 }
 
-/**
- * Image container that shows a subtle gradient placeholder when no src is provided.
- * When src is provided, renders a next/image with monochrome treatment.
- * Drop in real images by adding src prop — no other changes needed.
- */
 export function ImagePlaceholder({
   src,
   alt,
@@ -25,45 +20,52 @@ export function ImagePlaceholder({
   priority = false,
 }: ImagePlaceholderProps) {
   const overlayStyles = {
-    gradient: "bg-[radial-gradient(ellipse_at_center,rgba(17,24,39,0.1),rgba(6,7,13,0.6))]",
-    dark: "bg-void/40",
+    gradient: "bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(6,7,13,0.7))]",
+    dark: "bg-void/50",
     subtle: "bg-void/20",
-    light: "bg-white/30",
+    light: "bg-white/20",
   };
 
   if (!src) {
-    const isLight = overlay === "light";
+    const isDark = overlay !== "light";
     return (
       <div
         className={cn(
-          "relative overflow-hidden rounded-lg border",
-          isLight
-            ? "border-light-border bg-[linear-gradient(135deg,rgba(241,245,249,1),rgba(226,232,240,1))]"
-            : "border-titanium-dark bg-[linear-gradient(135deg,rgba(17,24,39,0.8),rgba(6,7,13,0.95))]",
+          "relative overflow-hidden rounded-xl border flex items-center justify-center",
+          isDark
+            ? "border-titanium-dark bg-deep-void"
+            : "border-light-border bg-light-bg",
           className
         )}
       >
+        {/* Grid pattern */}
         <div className={cn(
-          "absolute inset-0 bg-[size:24px_24px]",
-          isLight
-            ? "bg-[linear-gradient(rgba(100,116,139,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(100,116,139,0.06)_1px,transparent_1px)]"
-            : "bg-[linear-gradient(rgba(30,41,59,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(30,41,59,0.06)_1px,transparent_1px)]"
+          "absolute inset-0 bg-[size:32px_32px]",
+          isDark
+            ? "bg-[linear-gradient(rgba(148,163,184,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.04)_1px,transparent_1px)]"
+            : "bg-[linear-gradient(rgba(100,116,139,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(100,116,139,0.06)_1px,transparent_1px)]"
         )} />
+        {/* Centered icon */}
+        <Cpu
+          className={cn("relative z-10", isDark ? "text-titanium-dark" : "text-light-border")}
+          style={{ width: 48, height: 48 }}
+          strokeWidth={0.8}
+        />
       </div>
     );
   }
 
   return (
-    <div className={cn("relative overflow-hidden rounded-lg", className)}>
+    <div className={cn("relative overflow-hidden rounded-xl group", className)}>
       <Image
         src={src}
         alt={alt}
         fill
-        className="object-cover grayscale-[50%] brightness-75"
+        className="object-cover grayscale-[30%] brightness-[0.8] transition-transform duration-500 group-hover:scale-105"
         sizes="(max-width: 768px) 100vw, 600px"
         priority={priority}
       />
-      <div className={cn("absolute inset-0", overlayStyles[overlay])} />
+      <div className={cn("absolute inset-0 transition-opacity duration-500", overlayStyles[overlay])} />
     </div>
   );
 }

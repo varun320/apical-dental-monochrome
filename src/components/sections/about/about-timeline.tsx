@@ -1,8 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
-import { FadeIn } from "@/components/animations/fade-in";
+import { FadeIn, StaggerFadeIn } from "@/components/animations/fade-in";
 import { NumberTicker } from "@/components/ui/number-ticker";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { ImagePlaceholder } from "@/components/ui/image-placeholder";
@@ -20,7 +18,7 @@ const milestones = [
   {
     year: 2000,
     title: "Innovation Begins",
-    description: "Pioneering robotic-assisted dental procedures, pushing the boundaries of what laboratory automation could achieve.",
+    description: "Pioneering robotic-assisted dental procedures, pushing the boundaries of laboratory automation.",
     stat: { value: 800, suffix: "+", label: "Adaptations" },
     icon: Lightbulb,
     image: "/images/timeline-2000.png",
@@ -28,7 +26,7 @@ const milestones = [
   {
     year: 2015,
     title: "Scaling Impact",
-    description: "Expanding across dental service organizations nationwide, proving that precision at scale was not just possible — it was inevitable.",
+    description: "Expanding across dental service organizations nationwide — precision at scale.",
     stat: { value: 500, suffix: "+", label: "DSO Offices" },
     icon: Building2,
     image: "/images/timeline-2015.png",
@@ -36,7 +34,7 @@ const milestones = [
   {
     year: 2024,
     title: "The Future",
-    description: "Leading the next generation of precision dentistry with Tesla's Optimus integration — zero regulatory barriers, infinite potential.",
+    description: "Leading the next generation with Tesla's Optimus integration — zero barriers, infinite potential.",
     stat: { value: 0, suffix: "", label: "Regulatory Barriers" },
     icon: Rocket,
     image: "/images/timeline-2024.png",
@@ -44,104 +42,85 @@ const milestones = [
 ] as const;
 
 export function AboutTimeline() {
-  const lineRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const line = lineRef.current;
-    const track = trackRef.current;
-    if (!line || !track) return;
-
-    gsap.set(line, { scaleX: 0, transformOrigin: "left" });
-
-    const trigger = ScrollTrigger.create({
-      trigger: track,
-      start: "top 70%",
-      end: "bottom 50%",
-      onUpdate: (self) => {
-        gsap.set(line, { scaleX: self.progress });
-      },
-    });
-
-    return () => trigger.kill();
-  }, []);
-
   return (
-    <section className="relative bg-white px-6 py-28 lg:py-36 overflow-hidden">
+    <section className="relative bg-white px-6 py-32 lg:py-40 overflow-hidden">
       <div className="relative z-10 mx-auto max-w-[1100px]">
-        <FadeIn>
-          <p className="mb-4 font-display text-[11px] font-semibold uppercase tracking-[3px] text-light-muted">
-            The Evolution
-          </p>
-        </FadeIn>
-        <FadeIn delay={0.1}>
-          <h2 className="font-display text-[clamp(24px,4vw,30px)] font-bold leading-[1.1] tracking-[-0.5px] text-light-text">
-            Four decades of relentless progress.
-          </h2>
-        </FadeIn>
+        {/* 50/50 — header left, timeline right */}
+        <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-16 items-start">
+          {/* Left — header */}
+          <FadeIn>
+            <div className="lg:sticky lg:top-32">
+              <p className="mb-4 font-display text-[11px] font-semibold uppercase tracking-[3px] text-light-muted">
+                The Evolution
+              </p>
+              <h2 className="font-display text-[clamp(28px,4vw,36px)] font-bold leading-[1.1] tracking-[-1px] text-light-text">
+                Four decades of relentless progress.
+              </h2>
+              <p className="mt-6 font-body text-[16px] leading-[1.7] text-light-muted">
+                From a single laboratory to a nationwide robotic dental network — every year brought us closer to the future.
+              </p>
+            </div>
+          </FadeIn>
 
-        <div ref={trackRef} className="relative mt-20">
-          {/* Progress line */}
-          <div className="absolute top-0 left-0 right-0 h-px bg-light-border">
-            <div ref={lineRef} className="h-full w-full bg-cyan" />
-          </div>
-
-          {/* Milestone cards */}
-          <div className="grid grid-cols-1 gap-6 pt-12 sm:grid-cols-2 lg:grid-cols-4">
+          {/* Right — milestone cards stacked */}
+          <StaggerFadeIn className="flex flex-col gap-5" stagger={0.12}>
             {milestones.map((milestone, i) => {
               const Icon = milestone.icon;
               const isLast = i === milestones.length - 1;
               return (
-                <FadeIn key={milestone.year} delay={i * 0.12} direction="up" distance={30}>
-                  <div className="relative overflow-hidden rounded-lg border border-light-border bg-light-card p-6 shadow-sm h-full transition-all hover:shadow-lg hover:-translate-y-1.5 hover:border-cyan-muted/30">
-                    {/* Dot on the line */}
-                    <div className="absolute -top-[17px] left-6">
-                      <div className="h-2.5 w-2.5 rounded-full border border-light-border bg-white" />
+                <div
+                  key={milestone.year}
+                  className={`relative overflow-hidden rounded-xl border p-6 transition-all hover:shadow-lg hover:-translate-y-1.5 ${
+                    isLast
+                      ? "bg-void border-titanium-dark hover:border-cyan-muted hover:shadow-[0_0_40px_rgba(94,175,197,0.35)]"
+                      : "bg-light-card border-light-border shadow-sm hover:border-titanium-light/50"
+                  }`}
+                >
+                  <div className="flex items-start gap-5">
+                    {/* Image thumbnail */}
+                    <div className="hidden sm:block w-[80px] h-[80px] shrink-0 rounded-lg overflow-hidden">
+                      <ImagePlaceholder
+                        src={milestone.image}
+                        alt={milestone.title}
+                        className="h-full w-full rounded-lg border-0"
+                        overlay={isLast ? "dark" : "light"}
+                      />
                     </div>
 
-                    <ImagePlaceholder
-                      src={milestone.image}
-                      alt={milestone.title}
-                      className="mb-4 h-[80px] w-full rounded-md border-0"
-                      overlay="light"
-                    />
-
-                    <Icon className="mb-4 h-5 w-5 text-light-muted" strokeWidth={1.5} />
-
-                    <p className="font-display text-[28px] font-bold leading-none tracking-[-1.5px] text-light-text">
-                      {milestone.year}
-                    </p>
-                    <h3 className="mt-2 font-display text-[18px] font-semibold leading-[1.2] tracking-[-0.5px] text-light-text">
-                      {milestone.title}
-                    </h3>
-                    <p className="mt-2 font-body text-[14px] leading-[1.75] text-light-muted">
-                      {milestone.description}
-                    </p>
-
-                    <div className="mt-4 border-t border-light-border pt-4">
-                      <div className="font-display text-[22px] font-bold leading-none tracking-[-1px] text-mint">
-                        <NumberTicker value={milestone.stat.value} delay={0.5} />
-                        {milestone.stat.suffix}
+                    <div className="flex-1">
+                      <div className="flex items-center gap-3">
+                        <Icon className={`h-4 w-4 ${isLast ? "text-white-pure" : "text-light-muted"}`} strokeWidth={1.5} />
+                        <p className={`font-display text-[24px] font-bold leading-none tracking-[-1px] ${isLast ? "text-white-pure" : "text-light-text"}`}>
+                          {milestone.year}
+                        </p>
                       </div>
-                      <p className="mt-1 font-display text-[9px] font-semibold uppercase tracking-[2px] text-light-muted">
-                        {milestone.stat.label}
+                      <h3 className={`mt-2 font-display text-[17px] font-semibold leading-[1.2] tracking-[-0.3px] ${isLast ? "text-white-pure" : "text-light-text"}`}>
+                        {milestone.title}
+                      </h3>
+                      <p className={`mt-1.5 font-body text-[13px] leading-[1.7] ${isLast ? "text-titanium-light" : "text-light-muted"}`}>
+                        {milestone.description}
                       </p>
                     </div>
 
-                    {isLast && (
-                      <BorderBeam
-                        size={80}
-                        duration={8}
-                        colorFrom="#5EAFC5"
-                        colorTo="#3D7A8F"
-                        borderWidth={1}
-                      />
-                    )}
+                    {/* Stat */}
+                    <div className="hidden sm:block text-right shrink-0">
+                      <div className={`font-display text-[22px] font-bold leading-none tracking-[-1px] ${isLast ? "text-white-pure" : "text-light-text"}`}>
+                        <NumberTicker value={milestone.stat.value} delay={0.5} />
+                        {milestone.stat.suffix}
+                      </div>
+                      <p className={`mt-1 font-display text-[9px] font-semibold uppercase tracking-[2px] ${isLast ? "text-titanium" : "text-light-muted"}`}>
+                        {milestone.stat.label}
+                      </p>
+                    </div>
                   </div>
-                </FadeIn>
+
+                  {isLast && (
+                    <BorderBeam size={80} duration={8} colorFrom="#5EAFC5" colorTo="#3D7A8F" borderWidth={1} />
+                  )}
+                </div>
               );
             })}
-          </div>
+          </StaggerFadeIn>
         </div>
       </div>
     </section>

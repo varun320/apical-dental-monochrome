@@ -34,7 +34,7 @@ const benefits = [
 
 export function DSOCase() {
   return (
-    <section className="relative bg-light-bg px-6 py-28 lg:py-36 overflow-hidden">
+    <section className="relative bg-light-bg px-6 py-32 lg:py-40 overflow-hidden">
       <div className="relative z-10 mx-auto max-w-[1100px]">
         <SectionHeader
           label="For DSOs"
@@ -49,7 +49,7 @@ export function DSOCase() {
             return (
               <div
                 key={b.title}
-                className={`relative overflow-hidden rounded-lg border bg-light-card p-8 shadow-sm transition-all hover:shadow-lg hover:-translate-y-1.5 hover:border-cyan-muted/30 ${
+                className={`relative overflow-hidden rounded-lg border bg-light-card p-8 shadow-sm transition-all hover:shadow-lg hover:-translate-y-1.5 hover:border-titanium-light/50 ${
                   b.title === "Robot-as-a-Service" ? "border-cyan-muted" : "border-light-border"
                 }`}
               >
@@ -60,7 +60,7 @@ export function DSOCase() {
                   </p>
                 </div>
                 <div className="mt-3 flex items-baseline gap-1">
-                  <span className="font-display text-[36px] font-bold leading-none tracking-[-1px] text-mint">
+                  <span className="font-display text-[36px] font-bold leading-none tracking-[-1px] text-light-text">
                     {b.value}
                   </span>
                   <span className="font-display text-[11px] font-semibold uppercase tracking-[1px] text-light-muted">
@@ -79,7 +79,7 @@ export function DSOCase() {
         </StaggerFadeIn>
 
         <FadeIn delay={0.4}>
-          <div className="relative mt-4 overflow-hidden rounded-lg border border-titanium-dark bg-deep-void p-8">
+          <div className="relative mt-4 overflow-hidden rounded-lg border border-titanium-dark bg-deep-void p-8 shadow-[0_0_50px_rgba(94,175,197,0.25)]">
             <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
               <div className="flex items-start gap-4">
                 <Rocket className="mt-1 h-6 w-6 shrink-0 text-titanium-light" strokeWidth={1.5} />
@@ -95,7 +95,7 @@ export function DSOCase() {
                 </div>
               </div>
               <div className="shrink-0 text-right">
-                <div className="font-display text-[44px] font-bold leading-none tracking-[-1.5px] text-mint">
+                <div className="font-display text-[44px] font-bold leading-none tracking-[-1.5px] text-light-text">
                   $11M+
                 </div>
                 <p className="mt-1 font-display text-[10px] font-semibold uppercase tracking-[2px] text-titanium">

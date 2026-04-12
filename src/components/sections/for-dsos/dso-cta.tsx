@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { FadeIn } from "@/components/animations/fade-in";
 import { TextReveal } from "@/components/animations/text-reveal";
 import { BorderBeam } from "@/components/ui/border-beam";
-import Image from "next/image";
+
 import { NumberTicker } from "@/components/ui/number-ticker";
 import { StaggerFadeIn } from "@/components/animations/fade-in";
 import { Building2, Wrench, ShieldCheck } from "lucide-react";
@@ -18,6 +19,10 @@ const stats = [
 export function DSOCTA() {
   return (
     <section className="section-dark relative bg-void px-6 py-20 lg:py-28 overflow-hidden">
+      <div className="pointer-events-none absolute inset-0">
+        <Image src="/images/hero-network.png" alt="" fill className="object-cover grayscale-50 brightness-[0.15] opacity-40" sizes="100vw" />
+        <div className="absolute inset-0 bg-void/70" />
+      </div>
       <div className="relative z-10 mx-auto max-w-[900px]">
         {/* Stats */}
         <StaggerFadeIn className="grid grid-cols-1 gap-6 sm:grid-cols-3" stagger={0.15}>
@@ -26,7 +31,7 @@ export function DSOCTA() {
             return (
               <div key={stat.label} className="text-center">
                 <Icon className="mx-auto mb-3 h-5 w-5 text-titanium" strokeWidth={1.5} />
-                <div className="font-display text-[clamp(36px,5vw,48px)] font-bold leading-none tracking-[-2px] text-mint">
+                <div className="font-display text-[clamp(36px,5vw,48px)] font-bold leading-none tracking-[-2px] text-light-text">
                   <NumberTicker value={stat.value} delay={0.3} />
                   {stat.suffix}
                 </div>
@@ -56,7 +61,7 @@ export function DSOCTA() {
               <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
                 <Link
                   href="/contact"
-                  className="rounded-md bg-white-pure px-8 py-4 font-display text-[14px] font-bold tracking-[0.5px] text-void transition-opacity hover:opacity-80"
+                  className="rounded-md bg-white-pure px-8 py-4 font-display text-[14px] font-bold tracking-[0.5px] text-void transition-all hover:shadow-[0_0_30px_rgba(94,175,197,0.5)] hover:opacity-90"
                 >
                   Schedule a Consultation &rarr;
                 </Link>

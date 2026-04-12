@@ -16,7 +16,7 @@ const stats = [
 
 export function AboutImpact() {
   return (
-    <section className="relative bg-light-bg px-6 py-28 lg:py-36 overflow-hidden">
+    <section className="section-dark relative bg-void px-6 py-32 lg:py-40 overflow-hidden">
       <div className="relative z-10 mx-auto max-w-[900px]">
         {/* ── Stats row ── */}
         <StaggerFadeIn
@@ -27,12 +27,12 @@ export function AboutImpact() {
             const Icon = stat.icon;
             return (
               <div key={stat.label} className="text-center">
-                <Icon className="mx-auto mb-3 h-5 w-5 text-light-muted" strokeWidth={1.5} />
-                <div className="font-display text-[clamp(36px,5vw,52px)] font-bold leading-none tracking-[-2px] text-mint">
+                <Icon className="mx-auto mb-3 h-5 w-5 text-titanium-light" strokeWidth={1.5} />
+                <div className="font-display text-[clamp(36px,5vw,52px)] font-bold leading-none tracking-[-2px] text-white-pure">
                   <NumberTicker value={stat.value} delay={0.3} />
                   {stat.suffix}
                 </div>
-                <p className="mt-2 font-display text-[10px] font-semibold uppercase tracking-[2px] text-light-muted">
+                <p className="mt-2 font-display text-[10px] font-semibold uppercase tracking-[2px] text-titanium-light">
                   {stat.label}
                 </p>
               </div>
@@ -42,7 +42,7 @@ export function AboutImpact() {
 
         {/* ── CTA Card ── */}
         <FadeIn delay={0.3}>
-          <div className="section-dark relative mt-20 overflow-hidden rounded-lg border border-titanium-dark bg-deep-void p-12 text-center">
+          <div className="section-dark relative mt-20 overflow-hidden rounded-lg border border-titanium-dark bg-deep-void p-12 shadow-[0_0_50px_rgba(94,175,197,0.25)] text-center">
             <Image
               src="/images/cta-texture.png"
               alt=""
@@ -57,7 +57,7 @@ export function AboutImpact() {
             <FadeIn delay={0.5}>
               <Link
                 href="/contact"
-                className="mt-8 inline-block rounded-md bg-white-pure px-8 py-4 font-display text-[14px] font-bold tracking-[0.5px] text-void transition-opacity hover:opacity-80"
+                className="mt-8 inline-block rounded-md bg-white-pure px-8 py-4 font-display text-[14px] font-bold tracking-[0.5px] text-void transition-all hover:shadow-[0_0_30px_rgba(94,175,197,0.5)] hover:opacity-90"
               >
                 Partner With Us &rarr;
               </Link>

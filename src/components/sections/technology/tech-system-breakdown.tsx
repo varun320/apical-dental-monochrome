@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { BorderBeam } from "@/components/ui/border-beam";
+import { FadeIn } from "@/components/animations/fade-in";
 import { Eye, Hand, Brain, Shield, Workflow } from "lucide-react";
 
 const components = [
@@ -47,7 +48,6 @@ export function TechSystemBreakdown() {
     if (!section) return;
 
     const cards = cardsRef.current.filter(Boolean) as HTMLDivElement[];
-
     gsap.set(cards, { opacity: 0, y: 30 });
 
     const trigger = ScrollTrigger.create({
@@ -67,102 +67,94 @@ export function TechSystemBreakdown() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-light-bg px-6 py-28 "
+      className="relative bg-light-bg px-6 py-32 lg:py-40 overflow-hidden"
     >
-      {/* ── Grid overlay for tech aesthetic ── */}
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(30,41,59,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(30,41,59,0.05)_1px,transparent_1px)] bg-[size:40px_40px]" />
 
       <div className="relative z-10 mx-auto max-w-[1100px]">
-        {/* ── Section header ── */}
-        <p className="mb-2 font-display text-[11px] font-semibold uppercase tracking-[3px] text-light-muted">
-          System Architecture
-        </p>
-        <h2 className="mb-12 font-display text-[clamp(24px,4vw,30px)] font-bold leading-[1.1] tracking-[-0.5px] text-light-text">
-          Every component, purpose-built.
-        </h2>
+        {/* 50/50 split — header+featured left, remaining right */}
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+          {/* Left — header + 2 featured components */}
+          <div>
+            <FadeIn>
+              <p className="mb-2 font-display text-[11px] font-semibold uppercase tracking-[3px] text-light-muted">
+                System Architecture
+              </p>
+              <h2 className="mb-10 font-display text-[clamp(28px,4vw,36px)] font-bold leading-[1.1] tracking-[-1px] text-light-text">
+                Every component, purpose-built.
+              </h2>
+            </FadeIn>
 
-        {/* ── Featured cards: 2 full-width ── */}
-        <div className="grid gap-5">
-          {components.slice(0, 2).map((component, i) => {
-            const Icon = component.icon;
-            return (
-              <div
-                key={component.name}
-                ref={(el) => { cardsRef.current[i] = el; }}
-                className="relative overflow-hidden rounded-lg border border-light-border bg-light-card shadow-sm p-6 transition-all hover:shadow-lg hover:-translate-y-1.5 hover:border-cyan-muted/30"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-light-border bg-light-bg">
-                    <Icon className="h-5 w-5 text-light-muted" strokeWidth={1.5} />
+            <div className="flex flex-col gap-5">
+              {components.slice(0, 2).map((component, i) => {
+                const Icon = component.icon;
+                return (
+                  <div
+                    key={component.name}
+                    ref={(el) => { cardsRef.current[i] = el; }}
+                    className="relative overflow-hidden rounded-xl border border-light-border bg-light-card shadow-sm p-6 transition-all hover:shadow-lg hover:-translate-y-1.5 hover:border-titanium-light/50"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-light-border bg-light-bg">
+                        <Icon className="h-5 w-5 text-light-muted" strokeWidth={1.5} />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-display text-[18px] font-semibold leading-[1.2] tracking-[-0.5px] text-light-text">
+                          {component.name}
+                        </h3>
+                        <p className="mt-2 font-body text-[14px] leading-[1.7] text-light-muted">
+                          {component.description}
+                        </p>
+                        <p className="mt-2 font-display text-[10px] font-semibold uppercase tracking-[2px] text-light-muted">
+                          {component.spec}
+                        </p>
+                      </div>
+                    </div>
+                    <BorderBeam size={80} duration={8} colorFrom="#5EAFC5" colorTo="#3D7A8F" borderWidth={1} />
                   </div>
-                  <div className="flex-1">
-                    <p className="font-display text-[9px] font-semibold uppercase tracking-[2px] text-light-muted">
-                      Component {String(i + 1).padStart(2, "0")}
-                    </p>
-                    <h3 className="mt-1 font-display text-[18px] font-semibold leading-[1.2] tracking-[-0.5px] text-light-text">
-                      {component.name}
-                    </h3>
-                    <p className="mt-2 font-body text-[13px] leading-[1.7] text-light-muted">
-                      {component.description}
-                    </p>
-                    <p className="mt-2 font-display text-[10px] font-semibold uppercase tracking-[2px] text-light-muted">
-                      {component.spec}
-                    </p>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Right — remaining 3 components + dark accent */}
+          <div className="flex flex-col gap-5 lg:pt-20">
+            {components.slice(2).map((component, i) => {
+              const Icon = component.icon;
+              const idx = i + 2;
+              const isLast = idx === components.length - 1;
+              return (
+                <div
+                  key={component.name}
+                  ref={(el) => { cardsRef.current[idx] = el; }}
+                  className={`relative overflow-hidden rounded-xl border p-6 transition-all hover:shadow-lg hover:-translate-y-1.5 ${
+                    isLast
+                      ? "bg-void border-titanium-dark hover:border-cyan-muted hover:shadow-[0_0_40px_rgba(94,175,197,0.35)]"
+                      : "bg-light-card border-light-border shadow-sm hover:border-titanium-light/50"
+                  }`}
+                >
+                  <div className="flex items-start gap-4">
+                    <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border ${
+                      isLast ? "border-titanium-dark bg-deep-void" : "border-light-border bg-light-bg"
+                    }`}>
+                      <Icon className={`h-5 w-5 ${isLast ? "text-white-pure" : "text-light-muted"}`} strokeWidth={1.5} />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className={`font-display text-[18px] font-semibold leading-[1.2] tracking-[-0.5px] ${isLast ? "text-white-pure" : "text-light-text"}`}>
+                        {component.name}
+                      </h3>
+                      <p className={`mt-2 font-body text-[14px] leading-[1.7] ${isLast ? "text-titanium-light" : "text-light-muted"}`}>
+                        {component.description}
+                      </p>
+                      <p className={`mt-2 font-display text-[10px] font-semibold uppercase tracking-[2px] ${isLast ? "text-white-pure" : "text-light-muted"}`}>
+                        {component.spec}
+                      </p>
+                    </div>
                   </div>
                 </div>
-
-                <BorderBeam
-                  size={80}
-                  duration={8}
-                  colorFrom="#5EAFC5"
-                  colorTo="#3D7A8F"
-                  borderWidth={1}
-                />
-              </div>
-            );
-          })}
-        </div>
-
-        {/* ── Remaining cards: 3 in a row — last one dark ── */}
-        <div className="mt-5 grid gap-5 lg:grid-cols-3">
-          {components.slice(2).map((component, i) => {
-            const Icon = component.icon;
-            const idx = i + 2;
-            const isLast = idx === components.length - 1;
-            return (
-              <div
-                key={component.name}
-                ref={(el) => { cardsRef.current[idx] = el; }}
-                className={`relative overflow-hidden rounded-lg border shadow-sm p-6 transition-all hover:shadow-lg hover:-translate-y-1.5 ${
-                  isLast
-                    ? "bg-void border-titanium-dark hover:border-titanium"
-                    : "bg-light-card border-light-border hover:border-cyan-muted/30"
-                }`}
-              >
-                <div className="flex items-start gap-4">
-                  <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-md border ${
-                    isLast ? "border-titanium-dark bg-deep-void" : "border-light-border bg-light-bg"
-                  }`}>
-                    <Icon className={`h-5 w-5 ${isLast ? "text-titanium-light" : "text-light-muted"}`} strokeWidth={1.5} />
-                  </div>
-                  <div className="flex-1">
-                    <p className={`font-display text-[9px] font-semibold uppercase tracking-[2px] ${isLast ? "text-titanium" : "text-light-muted"}`}>
-                      Component {String(idx + 1).padStart(2, "0")}
-                    </p>
-                    <h3 className={`mt-1 font-display text-[18px] font-semibold leading-[1.2] tracking-[-0.5px] ${isLast ? "text-white-pure" : "text-light-text"}`}>
-                      {component.name}
-                    </h3>
-                    <p className={`mt-2 font-body text-[13px] leading-[1.7] ${isLast ? "text-titanium-light" : "text-light-muted"}`}>
-                      {component.description}
-                    </p>
-                    <p className={`mt-2 font-display text-[10px] font-semibold uppercase tracking-[2px] ${isLast ? "text-titanium" : "text-light-muted"}`}>
-                      {component.spec}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

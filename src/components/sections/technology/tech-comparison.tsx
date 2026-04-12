@@ -75,7 +75,7 @@ export function TechComparison() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-light-bg px-6 py-28 lg:py-36 overflow-hidden"
+      className="relative bg-light-bg px-6 py-32 lg:py-40 overflow-hidden"
     >
       <div className="relative z-10 mx-auto max-w-[1100px]">
         {/* ── Section header ── */}
@@ -144,8 +144,8 @@ export function TechComparison() {
                   <span className="font-display text-[10px] font-semibold uppercase tracking-[2px] text-titanium-light lg:hidden">
                     Robotic
                   </span>
-                  <div className="relative overflow-hidden rounded-md border border-mint-muted/30 bg-mint/5 px-4 py-2">
-                    <span className="font-display text-[24px] font-bold tracking-[-1px] text-mint">
+                  <div className="relative overflow-hidden rounded-md border border-light-border bg-light-bg px-4 py-2">
+                    <span className="font-display text-[24px] font-bold tracking-[-1px] text-light-text">
                       <NumberTicker
                         value={metric.robotic}
                         delay={0.5 + i * 0.1}
@@ -173,8 +173,8 @@ export function TechComparison() {
         <FadeIn delay={0.4}>
           <div className="relative mt-6 overflow-hidden rounded-lg border border-light-border bg-light-card p-6 text-center shadow-sm">
             <p className="font-display text-[clamp(16px,2.5vw,20px)] font-semibold tracking-[-0.5px] text-light-text">
-              Up to <span className="text-[clamp(24px,3.5vw,32px)] font-bold text-mint">16x</span> fewer remakes.{" "}
-              <span className="text-[clamp(24px,3.5vw,32px)] font-bold text-mint">60%</span> faster production.
+              Up to <span className="text-[clamp(24px,3.5vw,32px)] font-bold text-light-text">16x</span> fewer remakes.{" "}
+              <span className="text-[clamp(24px,3.5vw,32px)] font-bold text-light-text">60%</span> faster production.
             </p>
             <p className="mt-2 font-body text-[13px] text-light-muted">
               The numbers speak for themselves.
