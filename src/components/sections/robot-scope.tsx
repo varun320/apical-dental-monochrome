@@ -54,7 +54,7 @@ const capabilities = [
 
 export function RobotScope() {
   return (
-    <section className="relative bg-white px-6 py-32 lg:py-40 overflow-hidden">
+    <section className="relative bg-light-bg px-6 py-32 lg:py-40 overflow-hidden">
       {/* Subtle dot pattern background */}
       <DotPattern
         width={28}
@@ -85,9 +85,9 @@ export function RobotScope() {
                 key={cap.title}
                 className={`relative overflow-hidden rounded-lg border p-7 shadow-sm transition-all hover:shadow-lg hover:-translate-y-1.5 ${
                   isDark
-                    ? "bg-void border-titanium-dark hover:border-cyan-muted hover:shadow-[0_0_40px_rgba(94,175,197,0.35)]"
+                    ? "bg-void border-titanium-dark hover:border-titanium hover:shadow-[0_0_40px_rgba(148,163,184,0.25)]"
                     : cap.featured
-                      ? "sm:col-span-2 bg-light-card border-cyan-muted/30 hover:border-titanium-light/50"
+                      ? "sm:col-span-2 bg-light-card border-light-border hover:border-titanium-light/50"
                       : "bg-light-card border-light-border hover:border-titanium-light/50"
                 }`}
               >

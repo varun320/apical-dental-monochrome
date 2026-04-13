@@ -43,7 +43,7 @@ const milestones = [
 
 export function AboutTimeline() {
   return (
-    <section className="relative bg-white px-6 py-32 lg:py-40 overflow-hidden">
+    <section className="relative bg-light-bg px-6 py-32 lg:py-40 overflow-hidden">
       <div className="relative z-10 mx-auto max-w-[1100px]">
         {/* 50/50 — header left, timeline right */}
         <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-16 items-start">
@@ -72,7 +72,7 @@ export function AboutTimeline() {
                   key={milestone.year}
                   className={`relative overflow-hidden rounded-xl border p-6 transition-all hover:shadow-lg hover:-translate-y-1.5 ${
                     isLast
-                      ? "bg-void border-titanium-dark hover:border-cyan-muted hover:shadow-[0_0_40px_rgba(94,175,197,0.35)]"
+                      ? "bg-void border-titanium-dark hover:border-titanium hover:shadow-[0_0_40px_rgba(148,163,184,0.25)]"
                       : "bg-light-card border-light-border shadow-sm hover:border-titanium-light/50"
                   }`}
                 >

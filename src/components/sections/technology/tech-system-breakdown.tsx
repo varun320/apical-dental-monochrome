@@ -129,7 +129,7 @@ export function TechSystemBreakdown() {
                   ref={(el) => { cardsRef.current[idx] = el; }}
                   className={`relative overflow-hidden rounded-xl border p-6 transition-all hover:shadow-lg hover:-translate-y-1.5 ${
                     isLast
-                      ? "bg-void border-titanium-dark hover:border-cyan-muted hover:shadow-[0_0_40px_rgba(94,175,197,0.35)]"
+                      ? "bg-void border-titanium-dark hover:border-titanium hover:shadow-[0_0_40px_rgba(148,163,184,0.25)]"
                       : "bg-light-card border-light-border shadow-sm hover:border-titanium-light/50"
                   }`}
                 >

@@ -15,7 +15,7 @@ const benefits = [
 
 export function DSOScale() {
   return (
-    <section className="relative bg-white px-6 py-32 lg:py-40 overflow-hidden">
+    <section className="relative bg-light-bg px-6 py-32 lg:py-40 overflow-hidden">
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(30,41,59,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(30,41,59,0.04)_1px,transparent_1px)] bg-[size:40px_40px]" />
       <div className="relative z-10 mx-auto max-w-[1100px]">
         {/* 50/50 — text left, grid right */}

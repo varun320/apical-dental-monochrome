@@ -144,8 +144,8 @@ export function TechComparison() {
                   <span className="font-display text-[10px] font-semibold uppercase tracking-[2px] text-titanium-light lg:hidden">
                     Robotic
                   </span>
-                  <div className="relative overflow-hidden rounded-md border border-light-border bg-light-bg px-4 py-2">
-                    <span className="font-display text-[24px] font-bold tracking-[-1px] text-light-text">
+                  <div className={`relative overflow-hidden rounded-md border px-4 py-2 ${i === 0 ? "border-mint-muted/30 bg-mint/5" : "border-light-border bg-light-bg"}`}>
+                    <span className={`font-display text-[24px] font-bold tracking-[-1px] ${i === 0 ? "text-mint" : "text-light-text"}`}>
                       <NumberTicker
                         value={metric.robotic}
                         delay={0.5 + i * 0.1}

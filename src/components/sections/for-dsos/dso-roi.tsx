@@ -69,7 +69,7 @@ export function DSOBusinessCase() {
                   className="relative overflow-hidden rounded-xl border border-light-border bg-light-card shadow-sm p-6 transition-all hover:shadow-lg hover:-translate-y-1.5 hover:border-titanium-light/50"
                 >
                   <Icon className="mb-3 h-5 w-5 text-light-muted" strokeWidth={1.5} />
-                  <div className="font-display text-[clamp(32px,4vw,42px)] font-bold leading-none tracking-[-2px] text-light-text">
+                  <div className={`font-display text-[clamp(32px,4vw,42px)] font-bold leading-none tracking-[-2px] ${metric.label === "ROI in Year One" ? "text-mint" : "text-light-text"}`}>
                     <NumberTicker
                       value={metric.value}
                       delay={0.3 + i * 0.1}

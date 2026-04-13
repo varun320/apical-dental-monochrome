@@ -82,7 +82,7 @@ export function Problem() {
                       <p className="font-display text-[10px] font-semibold uppercase tracking-[2px] text-light-muted">
                         {p.label}
                       </p>
-                      <div className="mt-1 font-display text-[36px] font-bold leading-none tracking-[-1.5px] text-light-text">
+                      <div className={`mt-1 font-display text-[36px] font-bold leading-none tracking-[-1.5px] ${p.display ? "text-mint" : "text-light-text"}`}>
                         {p.display ?? (
                           <>
                             <NumberTicker value={p.value} delay={0.5 + i * 0.2} />

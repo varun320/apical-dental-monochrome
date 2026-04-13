@@ -40,7 +40,7 @@ const testimonials = [
 
 export function SocialProof() {
   return (
-    <section className="relative bg-white px-6 py-32 lg:py-40 overflow-hidden">
+    <section className="relative bg-light-bg px-6 py-32 lg:py-40 overflow-hidden">
       <div className="relative z-10 mx-auto max-w-[1100px]">
         <SectionHeader
           label="Trusted Partners"

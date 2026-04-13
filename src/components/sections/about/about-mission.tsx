@@ -55,9 +55,7 @@ export function AboutMission() {
             return (
               <div
                 key={value.title}
-                className={`relative overflow-hidden rounded-lg border bg-light-card p-8 shadow-sm transition-all hover:shadow-lg hover:-translate-y-1.5 hover:border-titanium-light/50 ${
-                  value.title === "Precision" ? "border-cyan-muted" : "border-light-border"
-                }`}
+                className="relative overflow-hidden rounded-lg border border-light-border bg-light-card p-8 shadow-sm transition-all hover:shadow-lg hover:-translate-y-1.5 hover:border-titanium-light/50"
               >
                 <Icon className={`mb-5 h-6 w-6 ${value.title === "Precision" ? "text-light-muted" : "text-light-muted"}`} strokeWidth={1.5} />
                 <h3 className="font-display text-[20px] font-semibold leading-[1.2] tracking-[-0.5px] text-light-text">
@@ -67,7 +65,7 @@ export function AboutMission() {
                   {value.description}
                 </p>
                 <div className="mt-5 border-t border-light-border pt-5">
-                  <div className="font-display text-[28px] font-bold leading-none tracking-[-1.5px] text-light-text">
+                  <div className={`font-display text-[28px] font-bold leading-none tracking-[-1.5px] ${value.title === "Precision" ? "text-mint" : "text-light-text"}`}>
                     {value.metric.prefix}
                     <NumberTicker
                       value={value.metric.value}

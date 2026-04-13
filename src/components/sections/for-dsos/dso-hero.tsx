@@ -38,7 +38,7 @@ export function DSOHero() {
   return (
     <section
       ref={sectionRef}
-      className="section-dark relative overflow-hidden bg-void px-6 pt-36 pb-28 lg:pt-44 lg:pb-36"
+      className="section-dark relative overflow-hidden bg-void px-6 py-32 lg:py-40"
     >
       {/* Background */}
       <div className="pointer-events-none absolute inset-0">
