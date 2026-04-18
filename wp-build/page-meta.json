@@ -1,0 +1,12 @@
+{
+  "home_page_id": 12,
+  "kit_post_id": 7,
+  "kit_slug": "default-kit",
+  "site_url": "https://1.josh.wpfarmpowered.com/apicaldental",
+  "captured_at": "2026-04-24",
+  "notes": [
+    "Site started empty; Home page (id=12) created fresh and set as page_on_front with show_on_front=page.",
+    "Only one Elementor kit exists: Default Kit (id=7) — globals will be written into this kit's _elementor_page_settings meta.",
+    "No prior Elementor template exists on this site; widget JSON authored from scratch per Elementor schema."
+  ]
+}

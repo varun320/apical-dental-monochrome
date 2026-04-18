@@ -1,0 +1,21 @@
+{
+  "__comment": "Design-token source of truth. Direct hex values are inlined into each widget's JSON in wp-build/sections/*.json because the apical-wordpress MCP does not expose post_meta write access to the Elementor kit (post_id=7). Client may later register these manually via Elementor → Site Settings → Global Colors / Global Fonts for UI-level edits; widget values will continue to render identically.",
+  "colors": {
+    "g-graphite": "#1A1A1C",
+    "g-bone":     "#F3EEE5",
+    "g-terracotta": "#B85C3C",
+    "g-slate":    "#2F4858"
+  },
+  "fonts": {
+    "heading": "Fraunces",
+    "body":    "Inter"
+  },
+  "font_weights": {
+    "heading_display": 300,
+    "heading_section": 400,
+    "body_regular": 400,
+    "body_medium":  500
+  },
+  "section_rhythm": ["LIGHT", "LIGHT", "DARK", "LIGHT", "DARK"],
+  "breakpoints": { "desktop": 1440, "tablet": 768, "mobile": 390 }
+}
