@@ -1,0 +1,55 @@
+{
+  "id": "sec02trust",
+  "elType": "section",
+  "isInner": false,
+  "settings": {
+    "layout": "boxed",
+    "content_width": { "unit": "px", "size": 1320 },
+    "padding":        { "unit": "px", "top": "56", "right": "40", "bottom": "56", "left": "40", "isLinked": false },
+    "padding_tablet": { "unit": "px", "top": "40", "right": "32", "bottom": "40", "left": "32", "isLinked": false },
+    "padding_mobile": { "unit": "px", "top": "36", "right": "22", "bottom": "36", "left": "22", "isLinked": false },
+    "background_background": "classic",
+    "background_color": "#F3EEE5",
+    "border_border": "solid",
+    "border_width": { "unit": "px", "top": "1", "right": "0", "bottom": "1", "left": "0", "isLinked": false },
+    "border_color": "rgba(26,26,28,0.1)"
+  },
+  "elements": [
+    {
+      "id": "coltrust",
+      "elType": "column",
+      "settings": { "_column_size": 100 },
+      "elements": [
+        {
+          "id": "wtrust01",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "Trusted by the DSOs that set the standard",
+            "header_size": "h6",
+            "align": "center",
+            "typography_typography": "custom",
+            "typography_font_family": "Inter",
+            "typography_font_size": { "unit": "px", "size": 11 },
+            "typography_font_weight": "500",
+            "typography_letter_spacing": { "unit": "px", "size": 2 },
+            "typography_text_transform": "uppercase",
+            "title_color": "rgba(26,26,28,0.5)",
+            "_animation": "fadeIn",
+            "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "28", "left": "0", "isLinked": false }
+          }
+        },
+        {
+          "id": "wtrust02",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p style=\"text-align:center;margin:0;font-family:Fraunces;font-size:1.35rem;font-weight:400;letter-spacing:-0.5px;line-height:1.4;color:rgba(26,26,28,0.7)\">Heartland &nbsp;·&nbsp; Aspen &nbsp;·&nbsp; Pacific Dental &nbsp;·&nbsp; Great Expressions &nbsp;·&nbsp; DentaQuest</p>",
+            "_animation": "fadeIn",
+            "_animation_delay": 150
+          }
+        }
+      ]
+    }
+  ]
+}
