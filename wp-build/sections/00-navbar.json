@@ -1,0 +1,39 @@
+{
+  "id": "sec00nav",
+  "elType": "section",
+  "isInner": false,
+  "settings": {
+    "layout": "boxed",
+    "content_width": { "unit": "px", "size": 1320 },
+    "padding":        { "unit": "px", "top": "16", "right": "40", "bottom": "16", "left": "40", "isLinked": false },
+    "padding_tablet": { "unit": "px", "top": "14", "right": "28", "bottom": "14", "left": "28", "isLinked": false },
+    "padding_mobile": { "unit": "px", "top": "12", "right": "18", "bottom": "12", "left": "18", "isLinked": false },
+    "background_background": "classic",
+    "background_color": "rgba(243,238,229,0.95)",
+    "border_border": "solid",
+    "border_width": { "unit": "px", "top": "0", "right": "0", "bottom": "1", "left": "0", "isLinked": false },
+    "border_color": "rgba(26,26,28,0.08)",
+    "gap": "no",
+    "position": "fixed",
+    "_offset_orientation_v": "top",
+    "_offset_y": { "unit": "px", "size": 0 },
+    "_z_index": 1000
+  },
+  "elements": [
+    {
+      "id": "navcol",
+      "elType": "column",
+      "settings": { "_column_size": 100 },
+      "elements": [
+        {
+          "id": "navwidget",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<div class=\"apnav\"><a href=\"/\" class=\"apnav-brand\">APICAL</a><nav class=\"apnav-links\"><a href=\"/technology\">Technology</a><a href=\"/proof\">Proof</a><a href=\"/for-dsos\">For DSOs</a><a href=\"/contact\" class=\"apnav-cta\">Book demo</a></nav><input type=\"checkbox\" id=\"apnav-toggle\" class=\"apnav-toggle\" onchange=\"document.documentElement.style.overflow=this.checked?'hidden':'';document.body.style.overflow=this.checked?'hidden':'';document.body.style.position=this.checked?'fixed':'';document.body.style.width=this.checked?'100%':'';\"/><label for=\"apnav-toggle\" class=\"apnav-burger\" aria-label=\"Menu\"><span></span><span></span><span></span></label><div class=\"apnav-drawer\"><a href=\"/technology\">Technology</a><a href=\"/proof\">Proof</a><a href=\"/for-dsos\">For DSOs</a><a href=\"/contact\" class=\"apnav-cta\">Book demo</a></div></div><style>.apnav{display:flex;align-items:center;justify-content:space-between;position:relative}.apnav-brand{font-family:Fraunces;font-size:22px;font-weight:500;letter-spacing:2px;color:#1A1A1C;text-decoration:none;z-index:1003;position:relative}.apnav-links{display:flex;align-items:center;gap:32px}.apnav-links a{color:#1A1A1C;text-decoration:none;font-family:Inter;font-size:13px;font-weight:500;letter-spacing:0.5px;transition:opacity 0.2s}.apnav-links a:hover{opacity:0.6}.apnav-links a.apnav-cta{background:#1A1A1C;color:#F3EEE5!important;padding:10px 20px}.apnav-links a.apnav-cta:hover{background:#B85C3C!important;opacity:1!important}.apnav-toggle{position:absolute;opacity:0;pointer-events:none}.apnav-burger{display:none;cursor:pointer;width:26px;height:20px;flex-direction:column;justify-content:space-between;position:relative;z-index:1003}.apnav-burger span{display:block;height:1.5px;width:100%;background:#1A1A1C;transition:transform 0.3s,opacity 0.3s;transform-origin:center}.apnav-toggle:checked~.apnav-burger span:nth-child(1),.apnav-toggle:checked+.apnav-burger span:nth-child(1){transform:translateY(8.5px) rotate(45deg)}.apnav-toggle:checked~.apnav-burger span:nth-child(2),.apnav-toggle:checked+.apnav-burger span:nth-child(2){opacity:0}.apnav-toggle:checked~.apnav-burger span:nth-child(3),.apnav-toggle:checked+.apnav-burger span:nth-child(3){transform:translateY(-8.5px) rotate(-45deg)}.apnav-drawer{display:none;position:fixed;inset:0;background:#F3EEE5;padding:92px 28px 32px;flex-direction:column;gap:4px;z-index:1001;overflow-y:auto;overscroll-behavior:contain}.apnav-drawer a{color:#1A1A1C;text-decoration:none;font-family:Fraunces;font-size:2.25rem;font-weight:300;letter-spacing:-0.5px;padding:22px 0;border-bottom:1px solid rgba(26,26,28,0.1);transition:color 0.2s}.apnav-drawer a:hover{color:#B85C3C}.apnav-drawer a.apnav-cta{background:#B85C3C;color:#F3EEE5!important;font-family:Inter;font-size:15px;font-weight:500;letter-spacing:0.5px;padding:18px 28px;margin-top:32px;text-align:center;border:none;display:inline-block;align-self:flex-start}.apnav-toggle:checked~.apnav-drawer{display:flex}@media(max-width:768px){.apnav-links{display:none}.apnav-burger{display:flex}}img{object-fit:cover!important}.elementor-widget-image img{object-fit:cover!important;width:100%!important;height:100%!important}</style>"
+          }
+        }
+      ]
+    }
+  ]
+}
