@@ -1,102 +1,86 @@
 "use client";
 
 import { FadeIn, StaggerFadeIn } from "@/components/animations/fade-in";
-import { SectionHeader } from "@/components/ui/section-header";
-import { Quote } from "lucide-react";
+
+const dsoPartners = [
+  "Heartland",
+  "Aspen",
+  "Pacific Dental",
+  "Great Expressions",
+  "DentaQuest",
+];
 
 const testimonials = [
   {
-    quote: "The precision improvement was immediate. Our remake rate dropped from 8% to under 1% within the first quarter.",
+    quote:
+      "The precision improvement was immediate. Our remake rate dropped from 8% to under 1% within the first quarter.",
     name: "Dr. Sarah Chen",
     title: "Director of Operations",
     org: "Pacific Dental Group",
   },
   {
-    quote: "We deployed across 12 locations in 6 months. The standardized quality across offices is something we could never achieve with manual processes.",
+    quote:
+      "We deployed across 12 locations in 6 months. The standardized quality across offices is something we could never achieve with manual processes.",
     name: "Michael Torres",
     title: "VP of Clinical Operations",
     org: "Bright Smile DSO",
   },
   {
-    quote: "The ROI was clear within year one. Reduced labor costs, faster turnaround, and zero regulatory friction made the decision easy.",
+    quote:
+      "The ROI was clear within year one. Reduced labor costs, faster turnaround, and zero regulatory friction made the decision easy.",
     name: "Dr. James Park",
     title: "Chief Dental Officer",
     org: "National Dental Partners",
-    dark: true,
-  },
-  {
-    quote: "Integration with our existing CAD/CAM workflow was seamless. Staff training took less than a week per location.",
-    name: "Linda Vasquez",
-    title: "Practice Manager",
-    org: "Summit Dental Care",
-  },
-  {
-    quote: "This isn't just automation — it's a complete transformation of how dental laboratories operate. The future is here.",
-    name: "Dr. Robert Kim",
-    title: "Prosthodontist",
-    org: "Advanced Dental Studio",
   },
 ];
 
 export function SocialProof() {
   return (
-    <section className="relative bg-light-bg px-6 py-32 lg:py-40 overflow-hidden">
-      <div className="relative z-10 mx-auto max-w-[1100px]">
-        <SectionHeader
-          label="Trusted Partners"
-          title="500+ DSO offices. Real results."
-          description="Dental professionals across the country are seeing measurable improvements in precision, speed, and profitability."
-          light
-        />
+    <section className="section-bone">
+      {/* Trust strip */}
+      <div className="border-t border-b border-rule">
+        <div className="mx-auto max-w-[1320px] px-6 py-12 md:px-10 md:py-14 text-center">
+          <p className="eyebrow text-ink-soft">
+            Trusted by the DSOs that set the standard
+          </p>
+          <p className="mt-6 font-[family-name:var(--font-fraunces)] text-[clamp(1.1rem,1.6vw,1.4rem)] font-normal tracking-[-0.5px] leading-[1.4] text-ink-muted">
+            {dsoPartners.join("  ·  ")}
+          </p>
+        </div>
+      </div>
 
-        <StaggerFadeIn
-          className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
-          stagger={0.1}
-        >
-          {testimonials.map((t) => {
-            const isDark = "dark" in t && t.dark;
-            return (
-              <div
-                key={t.name}
-                className={`relative overflow-hidden rounded-lg border p-7 transition-all hover:shadow-lg hover:-translate-y-1.5 ${
-                  isDark
-                    ? "bg-void border-titanium-dark hover:border-cyan-muted"
-                    : "bg-light-card border-light-border shadow-sm hover:border-titanium-light/50"
-                }`}
-              >
-                <Quote
-                  className={`mb-4 h-5 w-5 ${isDark ? "text-white-pure" : "text-cyan-muted/40"}`}
-                  strokeWidth={1.5}
-                />
-                <p className={`font-body text-[14px] leading-[1.75] ${isDark ? "text-titanium-light" : "text-light-muted"}`}>
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-                <div className={`mt-5 border-t pt-4 ${isDark ? "border-titanium-dark" : "border-light-border"}`}>
-                  <p className={`font-display text-[14px] font-semibold tracking-[-0.3px] ${isDark ? "text-white-pure" : "text-light-text"}`}>
+      {/* Testimonial pull-quotes */}
+      <div className="mx-auto max-w-[1320px] px-6 py-24 md:px-10 md:py-32">
+        <FadeIn>
+          <p className="eyebrow text-graphite">From the chair</p>
+          <h2 className="mt-4 max-w-[820px] font-[family-name:var(--font-fraunces)] font-normal leading-[1.08] tracking-[-1.2px] text-graphite text-[clamp(1.85rem,3.6vw,3rem)]">
+            Five hundred offices in. The numbers are no longer a pitch.
+          </h2>
+        </FadeIn>
+
+        <StaggerFadeIn className="mt-14 grid gap-px bg-rule md:grid-cols-3" stagger={0.1}>
+          {testimonials.map((t) => (
+            <figure
+              key={t.name}
+              className="bg-bone p-8 md:p-10 flex flex-col gap-6 min-h-[260px]"
+            >
+              <blockquote className="flex-1 font-[family-name:var(--font-fraunces)] text-[1.15rem] leading-[1.5] tracking-[-0.3px] text-graphite">
+                &ldquo;{t.quote}&rdquo;
+              </blockquote>
+              <figcaption className="border-t border-rule pt-5">
+                <div className="flex items-baseline gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-terracotta" aria-hidden />
+                  <p className="font-[family-name:var(--font-inter)] text-[13px] font-medium tracking-[0.3px] text-graphite">
                     {t.name}
                   </p>
-                  <p className={`mt-0.5 font-body text-[12px] ${isDark ? "text-titanium" : "text-light-muted"}`}>
-                    {t.title}, {t.org}
-                  </p>
                 </div>
-              </div>
-            );
-          })}
+                <p className="mt-1 pl-3.5 font-[family-name:var(--font-inter)] text-[12px] text-ink-muted">
+                  {t.title}, {t.org}
+                </p>
+              </figcaption>
+            </figure>
+          ))}
         </StaggerFadeIn>
-
-        {/* Partner logos placeholder */}
-        <FadeIn delay={0.4}>
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-8">
-            {["Pacific Dental", "Bright Smile", "National Dental", "Summit Care", "Advanced Studio", "Premier Health"].map((name) => (
-              <span
-                key={name}
-                className="font-display text-[11px] font-semibold uppercase tracking-[2px] text-titanium-light/40"
-              >
-                {name}
-              </span>
-            ))}
-          </div>
-        </FadeIn>
       </div>
     </section>
   );

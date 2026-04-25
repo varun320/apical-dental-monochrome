@@ -2,157 +2,117 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { StaggerFadeIn } from "@/components/animations/fade-in";
+import { FadeIn, StaggerFadeIn } from "@/components/animations/fade-in";
 import { VideoModal } from "@/components/ui/video-modal";
-import { SectionHeader } from "@/components/ui/section-header";
-import { NumberTicker } from "@/components/ui/number-ticker";
-import { BorderBeam } from "@/components/ui/border-beam";
-import { ImagePlaceholder } from "@/components/ui/image-placeholder";
-import { Clock, Cog, Building2, GraduationCap, UserRound, Cpu } from "lucide-react";
 
-const authorityStats = [
-  { value: 40, suffix: "+", label: "Years in Prosthodontics", icon: Clock, delay: 0.4 },
-  { value: 800, suffix: "+", label: "Engineered Adaptations", icon: Cog, delay: 0.55 },
-  { value: 500, suffix: "+", label: "DSO Office Network", icon: Building2, delay: 0.7 },
-  { value: 15, suffix: "+", label: "Years Training Surgeons", icon: GraduationCap, delay: 0.85 },
+const credentials = [
+  "PhD",
+  "DMD",
+  "40-yr practice",
+  "800+ adaptations",
+  "USPTO patent filings",
+  "500+ DSO offices",
+];
+
+const stats = [
+  { value: "40+", label: "Years in prosthodontics" },
+  { value: "800+", label: "Engineered adaptations" },
+  { value: "500+", label: "DSO office network" },
+  { value: "15+", label: "Years training surgeons" },
 ];
 
 export function Authority() {
   const [demoOpen, setDemoOpen] = useState(false);
+
   return (
-    <section className="section-dark relative bg-void px-6 py-32 lg:py-40 overflow-hidden">
-      {/* Background image */}
-      <div className="pointer-events-none absolute inset-0">
-        <Image
-          src="/images/hero-network.png"
-          alt=""
-          fill
-          className="object-cover grayscale-[50%] brightness-[0.15] opacity-60"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-void/60" />
-      </div>
-      <div className="pointer-events-none absolute -bottom-40 -left-40 h-100 w-100 rounded-full bg-[radial-gradient(circle,rgba(94,175,197,0.05),transparent_70%)]" />
-      <div className="relative z-10 mx-auto max-w-[1100px]">
-        <SectionHeader
-          label="The Authority"
-          title={<>Dr. Ted Lewis<br /><span className="text-titanium-light">PhD, DMD</span></>}
-        />
+    <section className="section-graphite border-t border-white/10">
+      <div className="mx-auto max-w-[1320px] px-6 py-24 md:px-10 md:py-36">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-[42fr_58fr] md:gap-20">
+          {/* Left — eyebrow + name */}
+          <FadeIn>
+            <p className="eyebrow text-bone/60">04 — The authority</p>
+            <h2 className="mt-5 font-[family-name:var(--font-fraunces)] font-normal leading-[1.05] tracking-[-1.5px] text-bone text-[clamp(2rem,4vw,3.5rem)]">
+              Dr. Ted Lewis
+              <br />
+              <span className="text-bone/60 italic font-light text-[0.7em]">PhD, DMD</span>
+            </h2>
 
-        {/* Credential badges */}
-        <div className="mt-8 flex flex-wrap gap-2">
-          {["PhD", "DMD", "40yr Experience", "800+ Adaptations", "USPTO Patent Filer", "DSO Network"].map((badge) => (
-            <span
-              key={badge}
-              className="rounded-full border border-titanium-dark bg-deep-void px-3 py-1 font-display text-[10px] font-semibold uppercase tracking-[1.5px] text-titanium-light"
-            >
-              {badge}
-            </span>
-          ))}
-        </div>
-
-        {/* Bento Grid */}
-        <StaggerFadeIn
-          className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-4 md:grid-rows-3"
-          stagger={0.08}
-        >
-          {/* ─ Bio (spans 2 cols, 2 rows) ─ */}
-          <div className="relative overflow-hidden rounded-lg border border-titanium-dark bg-deep-void p-7 md:col-span-2 md:row-span-2">
-            <p className="font-body text-[16px] leading-[1.8] text-titanium-light">
-              Dr. Ted Lewis has spent 40 years mastering the art and science of
-              prosthodontics. Now he&apos;s training Tesla&apos;s Optimus robot
-              to perform with superhuman precision — starting with the dental
-              laboratory.
-            </p>
-            <p className="mt-4 font-body text-[14px] leading-[1.75] text-titanium-light">
-              With 800+ engineered instrument adaptations for robotic hands
-              (patent filings in progress via USPTO) and IMU-based training
-              methodology that captures human hand movements for robotic
-              replication, Dr. Lewis is the only person bridging 40 years of
-              clinical mastery with cutting-edge robotics integration.
-            </p>
-            <p className="mt-4 font-body text-[14px] leading-[1.75] text-titanium-light">
-              He trains doctors and surgeons within a 500+ location DSO
-              network, and has developed the first-person movement capture
-              pipeline that turns decades of human expertise into robotic
-              capability.
-            </p>
-            {/* Watermark */}
-            <UserRound
-              className="absolute bottom-6 right-6 text-titanium-dark"
-              style={{ width: 120, height: 120, opacity: 0.2 }}
-              strokeWidth={1}
-            />
-          </div>
-
-          {/* ─ Stat Cards with Icons ─ */}
-          {authorityStats.map((stat) => {
-            const Icon = stat.icon;
-            return (
-              <div
-                key={stat.label}
-                className="rounded-lg border border-titanium-dark bg-deep-void p-6 flex flex-col justify-center transition-all hover:border-titanium hover:-translate-y-1.5"
-              >
-                <Icon className="mb-2 h-5 w-5 text-titanium" strokeWidth={1.5} />
-                <div className="font-display text-[40px] font-bold leading-none tracking-[-1.5px] text-white-pure">
-                  <NumberTicker value={stat.value} delay={stat.delay} />{stat.suffix}
-                </div>
-                <p className="mt-2 font-display text-[10px] font-semibold uppercase tracking-[2px] text-titanium">
-                  {stat.label}
-                </p>
-              </div>
-            );
-          })}
-
-          {/* ─ Video / Image (spans 2 cols) ─ */}
-          <button
-            onClick={() => setDemoOpen(true)}
-            className="relative aspect-video overflow-hidden rounded-lg border border-titanium-dark bg-deep-void md:col-span-2 cursor-pointer transition-all hover:border-titanium hover:-translate-y-1 group"
-          >
-            <ImagePlaceholder
-              alt="Dr. Ted Lewis demonstrating robotic dental procedures"
-              className="absolute inset-0 h-full w-full rounded-none border-0"
-              overlay="dark"
-            />
-            <div className="absolute inset-0 flex items-center justify-center z-10">
-              <div className="text-center">
-                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-titanium-dark bg-void/80 backdrop-blur-sm transition-all group-hover:border-titanium">
-                  <svg className="ml-1 h-5 w-5 text-white-pure" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-                <p className="mt-3 font-display text-[10px] font-semibold uppercase tracking-[2px] text-titanium">
-                  Watch Demo
-                </p>
-              </div>
+            <div className="mt-8 flex flex-wrap gap-x-2 gap-y-2">
+              {credentials.map((c) => (
+                <span
+                  key={c}
+                  className="border border-white/15 px-3 py-1.5 font-[family-name:var(--font-inter)] text-[10.5px] font-medium uppercase tracking-[1.5px] text-bone/75"
+                >
+                  {c}
+                </span>
+              ))}
             </div>
-          </button>
-          <VideoModal isOpen={demoOpen} onClose={() => setDemoOpen(false)} />
+          </FadeIn>
 
-          {/* ─ IMU Technology (spans 2 cols) ─ */}
-          <div className="relative overflow-hidden rounded-lg border border-gold-muted/20 bg-deep-void p-7 md:col-span-2">
-            <div className="flex items-center gap-2">
-              <Cpu className="h-5 w-5 text-gold-muted" strokeWidth={1.5} />
-              <p className="font-display text-[11px] font-semibold uppercase tracking-[3px] text-white-pure">
-                IMU Technology
+          {/* Right — bio + IMU + media */}
+          <div className="flex flex-col gap-10">
+            <FadeIn delay={0.15}>
+              <p className="font-[family-name:var(--font-inter)] text-[1.0625rem] leading-[1.7] text-bone/85">
+                Forty years mastering the art and science of prosthodontics. Now training Tesla&apos;s
+                Optimus to perform with superhuman precision — starting with the dental laboratory.
               </p>
-            </div>
-            <p className="mt-3 font-body text-[14px] leading-[1.75] text-titanium-light">
-              Inertial Measurement Unit sensors capture Dr. Lewis&apos;s hand
-              movements in real-time — transferred directly to Optimus for
-              robotic replication. Camera/sensor fingertip technology. 64 degrees
-              of freedom.
-            </p>
-            <BorderBeam
-              size={100}
-              duration={10}
-              colorFrom="#B8A078"
-              colorTo="#8A7A5E"
-              borderWidth={1}
-            />
+              <p className="mt-5 font-[family-name:var(--font-inter)] text-[15px] leading-[1.7] text-bone/70">
+                With 800+ engineered instrument adaptations for robotic hands (USPTO filings in
+                progress) and an IMU-based capture pipeline that turns decades of human handwork
+                into robotic capability, Dr. Lewis is the only person bridging clinical mastery
+                with practical robotics integration at scale.
+              </p>
+            </FadeIn>
+
+            <StaggerFadeIn className="grid grid-cols-2 gap-x-10 gap-y-10 sm:grid-cols-4 border-t border-white/15 pt-10" stagger={0.08}>
+              {stats.map((s) => (
+                <div key={s.label}>
+                  <div className="font-[family-name:var(--font-fraunces)] text-[2.5rem] font-light leading-none tracking-[-1.5px] text-bone">
+                    {s.value}
+                  </div>
+                  <p className="mt-2 eyebrow text-bone/55">{s.label}</p>
+                </div>
+              ))}
+            </StaggerFadeIn>
+
+            <FadeIn delay={0.2}>
+              <div className="grid grid-cols-1 gap-px bg-white/10 md:grid-cols-2">
+                <button
+                  onClick={() => setDemoOpen(true)}
+                  className="group relative aspect-video overflow-hidden bg-graphite cursor-pointer"
+                >
+                  <Image
+                    src="/images/hero-team.png"
+                    alt="Dr. Lewis demonstrating robotic dental procedures"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 30vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    style={{ filter: "grayscale(0.6) brightness(0.55) contrast(1.05)" }}
+                  />
+                  <div className="absolute inset-0 flex flex-col items-start justify-end p-6">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full border border-bone/40 bg-graphite/40 backdrop-blur-sm transition-colors group-hover:border-terracotta group-hover:bg-terracotta">
+                      <svg className="ml-1 h-4 w-4 text-bone" fill="currentColor" viewBox="0 0 24 24" aria-hidden>
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                    <p className="mt-4 eyebrow text-bone/75">Watch the demo</p>
+                  </div>
+                </button>
+
+                <div className="bg-graphite p-8 md:p-10 flex flex-col justify-center">
+                  <p className="eyebrow text-terracotta">IMU Technology</p>
+                  <p className="mt-5 font-[family-name:var(--font-inter)] text-[14.5px] leading-[1.7] text-bone/80">
+                    Inertial-measurement sensors capture Dr. Lewis&apos;s hand movements in real time —
+                    transferred directly to Optimus for robotic replication. Camera/sensor fingertip
+                    tech. Sixty-four degrees of freedom.
+                  </p>
+                </div>
+              </div>
+            </FadeIn>
           </div>
-        </StaggerFadeIn>
+        </div>
       </div>
+      <VideoModal isOpen={demoOpen} onClose={() => setDemoOpen(false)} />
     </section>
   );
 }

@@ -1,115 +1,81 @@
 "use client";
 
-import { StaggerFadeIn } from "@/components/animations/fade-in";
-import { SectionHeader } from "@/components/ui/section-header";
-import { DotPattern } from "@/components/ui/dot-pattern";
-import { BorderBeam } from "@/components/ui/border-beam";
-import { cn } from "@/lib/utils";
-import { Crown, BrainCircuit, Sparkles, Package, MessageSquare, Wrench } from "lucide-react";
+import { FadeIn, StaggerFadeIn } from "@/components/animations/fade-in";
 
 const capabilities = [
   {
-    icon: Crown,
-    title: "Prosthetic Fabrication",
+    step: "01",
+    title: "Prosthetic fabrication",
     description:
       "Surgical-grade dental prosthetics manufactured with superhuman precision. Every crown, bridge, and implant — perfect on delivery.",
-    featured: true,
   },
   {
-    icon: BrainCircuit,
-    title: "AI-Powered Diagnostics",
+    step: "02",
+    title: "AI diagnostics",
     description:
       "X-ray analysis with executive summaries for the doctor. Contraindication flagging. Instant, comprehensive, actionable.",
-    featured: true,
   },
   {
-    icon: Sparkles,
-    title: "Sterilization",
+    step: "03",
+    title: "Sterilisation",
     description:
-      "Automated instrument sterilization protocols. Consistent, documented, and compliant — every single time.",
-    featured: false,
+      "Automated instrument sterilisation protocols. Consistent, documented, and compliant — every single time.",
   },
   {
-    icon: Package,
-    title: "Inventory Management",
+    step: "04",
+    title: "Inventory & supply",
     description:
       "Supply ordering with real-time market-price research. Automated procurement that saves money and eliminates stockouts.",
-    featured: false,
   },
   {
-    icon: MessageSquare,
-    title: "Patient Communication",
+    step: "05",
+    title: "Patient communication",
     description:
       "Real-time language translation. Appointment coordination. Insurance documentation — handled seamlessly.",
-    featured: false,
   },
   {
-    icon: Wrench,
-    title: "Facility Maintenance",
+    step: "06",
+    title: "Facility maintenance",
     description:
       "Equipment monitoring, maintenance scheduling, and facility operations. The robot manages the physical environment.",
-    featured: false,
   },
 ];
 
 export function RobotScope() {
   return (
-    <section className="relative bg-light-bg px-6 py-32 lg:py-40 overflow-hidden">
-      {/* Subtle dot pattern background */}
-      <DotPattern
-        width={28}
-        height={28}
-        cr={0.6}
-        className={cn(
-          "[&_circle]:fill-titanium-light/20",
-          "mask-[radial-gradient(500px_circle_at_0%_50%,white,transparent)]"
-        )}
-      />
-      <div className="relative z-10 mx-auto max-w-275">
-        <SectionHeader
-          label="Full Scope"
-          title="One robot. Every role."
-          description="Optimus doesn't just handle lab work. It assumes full practice automation — from fabrication to facility maintenance. In-office placement, staff training, location-specific customization, and ongoing service subscription included."
-          light
-        />
+    <section className="section-bone border-t border-rule">
+      <div className="mx-auto max-w-[1320px] px-6 py-24 md:px-10 md:py-36">
+        <FadeIn>
+          <p className="eyebrow text-graphite">02 — The full scope</p>
+        </FadeIn>
+        <FadeIn delay={0.1}>
+          <h2 className="mt-4 max-w-[820px] font-[family-name:var(--font-fraunces)] font-normal leading-[1.08] tracking-[-1.2px] text-graphite text-[clamp(1.9rem,3.6vw,3rem)]">
+            One robot. Every role on the floor.
+          </h2>
+        </FadeIn>
+        <FadeIn delay={0.2}>
+          <p className="mt-6 max-w-[680px] font-[family-name:var(--font-inter)] text-[1.0625rem] leading-[1.65] text-ink-muted">
+            Optimus doesn&apos;t just handle lab work. It assumes full practice automation — from
+            fabrication to facility maintenance — with in-office placement, staff training, and
+            ongoing service included.
+          </p>
+        </FadeIn>
 
         <StaggerFadeIn
-          className="mt-16 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
-          stagger={0.08}
+          className="mt-16 grid grid-cols-1 gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3"
+          stagger={0.07}
         >
-          {capabilities.map((cap) => {
-            const Icon = cap.icon;
-            const isDark = cap.title === "Facility Maintenance";
-            return (
-              <div
-                key={cap.title}
-                className={`relative overflow-hidden rounded-lg border p-7 shadow-sm transition-all hover:shadow-lg hover:-translate-y-1.5 ${
-                  isDark
-                    ? "bg-void border-titanium-dark hover:border-titanium hover:shadow-[0_0_40px_rgba(148,163,184,0.25)]"
-                    : cap.featured
-                      ? "sm:col-span-2 bg-light-card border-light-border hover:border-titanium-light/50"
-                      : "bg-light-card border-light-border hover:border-titanium-light/50"
-                }`}
-              >
-                <Icon
-                  className={`mb-4 ${
-                    isDark ? "h-6 w-6 text-titanium-light"
-                    : cap.featured ? "h-8 w-8 text-light-text" : "h-6 w-6 text-light-muted"
-                  }`}
-                  strokeWidth={1.5}
-                />
-                <h3 className={`font-display text-[18px] font-semibold leading-[1.4] ${isDark ? "text-white-pure" : "text-light-text"}`}>
-                  {cap.title}
-                </h3>
-                <p className={`mt-3 font-body text-[14px] leading-[1.75] ${isDark ? "text-titanium-light" : "text-light-muted"}`}>
-                  {cap.description}
-                </p>
-                {cap.title === "Prosthetic Fabrication" && (
-                  <BorderBeam size={80} duration={8} colorFrom="#5EAFC5" colorTo="#3D7A8F" borderWidth={1} />
-                )}
-              </div>
-            );
-          })}
+          {capabilities.map((cap) => (
+            <article key={cap.step} className="border-t border-rule-strong pt-7">
+              <p className="eyebrow text-ink-soft">Capability {cap.step}</p>
+              <h3 className="mt-4 font-[family-name:var(--font-fraunces)] text-[1.5rem] font-normal leading-[1.2] tracking-[-0.5px] text-graphite">
+                {cap.title}
+              </h3>
+              <p className="mt-3 font-[family-name:var(--font-inter)] text-[15px] leading-[1.65] text-ink-muted">
+                {cap.description}
+              </p>
+            </article>
+          ))}
         </StaggerFadeIn>
       </div>
     </section>

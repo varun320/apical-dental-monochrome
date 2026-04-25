@@ -43,3 +43,6 @@ next-env.d.ts
 docs/
 CLAUDE.md
 .claude
+
+.playwright-mcp/
+wp-build/verify

@@ -1,111 +1,97 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { FadeIn, StaggerFadeIn } from "@/components/animations/fade-in";
-import { TextReveal } from "@/components/animations/text-reveal";
-import { BorderBeam } from "@/components/ui/border-beam";
-
-import { ShieldCheck, FileCheck, Award, Lock, HeartPulse, Scale } from "lucide-react";
 
 const badges = [
-  { icon: ShieldCheck, title: "FDA Pathway", description: "Designed within the FDA regulatory framework for dental devices" },
-  { icon: FileCheck, title: "Clinical Validation", description: "Backed by extensive clinical testing and peer-reviewed research" },
-  { icon: Award, title: "ISO Certified", description: "Manufacturing processes certified to ISO 13485 medical device standards" },
-  { icon: Lock, title: "Data Security", description: "HIPAA-compliant data handling with end-to-end encryption" },
-  { icon: HeartPulse, title: "Patient Safety", description: "Triple-redundant safety systems with real-time force monitoring" },
-  { icon: Scale, title: "Zero Barriers", description: "Dental laboratory entry requires no additional regulatory clearance" },
-] as const;
+  {
+    title: "FDA pathway",
+    description: "Designed within the FDA regulatory framework for dental devices.",
+  },
+  {
+    title: "Clinical validation",
+    description: "Backed by extensive clinical testing and peer-reviewed research.",
+  },
+  {
+    title: "ISO 13485",
+    description: "Manufacturing processes certified to ISO 13485 medical-device standards.",
+  },
+  {
+    title: "Data security",
+    description: "HIPAA-compliant data handling with end-to-end encryption.",
+  },
+  {
+    title: "Patient safety",
+    description: "Triple-redundant safety systems with real-time force monitoring.",
+  },
+  {
+    title: "Zero barriers",
+    description: "Dental laboratory entry requires no additional regulatory clearance.",
+    highlight: true,
+  },
+];
 
 export function TechTrust() {
   return (
-    <section className="section-dark relative bg-void px-6 py-32 lg:py-40 overflow-hidden">
-      {/* Background */}
-      <div className="pointer-events-none absolute inset-0">
-        <Image src="/images/hero-systems.png" alt="" fill className="object-cover grayscale-50 brightness-[0.15] opacity-50" sizes="100vw" />
-        <div className="absolute inset-0 bg-void/70" />
-      </div>
-      <div className="relative z-10 mx-auto max-w-[1100px]">
-        {/* ── Section header ── */}
+    <section className="section-graphite border-t border-white/10">
+      <div className="mx-auto max-w-[1320px] px-6 py-24 md:px-10 md:py-36">
         <FadeIn>
-          <p className="mb-4 font-display text-[11px] font-semibold uppercase tracking-[3px] text-titanium-light">
-            Trust & Safety
-          </p>
+          <p className="eyebrow text-bone/55">04 — Trust & safety</p>
         </FadeIn>
         <FadeIn delay={0.1}>
-          <h2 className="mb-16 font-display text-[clamp(24px,4vw,30px)] font-bold leading-[1.1] tracking-[-0.5px] text-white-pure">
-            Built on trust. Backed by science.
+          <h2 className="mt-4 max-w-[820px] font-[family-name:var(--font-fraunces)] font-light leading-[1.05] tracking-[-1.5px] text-bone text-[clamp(2rem,4vw,3.25rem)]">
+            Built on trust. <span className="italic">Backed by science.</span>
           </h2>
         </FadeIn>
 
-        {/* ── Badge grid ── */}
         <StaggerFadeIn
-          className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
-          stagger={0.1}
+          className="mt-16 grid grid-cols-1 gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3"
+          stagger={0.08}
         >
-          {badges.map((badge) => {
-            const Icon = badge.icon;
-            const isHighlight = badge.title === "Zero Barriers";
-            return (
-              <div
-                key={badge.title}
-                className="relative overflow-hidden rounded-lg border border-titanium-dark bg-deep-void p-6 transition-all hover:border-titanium hover:-translate-y-1.5"
+          {badges.map((b, i) => (
+            <article
+              key={b.title}
+              className={`border-t pt-7 ${
+                b.highlight ? "border-terracotta" : "border-white/25"
+              }`}
+            >
+              <p className="eyebrow text-bone/55">
+                {String(i + 1).padStart(2, "0")}
+              </p>
+              <h3
+                className={`mt-4 font-[family-name:var(--font-fraunces)] text-[1.5rem] font-normal leading-[1.2] tracking-[-0.5px] ${
+                  b.highlight ? "text-terracotta" : "text-bone"
+                }`}
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-md border border-titanium-dark bg-void">
-                  <Icon className="h-5 w-5 text-titanium-light" strokeWidth={1.5} />
-                </div>
-                <h3 className="mt-4 font-display text-[16px] font-semibold leading-[1.2] tracking-[-0.3px] text-white-pure">
-                  {badge.title}
-                </h3>
-                <p className="mt-2 font-body text-[13px] leading-[1.7] text-titanium-light">
-                  {badge.description}
-                </p>
-                {isHighlight && (
-                  <BorderBeam size={80} duration={8} colorFrom="#5EAFC5" colorTo="#3D7A8F" borderWidth={1} />
-                )}
-              </div>
-            );
-          })}
+                {b.title}
+              </h3>
+              <p className="mt-3 font-[family-name:var(--font-inter)] text-[15px] leading-[1.65] text-bone/70">
+                {b.description}
+              </p>
+            </article>
+          ))}
         </StaggerFadeIn>
 
-        {/* ── CTA Card ── */}
         <FadeIn delay={0.3}>
-          <div className="section-dark relative mt-20 overflow-hidden rounded-lg border border-titanium-dark bg-deep-void p-12 shadow-[0_0_50px_rgba(94,175,197,0.25)] text-center">
-            <Image
-              src="/images/cta-texture.png"
-              alt=""
-              fill
-              className="object-cover opacity-40"
-              sizes="700px"
-            />
-            <TextReveal className="relative z-10 font-display text-[clamp(22px,3.5vw,30px)] font-bold leading-[1.2] tracking-[-0.5px] text-white-pure">
+          <div className="mt-20 border-t border-bone/30 pt-12 grid grid-cols-1 gap-8 md:grid-cols-[55fr_45fr] md:items-end">
+            <h3 className="font-[family-name:var(--font-fraunces)] font-light leading-[1.05] tracking-[-1.5px] text-bone text-[clamp(2rem,4vw,3rem)]">
               See the technology in action.
-            </TextReveal>
-
-            <FadeIn delay={0.5}>
-              <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-                <Link
-                  href="/contact"
-                  className="rounded-md bg-white-pure px-8 py-4 font-display text-[14px] font-bold tracking-[0.5px] text-void transition-all hover:shadow-[0_0_30px_rgba(94,175,197,0.5)] hover:opacity-90"
-                >
-                  Request a Demo &rarr;
-                </Link>
-                <Link
-                  href="/for-dsos"
-                  className="rounded-md border border-titanium-dark bg-deep-void px-8 py-4 font-display text-[12px] font-medium tracking-[0.5px] text-titanium-light transition-all hover:border-titanium hover:text-white-pure"
-                >
-                  DSO Solutions
-                </Link>
-              </div>
-            </FadeIn>
-
-            <BorderBeam
-              size={100}
-              duration={10}
-              colorFrom="#5EAFC5"
-              colorTo="#3D7A8F"
-              borderWidth={1}
-            />
+            </h3>
+            <div className="flex flex-wrap gap-3 md:justify-end">
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-3 bg-terracotta px-7 py-[18px] font-[family-name:var(--font-inter)] text-[14px] font-medium tracking-[0.5px] text-bone transition-colors hover:bg-bone hover:text-graphite"
+              >
+                Request a demo
+                <span className="transition-transform group-hover:translate-x-1" aria-hidden>→</span>
+              </Link>
+              <Link
+                href="/for-dsos"
+                className="inline-flex items-center gap-2 px-2 py-[18px] font-[family-name:var(--font-inter)] text-[14px] font-medium text-bone border-b border-bone/40 hover:border-bone transition-colors"
+              >
+                DSO solutions →
+              </Link>
+            </div>
           </div>
         </FadeIn>
       </div>

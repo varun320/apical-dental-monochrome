@@ -2,89 +2,68 @@
 
 import Image from "next/image";
 import { FadeIn, StaggerFadeIn } from "@/components/animations/fade-in";
-import { ScanSearch, Play, CheckCircle } from "lucide-react";
 
 const steps = [
   {
-    icon: ScanSearch,
     step: "01",
-    title: "Plan",
-    description: "The system captures a high-resolution 3D scan of the patient's dental anatomy, generating a precision digital model. AI algorithms analyze the geometry and plan optimal tool paths down to sub-millimeter tolerances.",
+    title: "Scan & plan",
+    description:
+      "Intra-oral scan plus a cone-beam CT feed our planning AI. Surgical trajectory ready in under five minutes.",
     image: "/images/step-plan.png",
   },
   {
-    icon: Play,
     step: "02",
-    title: "Execute",
-    description: "Tesla's Optimus follows the computed path with surgical-grade accuracy. Real-time force feedback and spatial awareness allow the robot to adapt to micro-variations, ensuring every cut, contour, and surface meets exact specifications.",
+    title: "Robot-guided execution",
+    description:
+      "Tesla’s Optimus follows the computed path with surgical-grade accuracy. Real-time force feedback adapts to micro-variations.",
     image: "/images/step-execute.png",
   },
   {
-    icon: CheckCircle,
     step: "03",
-    title: "Verify",
-    description: "Post-procedure quality verification scans the finished work against the original plan. Deviations are measured in microns. Every piece is documented, traceable, and guaranteed to meet the highest standards of dental prosthetics.",
+    title: "Verify & deliver",
+    description:
+      "Post-procedure verification scans the finished work against the original plan. Deviations measured in microns, every piece traceable.",
     image: "/images/step-verify.png",
-    dark: true,
   },
-] as const;
+];
 
 export function TechHowItWorks() {
   return (
-    <section className="relative bg-light-bg px-6 py-32 lg:py-40 overflow-hidden">
-      <div className="relative z-10 mx-auto max-w-[1100px]">
+    <section className="section-bone border-t border-rule">
+      <div className="mx-auto max-w-[1320px] px-6 py-24 md:px-10 md:py-36">
         <FadeIn>
-          <p className="mb-4 font-display text-[11px] font-semibold uppercase tracking-[3px] text-light-muted">
-            The Process
-          </p>
+          <p className="eyebrow text-graphite">02 — How it works</p>
         </FadeIn>
         <FadeIn delay={0.1}>
-          <h2 className="mb-16 font-display text-[clamp(24px,4vw,30px)] font-bold leading-[1.1] tracking-[-0.5px] text-light-text">
-            Three steps to perfection.
+          <h2 className="mt-4 max-w-[820px] font-[family-name:var(--font-fraunces)] font-normal leading-[1.08] tracking-[-1.2px] text-graphite text-[clamp(1.9rem,3.6vw,3rem)]">
+            From scan to restoration in <span className="italic">ninety minutes.</span>
           </h2>
         </FadeIn>
 
-        <StaggerFadeIn className="grid gap-6 lg:grid-cols-3" stagger={0.12}>
-          {steps.map((step) => {
-            const Icon = step.icon;
-            const isDark = "dark" in step && step.dark;
-            return (
-              <div
-                key={step.step}
-                className="group relative overflow-hidden rounded-lg border border-titanium-dark shadow-sm transition-all hover:shadow-lg hover:-translate-y-1.5 min-h-[380px] flex flex-col justify-end"
-              >
-                {/* Background image */}
+        <StaggerFadeIn className="mt-16 grid gap-x-10 gap-y-14 md:grid-cols-3" stagger={0.12}>
+          {steps.map((step) => (
+            <article key={step.step} className="flex flex-col">
+              <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
                   src={step.image}
                   alt={step.title}
                   fill
-                  className="object-cover grayscale-[30%] brightness-[0.35] transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover"
+                  style={{ filter: "saturate(0.85) contrast(1.05)" }}
                 />
-                {/* Gradient overlay for readability — stronger at bottom */}
-                <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(6,7,13,0.2)_0%,rgba(6,7,13,0.75)_50%,rgba(6,7,13,0.95)_100%)]" />
-
-                {/* Content */}
-                <div className="relative z-10 p-8">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full border border-titanium-dark bg-void/60 backdrop-blur-sm">
-                      <Icon className="h-5 w-5 text-cyan" strokeWidth={1.5} />
-                    </div>
-                    <p className="font-display text-[11px] font-semibold uppercase tracking-[3px] text-titanium-light">
-                      Step {step.step}
-                    </p>
-                  </div>
-
-                  <h3 className="font-display text-[24px] font-bold leading-[1.1] tracking-[-0.5px] text-white-pure">
-                    {step.title}
-                  </h3>
-                  <p className="mt-3 font-body text-[14px] leading-[1.75] text-titanium-light">
-                    {step.description}
-                  </p>
-                </div>
               </div>
-            );
-          })}
+              <div className="border-t border-rule-strong mt-7 pt-6">
+                <p className="eyebrow text-ink-soft">Step {step.step}</p>
+                <h3 className="mt-4 font-[family-name:var(--font-fraunces)] text-[1.65rem] font-normal leading-[1.2] tracking-[-0.5px] text-graphite">
+                  {step.title}
+                </h3>
+                <p className="mt-3 font-[family-name:var(--font-inter)] text-[15px] leading-[1.65] text-ink-muted">
+                  {step.description}
+                </p>
+              </div>
+            </article>
+          ))}
         </StaggerFadeIn>
       </div>
     </section>

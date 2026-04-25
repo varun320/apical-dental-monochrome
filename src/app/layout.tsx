@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter, Geist } from "next/font/google";
+import { Space_Grotesk, Inter, Geist, Fraunces } from "next/font/google";
 import { LenisProvider } from "@/lib/lenis";
 import { cn } from "@/lib/utils";
 import "./globals.css";
@@ -17,6 +17,14 @@ const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
+  display: "swap",
+});
+
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -46,10 +54,11 @@ export default function RootLayout({
         geist.variable,
         spaceGrotesk.variable,
         inter.variable,
+        fraunces.variable,
         "font-sans"
       )}
     >
-      <body className="min-h-full flex flex-col bg-void text-white-pure">
+      <body className="min-h-full flex flex-col bg-bone text-graphite">
         <LenisProvider>{children}</LenisProvider>
       </body>
     </html>

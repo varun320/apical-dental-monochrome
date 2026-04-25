@@ -1,118 +1,87 @@
 "use client";
 
 import { FadeIn, StaggerFadeIn } from "@/components/animations/fade-in";
-import { BorderBeam } from "@/components/ui/border-beam";
-import { FlaskRound, Stethoscope, Scissors, Bot } from "lucide-react";
 
 const stages = [
   {
     phase: "Phase 01",
-    title: "Dental Laboratory",
-    status: "Active — Zero Barriers",
+    timing: "Active",
+    title: "Dental laboratory",
     description:
-      "The dental lab is completely unregulated. No licensing boards. No regulatory friction. Optimus enters here — perfect from day one.",
+      "Completely unregulated. No licensing boards. No regulatory friction. Optimus enters here — perfect from day one.",
     active: true,
-    icon: FlaskRound,
   },
   {
     phase: "Phase 02",
-    title: "Office Support",
-    status: "Near-term",
+    timing: "Near-term",
+    title: "Office support",
     description:
-      "Sterilization, inventory management, supply ordering with market-price research, patient communication, and facility maintenance.",
-    active: false,
-    icon: Stethoscope,
+      "Sterilisation, inventory, supply ordering with market-price research, patient comms, and facility maintenance.",
   },
   {
     phase: "Phase 03",
-    title: "Surgical Assistance",
-    status: "Mid-term",
+    timing: "Mid-term",
+    title: "Surgical assistance",
     description:
-      "AI-powered diagnostics, X-ray analysis with executive summaries, contraindication flagging, and real-time surgical support.",
-    active: false,
-    icon: Scissors,
+      "AI diagnostics, X-ray analysis with executive summaries, contraindication flagging, and real-time surgical support.",
   },
   {
     phase: "Phase 04",
-    title: "Autonomous Operation",
-    status: "Long-term Vision",
+    timing: "Long-term",
+    title: "Autonomous operation",
     description:
-      "Full autonomous dental practice operation. From diagnosis to treatment to post-op. The ultimate convergence of human expertise and robotic precision.",
-    active: false,
-    icon: Bot,
+      "Full autonomous practice operation — from diagnosis to treatment to post-op. Convergence of human expertise and robotic precision.",
   },
 ];
 
 export function StagedPath() {
   return (
-    <section className="relative bg-light-bg px-6 py-32 lg:py-40 overflow-hidden">
-      <div className="relative z-10 mx-auto max-w-[1100px]">
-        {/* 50/50 split — text left, cards right */}
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-16 items-start">
-          {/* Left — sticky header */}
-          <FadeIn>
-            <div className="lg:sticky lg:top-32">
-              <p className="font-display text-[11px] font-semibold uppercase tracking-[3px] text-light-muted">
-                The Path
-              </p>
-              <h2 className="mt-4 font-display text-[clamp(28px,4vw,36px)] font-bold leading-[1.1] tracking-[-1px] text-light-text">
-                Staged entry.<br />Zero resistance.
-              </h2>
-              <p className="mt-6 font-body text-[16px] leading-[1.7] text-light-muted">
-                The dental laboratory is the zero-resistance entry point. No regulatory barriers exist. From there, Optimus expands into every aspect of practice operation.
-              </p>
-              <div className="mt-8 flex items-center gap-3">
-                <div className="h-2 w-2 rounded-full bg-cyan" />
-                <p className="font-display text-[11px] font-semibold uppercase tracking-[2px] text-cyan-muted">
-                  Phase 01 is live today
-                </p>
-              </div>
-            </div>
-          </FadeIn>
+    <section className="section-bone border-t border-rule">
+      <div className="mx-auto grid max-w-[1320px] grid-cols-1 gap-12 px-6 py-24 md:grid-cols-[42fr_58fr] md:gap-20 md:px-10 md:py-36">
+        <FadeIn>
+          <p className="eyebrow text-graphite">03 — The path</p>
+          <h2 className="mt-5 font-[family-name:var(--font-fraunces)] font-normal leading-[1.1] tracking-[-1.2px] text-graphite text-[clamp(1.9rem,3.4vw,2.85rem)]">
+            Staged entry.
+            <br />
+            <span className="italic text-terracotta-deep">Zero resistance.</span>
+          </h2>
+          <p className="mt-6 max-w-[460px] font-[family-name:var(--font-inter)] text-[15.5px] leading-[1.65] text-ink-muted">
+            The lab is the zero-resistance entry point. From there, Optimus expands into every
+            aspect of practice operation.
+          </p>
+          <div className="mt-8 inline-flex items-center gap-3 border-t border-rule-strong pt-5">
+            <span className="h-2 w-2 rounded-full bg-terracotta" aria-hidden />
+            <p className="eyebrow text-graphite">Phase 01 is live today</p>
+          </div>
+        </FadeIn>
 
-          {/* Right — phase cards in 2x2 grid */}
-          <StaggerFadeIn className="grid gap-4 sm:grid-cols-2" stagger={0.1}>
-            {stages.map((stage) => {
-              const Icon = stage.icon;
-              const isLast = stage.phase === "Phase 04";
-              return (
-                <div
-                  key={stage.phase}
-                  className={`relative overflow-hidden rounded-xl border p-6 transition-all hover:shadow-lg hover:-translate-y-1.5 ${
-                    isLast
-                      ? "bg-void border-titanium-dark hover:border-titanium hover:shadow-[0_0_40px_rgba(148,163,184,0.25)]"
-                      : stage.active
-                        ? "bg-light-card border-cyan-muted shadow-sm hover:border-titanium-light/50"
-                        : "bg-light-card border-light-border shadow-sm hover:border-titanium-light/50"
+        <StaggerFadeIn className="grid grid-cols-1 gap-x-10 gap-y-10 sm:grid-cols-2" stagger={0.1}>
+          {stages.map((stage) => (
+            <article
+              key={stage.phase}
+              className={`border-t pt-7 ${
+                stage.active ? "border-terracotta" : "border-rule-strong"
+              }`}
+            >
+              <div className="flex items-baseline justify-between">
+                <p className="eyebrow text-ink-soft">{stage.phase}</p>
+                <p
+                  className={`eyebrow ${
+                    stage.active ? "text-terracotta-deep" : "text-ink-soft"
                   }`}
                 >
-                  <Icon
-                    className={`mb-3 h-5 w-5 ${isLast ? "text-titanium-light" : stage.active ? "text-light-muted" : "text-light-muted"}`}
-                    strokeWidth={1.5}
-                  />
-                  <p className={`font-display text-[10px] font-semibold uppercase tracking-[2px] ${isLast ? "text-titanium" : "text-light-muted"}`}>
-                    {stage.phase}
-                  </p>
-                  <h3 className={`mt-1 font-display text-[18px] font-semibold leading-[1.2] tracking-[-0.5px] ${isLast ? "text-white-pure" : "text-light-text"}`}>
-                    {stage.title}
-                  </h3>
-                  <span className={`mt-1 inline-block font-display text-[10px] font-semibold uppercase tracking-[2px] ${
-                    isLast ? "text-white-pure" : stage.active ? "text-light-muted" : "text-light-muted"
-                  }`}>
-                    {stage.status}
-                  </span>
-                  <p className={`mt-2 font-body text-[13px] leading-[1.75] ${isLast ? "text-titanium-light" : "text-light-muted"}`}>
-                    {stage.description}
-                  </p>
-
-                  {stage.active && (
-                    <BorderBeam size={80} duration={8} colorFrom="#5EAFC5" colorTo="#3D7A8F" borderWidth={1} />
-                  )}
-                </div>
-              );
-            })}
-          </StaggerFadeIn>
-        </div>
+                  {stage.timing}
+                </p>
+              </div>
+              <h3 className="mt-4 font-[family-name:var(--font-fraunces)] text-[1.45rem] font-normal leading-[1.2] tracking-[-0.5px] text-graphite">
+                {stage.title}
+              </h3>
+              <p className="mt-3 font-[family-name:var(--font-inter)] text-[14.5px] leading-[1.65] text-ink-muted">
+                {stage.description}
+              </p>
+            </article>
+          ))}
+        </StaggerFadeIn>
       </div>
     </section>
   );

@@ -30,6 +30,19 @@
   --light-text:    #0F172A;
   --light-muted:   #64748B;
 
+  /* Magazine palette — graphite + white + terracotta */
+  --graphite:      #1A1A1C;
+  --bone:          #FFFFFF;
+  --bone-card:     #F8F8F8;
+  --terracotta:    #B85C3C;
+  --terracotta-deep:#9F4F33;
+  --slate-mag:     #2F4858;
+  --rule:          rgba(26,26,28,0.14);
+  --rule-strong:   rgba(26,26,28,0.4);
+  --ink-muted:     rgba(26,26,28,0.65);
+  --ink-soft:      rgba(26,26,28,0.5);
+  --bone-on-dark:  rgba(255,255,255,0.75);
+
   /* shadcn semantic tokens — mapped to monochrome palette */
   --background: var(--void);
   --foreground: var(--white);
@@ -92,9 +105,23 @@
   --color-light-text: var(--light-text);
   --color-light-muted: var(--light-muted);
 
+  /* Magazine palette */
+  --color-graphite: var(--graphite);
+  --color-bone: var(--bone);
+  --color-bone-card: var(--bone-card);
+  --color-terracotta: var(--terracotta);
+  --color-terracotta-deep: var(--terracotta-deep);
+  --color-slate-mag: var(--slate-mag);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-soft: var(--ink-soft);
+  --color-bone-on-dark: var(--bone-on-dark);
+
   /* Font families */
   --font-display: var(--font-space-grotesk);
   --font-body: var(--font-inter);
+  --font-serif: var(--font-fraunces);
 
   /* shadcn tokens */
   --font-heading: var(--font-space-grotesk);
@@ -192,6 +219,40 @@ html {
 .section-dark ::selection {
   background: rgba(245, 245, 248, 0.15);
   color: var(--white);
+}
+
+/* Magazine surfaces */
+.section-bone {
+  background: var(--bone);
+  color: var(--graphite);
+}
+.section-graphite {
+  background: var(--graphite);
+  color: var(--bone);
+}
+.section-graphite ::selection {
+  background: rgba(184, 92, 60, 0.35);
+  color: var(--bone);
+}
+
+/* Editorial type utilities */
+.eyebrow {
+  font-family: var(--font-inter);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.serif {
+  font-family: var(--font-fraunces);
+  font-weight: 400;
+  letter-spacing: -0.5px;
+}
+.serif-display {
+  font-family: var(--font-fraunces);
+  font-weight: 300;
+  letter-spacing: -2px;
+  line-height: 1.02;
 }
 
 /* Cyan glow utilities */

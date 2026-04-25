@@ -1,41 +1,26 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { gsap } from "@/lib/gsap";
-import { ImagePlaceholder } from "@/components/ui/image-placeholder";
-import {
-  Cpu, Crosshair, Gauge, ShieldCheck, Eye, Brain,
-  Hand, Workflow, Scan, Cog, Zap,
-} from "lucide-react";
-
-const FLOATING_ICONS = [
-  { Icon: Cpu, top: "10%", left: "10%", size: 44, delay: "0s" },
-  { Icon: Crosshair, top: "20%", left: "82%", size: 40, delay: "1s" },
-  { Icon: Gauge, top: "30%", left: "25%", size: 36, delay: "2s" },
-  { Icon: ShieldCheck, top: "15%", left: "60%", size: 42, delay: "3s" },
-  { Icon: Eye, top: "8%", left: "40%", size: 34, delay: "0.5s" },
-  { Icon: Brain, top: "35%", left: "88%", size: 38, delay: "1.5s" },
-  { Icon: Hand, top: "25%", left: "5%", size: 32, delay: "2.5s" },
-  { Icon: Workflow, top: "12%", left: "72%", size: 30, delay: "4s" },
-  { Icon: Scan, top: "38%", left: "50%", size: 36, delay: "3.5s" },
-  { Icon: Cog, top: "6%", left: "55%", size: 28, delay: "4.5s" },
-  { Icon: Zap, top: "32%", left: "15%", size: 30, delay: "5s" },
-] as const;
 
 export function TechHero() {
   const sectionRef = useRef<HTMLElement>(null);
-  const kickerRef = useRef<HTMLParagraphElement>(null);
+  const eyebrowRef = useRef<HTMLParagraphElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const subRef = useRef<HTMLParagraphElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
   const visualRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ delay: 0.3 });
-      tl.from(kickerRef.current, { opacity: 0, y: 12, duration: 0.6, ease: "power2.out" })
-        .from(headlineRef.current?.querySelectorAll(".headline-line") || [], { opacity: 0, y: 30, duration: 0.7, ease: "power2.out", stagger: 0.1 }, "-=0.3")
-        .from(subRef.current, { opacity: 0, y: 16, duration: 0.6, ease: "power2.out" }, "-=0.3")
-        .from(visualRef.current, { opacity: 0, x: -30, duration: 0.8, ease: "power2.out" }, "-=0.3");
+      const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+      tl.from(eyebrowRef.current, { opacity: 0, y: 12, duration: 0.5 })
+        .from(headlineRef.current, { opacity: 0, y: 24, duration: 0.7 }, "-=0.25")
+        .from(subRef.current, { opacity: 0, y: 16, duration: 0.6 }, "-=0.4")
+        .from(ctaRef.current, { opacity: 0, y: 12, duration: 0.5 }, "-=0.35")
+        .from(visualRef.current, { opacity: 0, duration: 0.9 }, "-=0.7");
     }, sectionRef);
     return () => ctx.revert();
   }, []);
@@ -43,34 +28,64 @@ export function TechHero() {
   return (
     <section
       ref={sectionRef}
-      className="section-dark relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-void px-6"
+      className="section-bone relative overflow-hidden"
     >
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(94,175,197,0.08),transparent)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.06)_1px,transparent_1px)] bg-[size:48px_48px]" />
-      </div>
-
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-[50%]">
-        {FLOATING_ICONS.map(({ Icon, top, left, size, delay }, i) => (
-          <Icon key={i} className="absolute text-titanium-light animate-float" style={{ top, left, width: size, height: size, opacity: 0.08, animationDelay: delay }} strokeWidth={1} />
-        ))}
-      </div>
-
-      <div className="relative z-10 mx-auto flex w-full max-w-[1100px] flex-col items-center gap-12 md:flex-row md:items-center md:gap-16">
-        <div ref={visualRef} className="hidden md:block w-full max-w-[440px] shrink-0">
-          <ImagePlaceholder src="/images/hero-systems.png" alt="Apical Dental robotic precision system" className="h-[320px] w-full" overlay="dark" priority />
-        </div>
-        <div className="flex-1 text-center md:text-left">
-          <p ref={kickerRef} className="mb-8 font-display text-[11px] font-semibold uppercase tracking-[3px] text-titanium-light">Our Technology</p>
-          <h1 ref={headlineRef} className="font-display text-[clamp(36px,6vw,56px)] font-bold leading-[1.05] tracking-[-2px]">
-            <span className="headline-line block text-white-pure">The Future of</span>
-            <span className="headline-line block bg-linear-to-r from-white-pure via-titanium-light to-titanium bg-clip-text text-transparent">Robotic Dentistry</span>
-          </h1>
-          <p ref={subRef} className="mt-8 max-w-[580px] font-body text-[17px] leading-[1.7] text-titanium-light">
-            Precision engineered. Clinically proven. Tesla&apos;s Optimus humanoid robot, purpose-built for dental laboratory excellence.
+      <div className="mx-auto grid max-w-[1320px] grid-cols-1 gap-12 px-6 pb-24 pt-32 md:grid-cols-[55fr_45fr] md:gap-16 md:px-10 md:pt-44 md:pb-32 lg:pt-48 lg:pb-36">
+        <div className="flex flex-col justify-center">
+          <p ref={eyebrowRef} className="eyebrow text-graphite">
+            Our Technology
           </p>
+          <h1
+            ref={headlineRef}
+            className="mt-5 font-[family-name:var(--font-fraunces)] font-light leading-[1.02] tracking-[-2px] text-graphite"
+            style={{ fontSize: "clamp(2.5rem, 6.4vw, 5.25rem)" }}
+          >
+            The future of
+            <br />
+            <span className="italic font-light text-terracotta-deep">robotic dentistry.</span>
+          </h1>
+          <p
+            ref={subRef}
+            className="mt-7 max-w-[520px] font-[family-name:var(--font-inter)] text-[17px] leading-[1.6] text-graphite"
+          >
+            Precision engineered. Clinically proven. Tesla&apos;s Optimus humanoid, purpose-built for
+            dental laboratory excellence — backed by four decades of bench mastery.
+          </p>
+
+          <div ref={ctaRef} className="mt-9 flex flex-wrap items-center gap-3">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-3 bg-terracotta px-7 py-[18px] font-[family-name:var(--font-inter)] text-[14px] font-medium tracking-[0.5px] text-bone transition-colors hover:bg-graphite"
+            >
+              Request a demo
+              <span className="transition-transform group-hover:translate-x-1" aria-hidden>→</span>
+            </Link>
+            <Link
+              href="/for-dsos"
+              className="inline-flex items-center gap-2 px-2 py-[18px] font-[family-name:var(--font-inter)] text-[14px] font-medium text-graphite border-b border-graphite/30 hover:border-graphite transition-colors"
+            >
+              DSO solutions →
+            </Link>
+          </div>
+        </div>
+
+        <div
+          ref={visualRef}
+          className="relative aspect-[4/5] md:aspect-auto md:min-h-[60vh] lg:min-h-[70vh] overflow-hidden"
+        >
+          <Image
+            src="/images/hero-systems.png"
+            alt="Apical Dental robotic precision system"
+            fill
+            priority
+            sizes="(max-width: 768px) 100vw, 45vw"
+            className="object-cover"
+            style={{ filter: "saturate(0.9) contrast(1.05)" }}
+          />
         </div>
       </div>
+
+      <div className="border-t border-rule" />
     </section>
   );
 }
