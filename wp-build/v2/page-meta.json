@@ -1,0 +1,27 @@
+{
+  "version": "v2",
+  "captured_at": "2026-04-25",
+  "site_url": "https://1.josh.wpfarmpowered.com/apicaldental",
+  "kit_post_id": 7,
+  "v1_pages_off_limits": {
+    "home": 12,
+    "technology": 20,
+    "proof": 21,
+    "for-dsos": 22,
+    "contact": 23,
+    "_note": "v1 page IDs are not to be modified or deleted. v2 must use new page IDs only."
+  },
+  "v2_pages": {
+    "home":       { "slug": "home-v2",       "title": "Home (v2 — Magazine)", "status": "draft", "id": 36 },
+    "technology": { "slug": "technology-v2", "title": "Technology (v2)",      "status": "draft", "id": 37 },
+    "proof":      { "slug": "proof-v2",      "title": "Proof (v2)",           "status": "draft", "id": 38 },
+    "for-dsos":   { "slug": "for-dsos-v2",   "title": "For DSOs (v2)",        "status": "draft", "id": 39 },
+    "contact":    { "slug": "contact-v2",    "title": "Contact (v2)",         "status": "draft", "id": 40 }
+  },
+  "notes": [
+    "All v2 pages are created as DRAFT — they do not appear in nav or sitemap.",
+    "Element ids are v2-prefixed to avoid Elementor cross-page collisions in the kit's stored data.",
+    "Palette swap from bone (#F3EEE5) to white (#FFFFFF) is the only token-level change vs v1 sections.",
+    "When approved for promotion, options: (a) publish drafts and 301 old → new, or (b) copy v2 elementor_data onto v1 page IDs."
+  ]
+}

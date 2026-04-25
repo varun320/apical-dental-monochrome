@@ -1,0 +1,177 @@
+{
+  "id": "v2sec06dso",
+  "elType": "section",
+  "isInner": false,
+  "settings": {
+    "layout": "boxed",
+    "content_width": {
+      "unit": "px",
+      "size": 1320
+    },
+    "gap": "extended",
+    "padding": {
+      "unit": "px",
+      "top": "140",
+      "right": "40",
+      "bottom": "140",
+      "left": "40",
+      "isLinked": false
+    },
+    "padding_tablet": {
+      "unit": "px",
+      "top": "96",
+      "right": "32",
+      "bottom": "96",
+      "left": "32",
+      "isLinked": false
+    },
+    "padding_mobile": {
+      "unit": "px",
+      "top": "72",
+      "right": "22",
+      "bottom": "72",
+      "left": "22",
+      "isLinked": false
+    },
+    "background_background": "classic",
+    "background_color": "#FFFFFF"
+  },
+  "elements": [
+    {
+      "id": "v2col06a",
+      "elType": "column",
+      "settings": {
+        "_column_size": 100,
+        "space_between_widgets": {
+          "unit": "px",
+          "size": 28
+        }
+      },
+      "elements": [
+        {
+          "id": "v2w06a01",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "04 — THE DSO CASE",
+            "header_size": "h6",
+            "align": "center",
+            "typography_typography": "custom",
+            "typography_font_family": "Inter",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 12
+            },
+            "typography_font_weight": "500",
+            "typography_letter_spacing": {
+              "unit": "px",
+              "size": 2
+            },
+            "typography_text_transform": "uppercase",
+            "title_color": "#1A1A1C",
+            "_animation": "fadeInUp"
+          }
+        },
+        {
+          "id": "v2w06a02",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "Built for scale.",
+            "header_size": "h2",
+            "align": "center",
+            "typography_typography": "custom",
+            "typography_font_family": "Fraunces",
+            "typography_font_size": {
+              "unit": "rem",
+              "size": 3.25
+            },
+            "typography_font_size_tablet": {
+              "unit": "rem",
+              "size": 2.5
+            },
+            "typography_font_size_mobile": {
+              "unit": "rem",
+              "size": 2
+            },
+            "typography_font_weight": "400",
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.08
+            },
+            "typography_letter_spacing": {
+              "unit": "px",
+              "size": -1
+            },
+            "title_color": "#1A1A1C",
+            "_animation": "fadeInUp",
+            "_animation_delay": 100
+          }
+        },
+        {
+          "id": "v2w06a03",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p style=\"max-width:640px;margin:0 auto;text-align:center\">Four decades of craft, 800+ dental-lab adaptations, shipping to 500+ DSO offices. Every chair in your network becomes a specialty chair — no new hires, no referrals out, zero regulatory overhead.</p>",
+            "typography_typography": "custom",
+            "typography_font_family": "Inter",
+            "typography_font_size": {
+              "unit": "rem",
+              "size": 1.0625
+            },
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.65
+            },
+            "text_color": "rgba(26,26,28,0.8)",
+            "_animation": "fadeInUp",
+            "_animation_delay": 200
+          }
+        },
+        {
+          "id": "v2w06a04",
+          "elType": "widget",
+          "widgetType": "divider",
+          "settings": {
+            "style": "solid",
+            "weight": {
+              "unit": "px",
+              "size": 1
+            },
+            "color": "rgba(26,26,28,0.12)",
+            "width": {
+              "unit": "px",
+              "size": 48
+            },
+            "align": "center",
+            "gap": {
+              "unit": "px",
+              "size": 24
+            }
+          }
+        },
+        {
+          "id": "v2w06a05",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<div class=\"ds-grid\"><div class=\"ds-cell\"><div class=\"ds-icon\" style=\"color:#B85C3C\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 7v5l3.5 2\"/></svg></div><div class=\"ds-stat\" style=\"color:#B85C3C\">40+</div><div class=\"ds-label\">Years of expertise</div></div><div class=\"ds-cell\"><div class=\"ds-icon\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 3c-2.4 0-3.9 1.3-4.7 2.7-.9 1.5-1.3 3.1-1.3 4.6 0 1.3.4 2.5.7 3.7.4 1.3.6 2.6.8 3.9.2 1.4.5 2.7 1.5 2.7 1 0 1.3-1.5 1.6-3 .2-1 .4-2 .4-2.3.1-.3.4-.3.5 0 0 .3.2 1.3.4 2.3.3 1.5.6 3 1.6 3 .9 0 1.3-1.3 1.5-2.7.2-1.3.4-2.6.8-3.9.3-1.2.7-2.4.7-3.7 0-1.5-.4-3.1-1.3-4.6C15.9 4.3 14.4 3 12 3z\"/></svg></div><div class=\"ds-stat\">800+</div><div class=\"ds-label\">Lab adaptations</div></div><div class=\"ds-cell\"><div class=\"ds-icon\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"4\" y=\"3\" width=\"16\" height=\"18\" rx=\"1\"/><path d=\"M9 21v-4h6v4M8 7h.01M12 7h.01M16 7h.01M8 11h.01M12 11h.01M16 11h.01M8 15h.01M16 15h.01\"/></svg></div><div class=\"ds-stat\">500+</div><div class=\"ds-label\">DSO offices served</div></div><div class=\"ds-cell\"><div class=\"ds-icon\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\"/><path d=\"M9 12l2 2 4-4\"/></svg></div><div class=\"ds-stat\">0</div><div class=\"ds-label\">Regulatory barriers</div></div></div><style>.ds-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(26,26,28,0.12);margin-top:24px;font-family:Inter}.ds-cell{padding:40px 16px;text-align:center;border-right:1px solid rgba(26,26,28,0.12)}.ds-cell:last-child{border-right:0}.ds-icon{margin-bottom:14px;color:#1A1A1C;display:flex;align-items:center;justify-content:center;height:32px}.ds-stat{font-family:Fraunces;font-size:3.25rem;font-weight:300;color:#1A1A1C;line-height:1;margin-bottom:10px}.ds-label{font-size:12px;letter-spacing:0.5px;color:rgba(26,26,28,0.75);line-height:1.4}@media (max-width:768px){.ds-grid{grid-template-columns:repeat(2,1fr)}.ds-cell{padding:32px 12px;border-right:0;border-bottom:1px solid rgba(26,26,28,0.12)}.ds-cell:nth-child(odd){border-right:1px solid rgba(26,26,28,0.12)}.ds-cell:nth-child(3),.ds-cell:nth-child(4){border-bottom:0}.ds-stat{font-size:2.5rem}}</style>",
+            "_animation": "fadeInUp",
+            "_animation_delay": 300
+          }
+        },
+        {
+          "id": "v2w06a06",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p style=\"text-align:center;margin:32px 0 0\"><a href=\"/apicaldental/for-dsos\" style=\"color:#B85C3C;border-bottom:1px solid #B85C3C;padding-bottom:2px;text-decoration:none;font-family:Inter;font-size:14px;font-weight:500;letter-spacing:0.5px\">Read the full DSO case &rarr;</a></p>",
+            "_animation": "fadeInUp",
+            "_animation_delay": 400
+          }
+        }
+      ]
+    }
+  ]
+}

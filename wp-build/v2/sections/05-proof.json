@@ -1,0 +1,211 @@
+{
+  "id": "v2sec05proof",
+  "elType": "section",
+  "isInner": false,
+  "settings": {
+    "layout": "boxed",
+    "content_width": {
+      "unit": "px",
+      "size": 1320
+    },
+    "gap": "extended",
+    "padding": {
+      "unit": "px",
+      "top": "140",
+      "right": "40",
+      "bottom": "140",
+      "left": "40",
+      "isLinked": false
+    },
+    "padding_tablet": {
+      "unit": "px",
+      "top": "96",
+      "right": "32",
+      "bottom": "96",
+      "left": "32",
+      "isLinked": false
+    },
+    "padding_mobile": {
+      "unit": "px",
+      "top": "72",
+      "right": "22",
+      "bottom": "72",
+      "left": "22",
+      "isLinked": false
+    },
+    "background_background": "classic",
+    "background_color": "#1A1A1C"
+  },
+  "elements": [
+    {
+      "id": "v2col05a",
+      "elType": "column",
+      "settings": {
+        "_column_size": 55,
+        "_inline_size_tablet": 100,
+        "space_between_widgets": {
+          "unit": "px",
+          "size": 28
+        },
+        "content_position": "center"
+      },
+      "elements": [
+        {
+          "id": "v2w05a01",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "03 — PROOF",
+            "header_size": "h6",
+            "typography_typography": "custom",
+            "typography_font_family": "Inter",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 12
+            },
+            "typography_font_weight": "500",
+            "typography_letter_spacing": {
+              "unit": "px",
+              "size": 2
+            },
+            "typography_text_transform": "uppercase",
+            "title_color": "#FFFFFF",
+            "_animation": "fadeInUp"
+          }
+        },
+        {
+          "id": "v2w05a02",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "“We went from referring out 40% of implant cases to keeping 90% in-house within a single quarter.”",
+            "header_size": "h3",
+            "typography_typography": "custom",
+            "typography_font_family": "Fraunces",
+            "typography_font_size": {
+              "unit": "rem",
+              "size": 2.15
+            },
+            "typography_font_size_tablet": {
+              "unit": "rem",
+              "size": 1.65
+            },
+            "typography_font_size_mobile": {
+              "unit": "rem",
+              "size": 1.3
+            },
+            "typography_font_weight": "300",
+            "typography_font_style": "italic",
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.22
+            },
+            "typography_letter_spacing": {
+              "unit": "px",
+              "size": -0.5
+            },
+            "title_color": "#FFFFFF",
+            "_animation": "fadeInUp",
+            "_animation_delay": 100
+          }
+        },
+        {
+          "id": "v2w05a03",
+          "elType": "widget",
+          "widgetType": "divider",
+          "settings": {
+            "style": "solid",
+            "weight": {
+              "unit": "px",
+              "size": 1
+            },
+            "color": "rgba(255,255,255,0.3)",
+            "width": {
+              "unit": "px",
+              "size": 48
+            },
+            "align": "left",
+            "gap": {
+              "unit": "px",
+              "size": 8
+            }
+          }
+        },
+        {
+          "id": "v2w05a04",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p style=\"margin:0;line-height:1.6\"><strong style=\"font-weight:500\">Dr. Helena Mart&iacute;nez, DDS</strong><br/><span style=\"opacity:.7;font-size:13px\">Clinical Director · Placeholder Dental Group · 112 locations</span></p>",
+            "typography_typography": "custom",
+            "typography_font_family": "Inter",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 14
+            },
+            "text_color": "#FFFFFF",
+            "_animation": "fadeInUp",
+            "_animation_delay": 200
+          }
+        }
+      ]
+    },
+    {
+      "id": "v2col05b",
+      "elType": "column",
+      "settings": {
+        "_column_size": 45,
+        "_inline_size_tablet": 100,
+        "margin_tablet": {
+          "unit": "px",
+          "top": "48",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "v2w05b01",
+          "elType": "widget",
+          "widgetType": "image",
+          "settings": {
+            "image": {
+              "url": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=1200&q=80&auto=format&fit=crop"
+            },
+            "image_size": "full",
+            "align": "right",
+            "height": {
+              "unit": "vh",
+              "size": 64
+            },
+            "height_tablet": {
+              "unit": "vh",
+              "size": 48
+            },
+            "height_mobile": {
+              "unit": "vh",
+              "size": 40
+            },
+            "_css_filters_css_filter": "custom",
+            "_css_filters_saturate": {
+              "unit": "%",
+              "size": 70
+            },
+            "_css_filters_contrast": {
+              "unit": "%",
+              "size": 105
+            },
+            "_css_filters_brightness": {
+              "unit": "%",
+              "size": 95
+            },
+            "_animation": "fadeIn",
+            "_animation_delay": 200
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+{
+  "id": "v2sec07cta",
+  "elType": "section",
+  "isInner": false,
+  "settings": {
+    "layout": "boxed",
+    "content_width": {
+      "unit": "px",
+      "size": 1320
+    },
+    "padding": {
+      "unit": "px",
+      "top": "180",
+      "right": "40",
+      "bottom": "180",
+      "left": "40",
+      "isLinked": false
+    },
+    "padding_tablet": {
+      "unit": "px",
+      "top": "130",
+      "right": "32",
+      "bottom": "130",
+      "left": "32",
+      "isLinked": false
+    },
+    "padding_mobile": {
+      "unit": "px",
+      "top": "96",
+      "right": "22",
+      "bottom": "96",
+      "left": "22",
+      "isLinked": false
+    },
+    "background_background": "classic",
+    "background_color": "#1A1A1C"
+  },
+  "elements": [
+    {
+      "id": "v2col07",
+      "elType": "column",
+      "settings": {
+        "_column_size": 100,
+        "space_between_widgets": {
+          "unit": "px",
+          "size": 36
+        }
+      },
+      "elements": [
+        {
+          "id": "v2w07a01",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "05 — NEXT",
+            "header_size": "h6",
+            "typography_typography": "custom",
+            "typography_font_family": "Inter",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 12
+            },
+            "typography_font_weight": "500",
+            "typography_letter_spacing": {
+              "unit": "px",
+              "size": 2
+            },
+            "typography_text_transform": "uppercase",
+            "title_color": "#FFFFFF",
+            "_animation": "fadeInUp"
+          }
+        },
+        {
+          "id": "v2w07a02",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "Let's put a robot in your chair.",
+            "header_size": "h2",
+            "typography_typography": "custom",
+            "typography_font_family": "Fraunces",
+            "typography_font_size": {
+              "unit": "rem",
+              "size": 4.75
+            },
+            "typography_font_size_tablet": {
+              "unit": "rem",
+              "size": 3.25
+            },
+            "typography_font_size_mobile": {
+              "unit": "rem",
+              "size": 2.15
+            },
+            "typography_font_weight": "300",
+            "typography_font_style": "italic",
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.02
+            },
+            "typography_letter_spacing": {
+              "unit": "px",
+              "size": -2
+            },
+            "typography_letter_spacing_mobile": {
+              "unit": "px",
+              "size": -0.5
+            },
+            "title_color": "#FFFFFF",
+            "_animation": "fadeInUp",
+            "_animation_delay": 120
+          }
+        },
+        {
+          "id": "v2w07a03",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p style=\"max-width:540px\">A 30-minute demo with your clinical director and CFO. We bring the simulator, the case math, and a deployment plan for your network.</p>",
+            "typography_typography": "custom",
+            "typography_font_family": "Inter",
+            "typography_font_size": {
+              "unit": "rem",
+              "size": 1.0625
+            },
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.65
+            },
+            "text_color": "rgba(255,255,255,0.78)",
+            "_animation": "fadeInUp",
+            "_animation_delay": 240
+          }
+        },
+        {
+          "id": "v2w07a04",
+          "elType": "widget",
+          "widgetType": "button",
+          "settings": {
+            "text": "Book a demo",
+            "link": {
+              "url": "mailto:info@calldental.ai?subject=Apical%20Dental%20demo"
+            },
+            "align": "left",
+            "size": "md",
+            "selected_icon": {
+              "value": "fas fa-arrow-right",
+              "library": "fa-solid"
+            },
+            "icon_align": "right",
+            "icon_indent": {
+              "unit": "px",
+              "size": 10
+            },
+            "typography_typography": "custom",
+            "typography_font_family": "Inter",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 15
+            },
+            "typography_font_weight": "500",
+            "typography_letter_spacing": {
+              "unit": "px",
+              "size": 0.5
+            },
+            "background_color": "#B85C3C",
+            "button_text_color": "#FFFFFF",
+            "hover_background_color": "#FFFFFF",
+            "hover_color": "#1A1A1C",
+            "border_radius": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": true
+            },
+            "text_padding": {
+              "unit": "px",
+              "top": "20",
+              "right": "32",
+              "bottom": "20",
+              "left": "32",
+              "isLinked": false
+            },
+            "hover_animation": "grow",
+            "_animation": "fadeInUp",
+            "_animation_delay": 360
+          }
+        }
+      ]
+    }
+  ]
+}

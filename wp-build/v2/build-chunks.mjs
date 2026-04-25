@@ -1,0 +1,13 @@
+import { readFileSync, writeFileSync } from 'node:fs';
+const src = readFileSync(new URL('./home-elementor.json', import.meta.url), 'utf-8');
+const parsed = JSON.parse(src);
+const stringified = JSON.stringify(parsed);
+const escaped = stringified.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+const half = Math.floor(escaped.length / 2);
+let split = half;
+while (split < escaped.length && escaped[split] === '\\') split++;
+writeFileSync(new URL('./chunk-1.txt', import.meta.url), escaped.slice(0, split));
+writeFileSync(new URL('./chunk-2.txt', import.meta.url), escaped.slice(split));
+console.log('V2 chunk-1.txt:', escaped.slice(0, split).length);
+console.log('V2 chunk-2.txt:', escaped.slice(split).length);
+console.log('V2 total escaped:', escaped.length);
