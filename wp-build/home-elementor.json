@@ -67,7 +67,7 @@
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
-              "editor": "<div class=\"apnav\"><a href=\"/\" class=\"apnav-brand\">APICAL</a><nav class=\"apnav-links\"><a href=\"/technology\">Technology</a><a href=\"/proof\">Proof</a><a href=\"/for-dsos\">For DSOs</a><a href=\"/contact\" class=\"apnav-cta\">Book demo</a></nav><input type=\"checkbox\" id=\"apnav-toggle\" class=\"apnav-toggle\" onchange=\"document.documentElement.style.overflow=this.checked?'hidden':'';document.body.style.overflow=this.checked?'hidden':'';document.body.style.position=this.checked?'fixed':'';document.body.style.width=this.checked?'100%':'';\"/><label for=\"apnav-toggle\" class=\"apnav-burger\" aria-label=\"Menu\"><span></span><span></span><span></span></label><div class=\"apnav-drawer\"><a href=\"/technology\">Technology</a><a href=\"/proof\">Proof</a><a href=\"/for-dsos\">For DSOs</a><a href=\"/contact\" class=\"apnav-cta\">Book demo</a></div></div><style>.apnav{display:flex;align-items:center;justify-content:space-between;position:relative}.apnav-brand{font-family:Fraunces;font-size:22px;font-weight:500;letter-spacing:2px;color:#1A1A1C;text-decoration:none;z-index:1003;position:relative}.apnav-links{display:flex;align-items:center;gap:32px}.apnav-links a{color:#1A1A1C;text-decoration:none;font-family:Inter;font-size:13px;font-weight:500;letter-spacing:0.5px;transition:opacity 0.2s}.apnav-links a:hover{opacity:0.6}.apnav-links a.apnav-cta{background:#1A1A1C;color:#F3EEE5!important;padding:10px 20px}.apnav-links a.apnav-cta:hover{background:#B85C3C!important;opacity:1!important}.apnav-toggle{position:absolute;opacity:0;pointer-events:none}.apnav-burger{display:none;cursor:pointer;width:26px;height:20px;flex-direction:column;justify-content:space-between;position:relative;z-index:1003}.apnav-burger span{display:block;height:1.5px;width:100%;background:#1A1A1C;transition:transform 0.3s,opacity 0.3s;transform-origin:center}.apnav-toggle:checked~.apnav-burger span:nth-child(1),.apnav-toggle:checked+.apnav-burger span:nth-child(1){transform:translateY(8.5px) rotate(45deg)}.apnav-toggle:checked~.apnav-burger span:nth-child(2),.apnav-toggle:checked+.apnav-burger span:nth-child(2){opacity:0}.apnav-toggle:checked~.apnav-burger span:nth-child(3),.apnav-toggle:checked+.apnav-burger span:nth-child(3){transform:translateY(-8.5px) rotate(-45deg)}.apnav-drawer{display:none;position:fixed;inset:0;background:#F3EEE5;padding:92px 28px 32px;flex-direction:column;gap:4px;z-index:1001;overflow-y:auto;overscroll-behavior:contain}.apnav-drawer a{color:#1A1A1C;text-decoration:none;font-family:Fraunces;font-size:2.25rem;font-weight:300;letter-spacing:-0.5px;padding:22px 0;border-bottom:1px solid rgba(26,26,28,0.1);transition:color 0.2s}.apnav-drawer a:hover{color:#B85C3C}.apnav-drawer a.apnav-cta{background:#B85C3C;color:#F3EEE5!important;font-family:Inter;font-size:15px;font-weight:500;letter-spacing:0.5px;padding:18px 28px;margin-top:32px;text-align:center;border:none;display:inline-block;align-self:flex-start}.apnav-toggle:checked~.apnav-drawer{display:flex}@media(max-width:768px){.apnav-links{display:none}.apnav-burger{display:flex}}img{object-fit:cover!important}.elementor-widget-image img{object-fit:cover!important;width:100%!important;height:100%!important}</style>"
+              "editor": "<div class=\"apnav\"><a href=\"/apicaldental/\" class=\"apnav-brand\">APICAL</a><nav class=\"apnav-links\"><a href=\"/apicaldental/technology\">Technology</a><a href=\"/apicaldental/proof\">Proof</a><a href=\"/apicaldental/for-dsos\">For DSOs</a><a href=\"/apicaldental/contact\" class=\"apnav-cta\">Book demo</a></nav><input type=\"checkbox\" id=\"apnav-toggle\" class=\"apnav-toggle\" onchange=\"document.documentElement.style.overflow=this.checked?'hidden':'';document.body.style.overflow=this.checked?'hidden':'';document.body.style.position=this.checked?'fixed':'';document.body.style.width=this.checked?'100%':'';\"/><label for=\"apnav-toggle\" class=\"apnav-burger\" aria-label=\"Menu\"><span></span><span></span><span></span></label><div class=\"apnav-drawer\"><a href=\"/apicaldental/technology\">Technology</a><a href=\"/apicaldental/proof\">Proof</a><a href=\"/apicaldental/for-dsos\">For DSOs</a><a href=\"/apicaldental/contact\" class=\"apnav-cta\">Book demo</a></div></div><style>.apnav{display:flex;align-items:center;justify-content:space-between;position:relative}.apnav-brand{font-family:Fraunces;font-size:22px;font-weight:500;letter-spacing:2px;color:#1A1A1C;text-decoration:none;z-index:1003;position:relative}.apnav-links{display:flex;align-items:center;gap:32px}.apnav-links a{color:#1A1A1C;text-decoration:none;font-family:Inter;font-size:13px;font-weight:500;letter-spacing:0.5px;transition:opacity 0.2s}.apnav-links a:hover{opacity:0.6}.apnav-links a.apnav-cta{background:#1A1A1C;color:#F3EEE5!important;padding:10px 20px}.apnav-links a.apnav-cta:hover{background:#B85C3C!important;opacity:1!important}.apnav-toggle{position:absolute;opacity:0;pointer-events:none}.apnav-burger{display:none;cursor:pointer;width:26px;height:20px;flex-direction:column;justify-content:space-between;position:relative;z-index:1003}.apnav-burger span{display:block;height:1.5px;width:100%;background:#1A1A1C;transition:transform 0.3s,opacity 0.3s;transform-origin:center}.apnav-toggle:checked~.apnav-burger span:nth-child(1),.apnav-toggle:checked+.apnav-burger span:nth-child(1){transform:translateY(8.5px) rotate(45deg)}.apnav-toggle:checked~.apnav-burger span:nth-child(2),.apnav-toggle:checked+.apnav-burger span:nth-child(2){opacity:0}.apnav-toggle:checked~.apnav-burger span:nth-child(3),.apnav-toggle:checked+.apnav-burger span:nth-child(3){transform:translateY(-8.5px) rotate(-45deg)}.apnav-drawer{display:none;position:fixed;inset:0;background:#F3EEE5;padding:92px 28px 32px;flex-direction:column;gap:4px;z-index:1001;overflow-y:auto;overscroll-behavior:contain}.apnav-drawer a{color:#1A1A1C;text-decoration:none;font-family:Fraunces;font-size:2.25rem;font-weight:300;letter-spacing:-0.5px;padding:22px 0;border-bottom:1px solid rgba(26,26,28,0.1);transition:color 0.2s}.apnav-drawer a:hover{color:#B85C3C}.apnav-drawer a.apnav-cta{background:#B85C3C;color:#F3EEE5!important;font-family:Inter;font-size:15px;font-weight:500;letter-spacing:0.5px;padding:18px 28px;margin-top:32px;text-align:center;border:none;display:inline-block;align-self:flex-start}.apnav-toggle:checked~.apnav-drawer{display:flex}@media(max-width:768px){.apnav-links{display:none}.apnav-burger{display:flex}}img{object-fit:cover!important}.elementor-widget-image img{object-fit:cover!important;width:100%!important;height:100%!important}</style>"
             }
           }
         ]
@@ -249,7 +249,7 @@
             "settings": {
               "text": "Partner with us",
               "link": {
-                "url": "/contact"
+                "url": "/apicaldental/contact"
               },
               "align": "left",
               "size": "md",
@@ -311,7 +311,7 @@
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
-              "editor": "<p style=\"margin:0\"><a href=\"/technology\" style=\"color:#1A1A1C;border-bottom:1px solid rgba(26,26,28,0.3);padding-bottom:2px;text-decoration:none;font-family:Inter;font-size:14px;font-weight:500;letter-spacing:0.5px\">See the technology &rarr;</a></p>",
+              "editor": "<p style=\"margin:0\"><a href=\"/apicaldental/technology\" style=\"color:#1A1A1C;border-bottom:1px solid rgba(26,26,28,0.3);padding-bottom:2px;text-decoration:none;font-family:Inter;font-size:14px;font-weight:500;letter-spacing:0.5px\">See the technology &rarr;</a></p>",
               "_animation": "fadeInUp",
               "_animation_delay": 480,
               "_margin": {
@@ -348,18 +348,18 @@
             "widgetType": "image",
             "settings": {
               "image": {
-                "url": "https://images.unsplash.com/photo-1581093588401-fbb62a02f120?w=1400&q=80&auto=format&fit=crop"
+                "url": "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=1400&h=1750&q=80&auto=format&fit=crop&crop=faces,center"
               },
               "image_size": "full",
               "align": "right",
               "_css_filters_css_filter": "custom",
               "_css_filters_saturate": {
                 "unit": "%",
-                "size": 90
+                "size": 88
               },
               "_css_filters_contrast": {
                 "unit": "%",
-                "size": 105
+                "size": 104
               },
               "image_border_radius": {
                 "unit": "px",
@@ -372,16 +372,16 @@
               "_animation": "fadeIn",
               "_animation_delay": 300,
               "height": {
-                "unit": "vh",
-                "size": 78
+                "unit": "px",
+                "size": 620
               },
               "height_tablet": {
-                "unit": "vh",
-                "size": 55
+                "unit": "px",
+                "size": 460
               },
               "height_mobile": {
-                "unit": "vh",
-                "size": 42
+                "unit": "px",
+                "size": 360
               }
             }
           }
@@ -785,7 +785,7 @@
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
-              "editor": "<div style=\"display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:56px;font-family:Inter;margin-top:24px\"><div style=\"border-top:1px solid rgba(26,26,28,0.2);padding-top:28px\"><div style=\"font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(26,26,28,0.5);margin-bottom:20px\">Step 01</div><div style=\"color:#1A1A1C;font-size:28px;margin-bottom:16px\">&#128247;</div><h3 style=\"font-family:Fraunces;font-size:1.65rem;font-weight:400;letter-spacing:-0.5px;color:#1A1A1C;margin:0 0 12px\">Scan &amp; plan</h3><p style=\"font-size:15px;line-height:1.6;color:rgba(26,26,28,0.75);margin:0\">Intraoral scan plus a cone-beam CT feed our planning AI. Surgical trajectory ready in under five minutes.</p></div><div style=\"border-top:1px solid rgba(26,26,28,0.2);padding-top:28px\"><div style=\"font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(26,26,28,0.5);margin-bottom:20px\">Step 02</div><div style=\"color:#B85C3C;font-size:28px;margin-bottom:16px\">&#129302;</div><h3 style=\"font-family:Fraunces;font-size:1.65rem;font-weight:400;letter-spacing:-0.5px;color:#1A1A1C;margin:0 0 12px\">Robot-guided surgery</h3><p style=\"font-size:15px;line-height:1.6;color:rgba(26,26,28,0.75);margin:0\">Haptic-feedback arm places the implant to sub-millimetre accuracy, supervised by a remote specialist on your team.</p></div><div style=\"border-top:1px solid rgba(26,26,28,0.2);padding-top:28px\"><div style=\"font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(26,26,28,0.5);margin-bottom:20px\">Step 03</div><div style=\"color:#1A1A1C;font-size:28px;margin-bottom:16px\">&#129463;</div><h3 style=\"font-family:Fraunces;font-size:1.65rem;font-weight:400;letter-spacing:-0.5px;color:#1A1A1C;margin:0 0 12px\">Same-day restoration</h3><p style=\"font-size:15px;line-height:1.6;color:rgba(26,26,28,0.75);margin:0\">Chairside crown milling and temporary placement before the patient leaves — no second visit required.</p></div></div><style>@media (max-width:768px){[data-id=\"whow03\"] > div > div > div { display:block !important; } [data-id=\"whow03\"] > div { grid-template-columns:1fr !important; gap:32px !important; }}</style>",
+              "editor": "<div style=\"display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:56px;font-family:Inter;margin-top:24px\"><div style=\"border-top:1px solid rgba(26,26,28,0.2);padding-top:28px\"><div style=\"font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(26,26,28,0.5);margin-bottom:20px\">Step 01</div><div style=\"color:#1A1A1C;margin-bottom:18px;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid rgba(26,26,28,0.18);border-radius:50%\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3 7V5a2 2 0 0 1 2-2h2\"/><path d=\"M17 3h2a2 2 0 0 1 2 2v2\"/><path d=\"M21 17v2a2 2 0 0 1-2 2h-2\"/><path d=\"M7 21H5a2 2 0 0 1-2-2v-2\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M12 5v2M12 17v2M5 12h2M17 12h2\"/></svg></div><h3 style=\"font-family:Fraunces;font-size:1.65rem;font-weight:400;letter-spacing:-0.5px;color:#1A1A1C;margin:0 0 12px\">Scan &amp; plan</h3><p style=\"font-size:15px;line-height:1.6;color:rgba(26,26,28,0.75);margin:0\">Intraoral scan plus a cone-beam CT feed our planning AI. Surgical trajectory ready in under five minutes.</p></div><div style=\"border-top:1px solid rgba(26,26,28,0.2);padding-top:28px\"><div style=\"font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(26,26,28,0.5);margin-bottom:20px\">Step 02</div><div style=\"color:#B85C3C;margin-bottom:18px;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid rgba(184,92,60,0.4);border-radius:50%\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"4\" y=\"7\" width=\"16\" height=\"13\" rx=\"2\"/><path d=\"M12 2v5\"/><circle cx=\"12\" cy=\"2.2\" r=\"0.6\" fill=\"currentColor\"/><circle cx=\"9\" cy=\"12\" r=\"1.2\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"15\" cy=\"12\" r=\"1.2\" fill=\"currentColor\" stroke=\"none\"/><path d=\"M9 16.5h6\"/></svg></div><h3 style=\"font-family:Fraunces;font-size:1.65rem;font-weight:400;letter-spacing:-0.5px;color:#1A1A1C;margin:0 0 12px\">Robot-guided surgery</h3><p style=\"font-size:15px;line-height:1.6;color:rgba(26,26,28,0.75);margin:0\">Haptic-feedback arm places the implant to sub-millimetre accuracy, supervised by a remote specialist on your team.</p></div><div style=\"border-top:1px solid rgba(26,26,28,0.2);padding-top:28px\"><div style=\"font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(26,26,28,0.5);margin-bottom:20px\">Step 03</div><div style=\"color:#1A1A1C;margin-bottom:18px;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid rgba(26,26,28,0.18);border-radius:50%\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 3c-2.6 0-4.2 1.4-5.1 2.9-1 1.6-1.4 3.4-1.4 5 0 1.4.4 2.7.8 4 .4 1.4.7 2.8.9 4.2.2 1.5.6 2.9 1.6 2.9 1.1 0 1.4-1.6 1.7-3.2.2-1.1.4-2.2.5-2.5.1-.3.5-.3.6 0 .1.3.3 1.4.5 2.5.3 1.6.6 3.2 1.7 3.2 1 0 1.4-1.4 1.6-2.9.2-1.4.5-2.8.9-4.2.4-1.3.8-2.6.8-4 0-1.6-.4-3.4-1.4-5C16.2 4.4 14.6 3 12 3z\"/></svg></div><h3 style=\"font-family:Fraunces;font-size:1.65rem;font-weight:400;letter-spacing:-0.5px;color:#1A1A1C;margin:0 0 12px\">Same-day restoration</h3><p style=\"font-size:15px;line-height:1.6;color:rgba(26,26,28,0.75);margin:0\">Chairside crown milling and temporary placement before the patient leaves — no second visit required.</p></div></div><style>@media (max-width:768px){[data-id=\"whow03\"] > div > div > div { display:block !important; } [data-id=\"whow03\"] > div { grid-template-columns:1fr !important; gap:32px !important; }}</style>",
               "_animation": "fadeInUp",
               "_animation_delay": 200
             }
@@ -968,21 +968,21 @@
             "widgetType": "image",
             "settings": {
               "image": {
-                "url": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=1200&q=80&auto=format&fit=crop"
+                "url": "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1400&h=1100&q=80&auto=format&fit=crop&crop=faces,center"
               },
               "image_size": "full",
               "align": "right",
               "height": {
-                "unit": "vh",
-                "size": 64
+                "unit": "px",
+                "size": 520
               },
               "height_tablet": {
-                "unit": "vh",
-                "size": 48
+                "unit": "px",
+                "size": 420
               },
               "height_mobile": {
-                "unit": "vh",
-                "size": 40
+                "unit": "px",
+                "size": 340
               },
               "_css_filters_css_filter": "custom",
               "_css_filters_saturate": {
@@ -1163,7 +1163,7 @@
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
-              "editor": "<div class=\"ds-grid\"><div class=\"ds-cell\"><div class=\"ds-icon\" style=\"color:#B85C3C\">&#9650;</div><div class=\"ds-stat\" style=\"color:#B85C3C\">40+</div><div class=\"ds-label\">Years of expertise</div></div><div class=\"ds-cell\"><div class=\"ds-icon\">&#9733;</div><div class=\"ds-stat\">800+</div><div class=\"ds-label\">Lab adaptations</div></div><div class=\"ds-cell\"><div class=\"ds-icon\">&#9679;</div><div class=\"ds-stat\">500+</div><div class=\"ds-label\">DSO offices served</div></div><div class=\"ds-cell\"><div class=\"ds-icon\">&#9632;</div><div class=\"ds-stat\">0</div><div class=\"ds-label\">Regulatory barriers</div></div></div><style>.ds-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(26,26,28,0.15);margin-top:24px;font-family:Inter}.ds-cell{padding:40px 16px;text-align:center;border-right:1px solid rgba(26,26,28,0.15)}.ds-cell:last-child{border-right:0}.ds-icon{font-size:22px;margin-bottom:14px;color:#1A1A1C}.ds-stat{font-family:Fraunces;font-size:3.25rem;font-weight:300;color:#1A1A1C;line-height:1;margin-bottom:10px}.ds-label{font-size:12px;letter-spacing:0.5px;color:rgba(26,26,28,0.75);line-height:1.4}@media (max-width:768px){.ds-grid{grid-template-columns:repeat(2,1fr)}.ds-cell{padding:32px 12px;border-right:0;border-bottom:1px solid rgba(26,26,28,0.15)}.ds-cell:nth-child(odd){border-right:1px solid rgba(26,26,28,0.15)}.ds-cell:nth-child(3),.ds-cell:nth-child(4){border-bottom:0}.ds-stat{font-size:2.5rem}}</style>",
+              "editor": "<div class=\"ds-grid\"><div class=\"ds-cell\"><div class=\"ds-icon\" style=\"color:#B85C3C\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 7v5l3.5 2\"/></svg></div><div class=\"ds-stat\" style=\"color:#B85C3C\">40+</div><div class=\"ds-label\">Years of expertise</div></div><div class=\"ds-cell\"><div class=\"ds-icon\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 3c-2.4 0-3.9 1.3-4.7 2.7-.9 1.5-1.3 3.1-1.3 4.6 0 1.3.4 2.5.7 3.7.4 1.3.6 2.6.8 3.9.2 1.4.5 2.7 1.5 2.7 1 0 1.3-1.5 1.6-3 .2-1 .4-2 .4-2.3.1-.3.4-.3.5 0 0 .3.2 1.3.4 2.3.3 1.5.6 3 1.6 3 .9 0 1.3-1.3 1.5-2.7.2-1.3.4-2.6.8-3.9.3-1.2.7-2.4.7-3.7 0-1.5-.4-3.1-1.3-4.6C15.9 4.3 14.4 3 12 3z\"/></svg></div><div class=\"ds-stat\">800+</div><div class=\"ds-label\">Lab adaptations</div></div><div class=\"ds-cell\"><div class=\"ds-icon\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"4\" y=\"3\" width=\"16\" height=\"18\" rx=\"1\"/><path d=\"M9 21v-4h6v4M8 7h.01M12 7h.01M16 7h.01M8 11h.01M12 11h.01M16 11h.01M8 15h.01M16 15h.01\"/></svg></div><div class=\"ds-stat\">500+</div><div class=\"ds-label\">DSO offices served</div></div><div class=\"ds-cell\"><div class=\"ds-icon\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\"/><path d=\"M9 12l2 2 4-4\"/></svg></div><div class=\"ds-stat\">0</div><div class=\"ds-label\">Regulatory barriers</div></div></div><style>.ds-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(26,26,28,0.15);margin-top:24px;font-family:Inter}.ds-cell{padding:40px 16px;text-align:center;border-right:1px solid rgba(26,26,28,0.15)}.ds-cell:last-child{border-right:0}.ds-icon{margin-bottom:14px;color:#1A1A1C;display:flex;align-items:center;justify-content:center;height:32px}.ds-stat{font-family:Fraunces;font-size:3.25rem;font-weight:300;color:#1A1A1C;line-height:1;margin-bottom:10px}.ds-label{font-size:12px;letter-spacing:0.5px;color:rgba(26,26,28,0.75);line-height:1.4}@media (max-width:768px){.ds-grid{grid-template-columns:repeat(2,1fr)}.ds-cell{padding:32px 12px;border-right:0;border-bottom:1px solid rgba(26,26,28,0.15)}.ds-cell:nth-child(odd){border-right:1px solid rgba(26,26,28,0.15)}.ds-cell:nth-child(3),.ds-cell:nth-child(4){border-bottom:0}.ds-stat{font-size:2.5rem}}</style>",
               "_animation": "fadeInUp",
               "_animation_delay": 300
             }
@@ -1173,7 +1173,7 @@
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
-              "editor": "<p style=\"text-align:center;margin:32px 0 0\"><a href=\"/for-dsos\" style=\"color:#B85C3C;border-bottom:1px solid #B85C3C;padding-bottom:2px;text-decoration:none;font-family:Inter;font-size:14px;font-weight:500;letter-spacing:0.5px\">Read the full DSO case &rarr;</a></p>",
+              "editor": "<p style=\"text-align:center;margin:32px 0 0\"><a href=\"/apicaldental/for-dsos\" style=\"color:#B85C3C;border-bottom:1px solid #B85C3C;padding-bottom:2px;text-decoration:none;font-family:Inter;font-size:14px;font-weight:500;letter-spacing:0.5px\">Read the full DSO case &rarr;</a></p>",
               "_animation": "fadeInUp",
               "_animation_delay": 400
             }
@@ -1536,7 +1536,7 @@
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
-                      "editor": "<p style=\"margin:0;line-height:2.1\"><a href=\"#technology\" style=\"color:#F3EEE5;text-decoration:none;display:block;font-family:Inter;font-size:14px\">Technology</a><a href=\"#how\" style=\"color:#F3EEE5;text-decoration:none;display:block;font-family:Inter;font-size:14px\">How it works</a><a href=\"#proof\" style=\"color:#F3EEE5;text-decoration:none;display:block;font-family:Inter;font-size:14px\">Proof</a><a href=\"#for-dsos\" style=\"color:#F3EEE5;text-decoration:none;display:block;font-family:Inter;font-size:14px\">For DSOs</a></p>"
+                      "editor": "<p style=\"margin:0;line-height:2.1\"><a href=\"/apicaldental/technology\" style=\"color:#F3EEE5;text-decoration:none;display:block;font-family:Inter;font-size:14px\">Technology</a><a href=\"/apicaldental/#how\" style=\"color:#F3EEE5;text-decoration:none;display:block;font-family:Inter;font-size:14px\">How it works</a><a href=\"/apicaldental/proof\" style=\"color:#F3EEE5;text-decoration:none;display:block;font-family:Inter;font-size:14px\">Proof</a><a href=\"/apicaldental/for-dsos\" style=\"color:#F3EEE5;text-decoration:none;display:block;font-family:Inter;font-size:14px\">For DSOs</a></p>"
                     }
                   }
                 ]
@@ -1580,7 +1580,7 @@
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
-                      "editor": "<p style=\"margin:0;line-height:2.1\"><a href=\"#about\" style=\"color:#F3EEE5;text-decoration:none;display:block;font-family:Inter;font-size:14px\">About</a><a href=\"#careers\" style=\"color:#F3EEE5;text-decoration:none;display:block;font-family:Inter;font-size:14px\">Careers</a><a href=\"#press\" style=\"color:#F3EEE5;text-decoration:none;display:block;font-family:Inter;font-size:14px\">Press</a><a href=\"#contact\" style=\"color:#F3EEE5;text-decoration:none;display:block;font-family:Inter;font-size:14px\">Contact</a></p>"
+                      "editor": "<p style=\"margin:0;line-height:2.1\"><a href=\"/apicaldental/about\" style=\"color:#F3EEE5;text-decoration:none;display:block;font-family:Inter;font-size:14px\">About</a><a href=\"/apicaldental/careers\" style=\"color:#F3EEE5;text-decoration:none;display:block;font-family:Inter;font-size:14px\">Careers</a><a href=\"/apicaldental/press\" style=\"color:#F3EEE5;text-decoration:none;display:block;font-family:Inter;font-size:14px\">Press</a><a href=\"/apicaldental/contact\" style=\"color:#F3EEE5;text-decoration:none;display:block;font-family:Inter;font-size:14px\">Contact</a></p>"
                     }
                   }
                 ]
