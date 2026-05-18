@@ -5,7 +5,9 @@
 //   WP_USER='your-wp-username' WP_APP_PASSWORD='xxxx xxxx xxxx xxxx xxxx xxxx' \
 //   node wp-build/delete-v2-pages.mjs
 //
-// Pass --dry-run to print the plan without calling the API.
+// Flags:
+//   --dry-run   print the plan without calling the API
+//   --trash     move to trash (force=false, recoverable) instead of permanent delete
 
 const SITE = 'https://1.josh.wpfarmpowered.com/apicaldental';
 const REST = `${SITE}/wp-json/wp/v2/pages`;
@@ -20,6 +22,8 @@ const V2_PAGES = [
 ];
 
 const dryRun = process.argv.includes('--dry-run');
+const trashMode = process.argv.includes('--trash');
+const force = trashMode ? 'false' : 'true';
 const USER = process.env.WP_USER;
 const APP_PASS = process.env.WP_APP_PASSWORD;
 
@@ -37,7 +41,7 @@ for (const p of V2_PAGES) {
     console.error(`REFUSED — page id ${p.id} is in v1 off-limits set.`);
     process.exit(1);
   }
-  const url = `${REST}/${p.id}?force=true`;
+  const url = `${REST}/${p.id}?force=${force}`;
   if (dryRun) {
     console.log(`[dry-run] DELETE ${url}  (${p.title})`);
     continue;
