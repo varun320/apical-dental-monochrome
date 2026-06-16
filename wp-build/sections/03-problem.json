@@ -23,7 +23,7 @@
           "elType": "widget",
           "widgetType": "heading",
           "settings": {
-            "title": "01 — THE PROBLEM",
+            "title": "THE PROBLEM",
             "header_size": "h6",
             "typography_typography": "custom",
             "typography_font_family": "Inter",
@@ -68,12 +68,13 @@
           "elType": "widget",
           "widgetType": "text-editor",
           "settings": {
-            "editor": "<p>General practices refer out every complex implant case. DSOs lose 30–40% of specialty revenue to outside networks. Patients wait weeks for a chair that a robot-guided system could fill in ninety minutes.</p><p style=\"margin-top:16px\"><strong style=\"font-weight:500\">Apical closes that gap.</strong> A supervised robotic platform, shared across your network, lets every practice deliver specialist-grade surgery without hiring one.</p>",
+            "editor": "<p>General practices refer out every complex implant case. DSOs hand a large share of specialty revenue to outside networks. Patients wait weeks for a chair that a robot-guided system could fill in a single visit.</p><p style=\"margin-top:16px\"><strong style=\"font-weight:500\">Apical closes that gap.</strong> A supervised robotic platform, shared across your network, lets every practice deliver specialist-grade surgery without hiring one.</p>",
             "typography_typography": "custom",
             "typography_font_family": "Inter",
-            "typography_font_size": { "unit": "rem", "size": 1.0625 },
+            "typography_font_size": { "unit": "rem", "size": 1.1875 },
+            "typography_font_size_mobile": { "unit": "rem", "size": 1.0625 },
             "typography_font_weight": "400",
-            "typography_line_height": { "unit": "em", "size": 1.65 },
+            "typography_line_height": { "unit": "em", "size": 1.7 },
             "text_color": "#1A1A1C",
             "_animation": "fadeInUp",
             "_animation_delay": 200
@@ -84,7 +85,7 @@
           "elType": "widget",
           "widgetType": "text-editor",
           "settings": {
-            "editor": "<div style=\"display:flex;flex-wrap:wrap;gap:24px;padding-top:24px;border-top:1px solid rgba(26,26,28,0.15);font-family:Inter;font-size:13px;font-weight:500;letter-spacing:0.5px\"><div style=\"display:flex;align-items:center;gap:10px\"><span style=\"display:inline-block;width:6px;height:6px;border-radius:50%;background:#B85C3C\"></span>8,000 specialists · 200M patients</div><div style=\"display:flex;align-items:center;gap:10px\"><span style=\"display:inline-block;width:6px;height:6px;border-radius:50%;background:#B85C3C\"></span>40% of complex cases refer out</div><div style=\"display:flex;align-items:center;gap:10px\"><span style=\"display:inline-block;width:6px;height:6px;border-radius:50%;background:#B85C3C\"></span>Half-day surgical blocks wasted</div></div>",
+            "editor": "<div style=\"display:flex;flex-wrap:wrap;gap:24px;padding-top:24px;border-top:1px solid rgba(26,26,28,0.15);font-family:Inter;font-size:13px;font-weight:500;letter-spacing:0.5px\"><div style=\"display:flex;align-items:center;gap:10px\"><span style=\"display:inline-block;width:6px;height:6px;border-radius:50%;background:#B85C3C\"></span>Specialist supply is the bottleneck</div><div style=\"display:flex;align-items:center;gap:10px\"><span style=\"display:inline-block;width:6px;height:6px;border-radius:50%;background:#B85C3C\"></span>Complex cases default to referral</div><div style=\"display:flex;align-items:center;gap:10px\"><span style=\"display:inline-block;width:6px;height:6px;border-radius:50%;background:#B85C3C\"></span>Surgical blocks left underused</div></div>",
             "_animation": "fadeInUp",
             "_animation_delay": 300
           }

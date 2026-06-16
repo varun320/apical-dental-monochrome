@@ -25,7 +25,7 @@
           "elType": "widget",
           "widgetType": "heading",
           "settings": {
-            "title": "Trusted by the DSOs that set the standard",
+            "title": "Built for the practices that scale",
             "header_size": "h6",
             "align": "center",
             "typography_typography": "custom",
@@ -44,9 +44,19 @@
           "elType": "widget",
           "widgetType": "text-editor",
           "settings": {
-            "editor": "<p style=\"text-align:center;margin:0;font-family:Fraunces;font-size:1.35rem;font-weight:400;letter-spacing:-0.5px;line-height:1.4;color:rgba(26,26,28,0.7)\">Heartland &nbsp;·&nbsp; Aspen &nbsp;·&nbsp; Pacific Dental &nbsp;·&nbsp; Great Expressions &nbsp;·&nbsp; DentaQuest</p>",
+            "editor": "<p style=\"text-align:center;margin:0;font-family:Fraunces;font-size:1.35rem;font-weight:400;letter-spacing:-0.5px;line-height:1.4;color:rgba(26,26,28,0.7)\">Multi-site DSO networks &nbsp;·&nbsp; Implant-forward groups &nbsp;·&nbsp; In-house prosthodontic labs &nbsp;·&nbsp; Specialty referral hubs &nbsp;·&nbsp; High-volume Medicaid practices</p>",
             "_animation": "fadeIn",
             "_animation_delay": 150
+          }
+        },
+        {
+          "id": "wtrust03",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p style=\"text-align:center;margin:24px 0 0;font-family:Inter;font-size:13px;line-height:1.7;letter-spacing:0.3px;color:rgba(26,26,28,0.7);max-width:780px;margin-left:auto;margin-right:auto\"><strong style=\"color:#1A1A1C;font-weight:600\">HIPAA-compliant production. Sterilization-cleared appliance in the doctor&rsquo;s hand.</strong> &nbsp;Final responsibility for the appliance rests with the treating dentist, not Apical or the laboratory &mdash; Apical is the on-site lab partner, the diagnosing doctor is the prescriber of record.</p>",
+            "_animation": "fadeIn",
+            "_animation_delay": 250
           }
         }
       ]

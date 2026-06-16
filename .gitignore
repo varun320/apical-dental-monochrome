@@ -18,3 +18,4 @@ CLAUDE.md
 
 # wp-build local artifacts
 wp-build/verify
+wp-build/.wp-creds.env

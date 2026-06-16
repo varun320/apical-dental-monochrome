@@ -23,7 +23,7 @@
           "elType": "widget",
           "widgetType": "heading",
           "settings": {
-            "title": "03 — PROOF",
+            "title": "AUTHORITY",
             "header_size": "h6",
             "typography_typography": "custom",
             "typography_font_family": "Inter",
@@ -40,7 +40,7 @@
           "elType": "widget",
           "widgetType": "heading",
           "settings": {
-            "title": "“We went from referring out 40% of implant cases to keeping 90% in-house within a single quarter.”",
+            "title": "“Prescribe the right robot for each practice. Monitor it long after install. That's what makes this work.”",
             "header_size": "h3",
             "typography_typography": "custom",
             "typography_font_family": "Fraunces",
@@ -67,7 +67,7 @@
           "elType": "widget",
           "widgetType": "text-editor",
           "settings": {
-            "editor": "<p style=\"margin:0;line-height:1.6\"><strong style=\"font-weight:500\">Dr. Helena Mart&iacute;nez, DDS</strong><br/><span style=\"opacity:.7;font-size:13px\">Clinical Director · Placeholder Dental Group · 112 locations</span></p>",
+            "editor": "<p style=\"margin:0;line-height:1.6\"><strong style=\"font-weight:500\">Dr. Ted Lewis, DDS</strong><br/><span style=\"opacity:.7;font-size:13px\">Founder, Apical Dental &middot; 40+ years in prosthodontics &middot; Implants since 1981</span></p>",
             "typography_typography": "custom",
             "typography_font_family": "Inter",
             "typography_font_size": { "unit": "px", "size": 14 },
@@ -91,6 +91,7 @@
             "image": { "url": "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1400&h=1100&q=80&auto=format&fit=crop&crop=faces,center" },
             "image_size": "full",
             "align": "right",
+            "_css_classes": "ap-arch-soft",
             "height":        { "unit": "px", "size": 520 },
             "height_tablet": { "unit": "px", "size": 420 },
             "height_mobile": { "unit": "px", "size": 340 },

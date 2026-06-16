@@ -1,0 +1,28 @@
+{
+  "id": "sec06res",
+  "elType": "section",
+  "isInner": false,
+  "settings": {
+    "layout": "boxed",
+    "content_width": { "unit": "px", "size": 1320 },
+    "gap": "extended",
+    "padding":        { "unit": "px", "top": "140", "right": "40", "bottom": "140", "left": "40", "isLinked": false },
+    "padding_tablet": { "unit": "px", "top": "100", "right": "32", "bottom": "100", "left": "32", "isLinked": false },
+    "padding_mobile": { "unit": "px", "top": "72",  "right": "22", "bottom": "72",  "left": "22", "isLinked": false },
+    "background_background": "classic",
+    "background_color": "#1A1A1C",
+    "structure": "20"
+  },
+  "elements": [
+    {
+      "id": "col06r0",
+      "elType": "column",
+      "settings": { "_column_size": 100, "space_between_widgets": { "unit": "px", "size": 18 } },
+      "elements": [
+        { "id": "w06r01", "elType": "widget", "widgetType": "heading", "settings": { "title": "RESEARCH ACCESS", "header_size": "h6", "typography_typography": "custom", "typography_font_family": "Inter", "typography_font_size": { "unit": "px", "size": 12 }, "typography_font_weight": "500", "typography_letter_spacing": { "unit": "px", "size": 2 }, "typography_text_transform": "uppercase", "title_color": "#B85C3C", "_animation": "fadeInUp" } },
+        { "id": "w06r02", "elType": "widget", "widgetType": "heading", "settings": { "title": "Current robotics research, $7/month.", "header_size": "h2", "typography_typography": "custom", "typography_font_family": "Fraunces", "typography_font_size": { "unit": "rem", "size": 3.75 }, "typography_font_size_tablet": { "unit": "rem", "size": 2.75 }, "typography_font_size_mobile": { "unit": "rem", "size": 2 }, "typography_font_weight": "300", "typography_font_style": "italic", "typography_line_height": { "unit": "em", "size": 1.04 }, "typography_letter_spacing": { "unit": "px", "size": -1.5 }, "title_color": "#F3EEE5", "_animation": "fadeInUp", "_animation_delay": 120, "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "24", "left": "0", "isLinked": false } } },
+        { "id": "w06r03", "elType": "widget", "widgetType": "html", "settings": { "html": "<div style=\"display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:start\" class=\"ap-res-grid\"><div><p style=\"font-family:Inter;font-size:1.1875rem;line-height:1.65;color:rgba(243,238,229,0.85);margin:0 0 24px;max-width:560px\">Every week we publish what shifted in humanoid robotics for clinical and home-care contexts &mdash; ranked specs, training-transfer notes, what we&rsquo;d actually deploy this week. Members get the brief, the source list, and the call recordings.</p><ul style=\"list-style:none;padding:0;margin:0;font-family:Inter;font-size:15px;line-height:1.7;color:rgba(243,238,229,0.78)\"><li style=\"padding:12px 0;padding-left:22px;border-bottom:1px solid rgba(243,238,229,0.12);position:relative\"><span style=\"position:absolute;left:0;top:18px;width:8px;height:1px;background:#B85C3C\"></span>Weekly research drop &mdash; Drive link, no app to install.</li><li style=\"padding:12px 0;padding-left:22px;border-bottom:1px solid rgba(243,238,229,0.12);position:relative\"><span style=\"position:absolute;left:0;top:18px;width:8px;height:1px;background:#B85C3C\"></span>Ranked robot shortlist for your stated use case.</li><li style=\"padding:12px 0;padding-left:22px;border-bottom:1px solid rgba(243,238,229,0.12);position:relative\"><span style=\"position:absolute;left:0;top:18px;width:8px;height:1px;background:#B85C3C\"></span>Training-transfer notes &mdash; what one robot learned this week, the rest now know.</li><li style=\"padding:12px 0;padding-left:22px;position:relative\"><span style=\"position:absolute;left:0;top:18px;width:8px;height:1px;background:#B85C3C\"></span>Monthly Q&amp;A recording with Dr.&nbsp;Lewis.</li></ul></div><div style=\"background:#F3EEE5;color:#1A1A1C;padding:40px 36px;border:1px solid rgba(243,238,229,0.16)\"><div style=\"font-family:Inter;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:#B85C3C;margin-bottom:14px\">Members</div><div style=\"font-family:Fraunces;font-size:4rem;font-weight:300;line-height:1;letter-spacing:-2px;margin-bottom:6px\">$7<span style=\"font-size:1.125rem;font-family:Inter;font-weight:500;letter-spacing:0;color:rgba(26,26,28,0.55);margin-left:6px\">/ month</span></div><div style=\"font-family:Inter;font-size:13px;color:rgba(26,26,28,0.65);margin-bottom:28px\">Cancel any week. No long-term lock.</div><a href=\"/apicaldental/contact?intent=research\" style=\"display:block;text-align:center;padding:18px 28px;background:#B85C3C;color:#F3EEE5;font-family:Inter;font-size:15px;font-weight:500;letter-spacing:0.5px;text-decoration:none\">Start research access &rarr;</a><div style=\"margin-top:22px;padding-top:22px;border-top:1px solid rgba(26,26,28,0.12);font-family:Inter;font-size:12px;line-height:1.55;color:rgba(26,26,28,0.65)\"><strong style=\"color:#1A1A1C;font-weight:600\">Currency guarantee.</strong> If the research you receive isn&rsquo;t current and valid as of the week it&rsquo;s sent, full refund &mdash; no questions. Guarantee applies to research validity at time of delivery, not to robot purchase decisions.</div></div></div><style>@media (max-width:900px){.ap-res-grid{grid-template-columns:1fr !important;gap:32px !important}}@media (max-width:560px){.ap-res-grid > div:last-child{padding:32px 26px !important}.ap-res-grid > div:last-child > div:nth-of-type(2){font-size:3rem !important}}</style>", "_animation": "fadeInUp", "_animation_delay": 240 } }
+      ]
+    }
+  ]
+}

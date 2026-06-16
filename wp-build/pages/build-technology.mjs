@@ -7,7 +7,8 @@ import { fileURLToPath } from 'node:url';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const sectionsDir = resolve(here, '..', 'sections');
-const nav = JSON.parse(readFileSync(resolve(sectionsDir, '00-navbar.json'), 'utf-8'));
+const nav    = JSON.parse(readFileSync(resolve(sectionsDir, '00-navbar.json'), 'utf-8'));
+const footer = JSON.parse(readFileSync(resolve(sectionsDir, '08-footer.json'), 'utf-8'));
 
 const P = 'ptech_';
 const BONE = '#F3EEE5';
@@ -45,9 +46,9 @@ const PAGE_CSS = `
 .ap-h2-italic .elementor-heading-title{font-family:Fraunces;font-style:italic;font-size:clamp(1.95rem,1rem + 2.5vw,2.8rem);font-weight:300;line-height:1.08;letter-spacing:-1.2px;color:${INK};margin:0}
 .ap-cta-h .elementor-heading-title{font-family:Fraunces;font-style:italic;font-size:clamp(2.15rem,1rem + 5vw,4.75rem);font-weight:300;line-height:1.02;letter-spacing:-2px;color:${BONE};margin:0}
 .ap-cta-eye .elementor-heading-title{font-family:Inter;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:${BONE};margin:0}
-.ap-body{font-family:Inter;font-size:1.0625rem;line-height:1.65;color:rgba(26,26,28,0.78)}
+.ap-body{font-family:Inter;font-size:1.1875rem;line-height:1.7;color:rgba(26,26,28,0.88)}
 .ap-body p{margin:0}
-.ap-body-dark{font-family:Inter;font-size:1.0625rem;line-height:1.65;color:rgba(243,238,229,0.78);max-width:560px}
+.ap-body-dark{font-family:Inter;font-size:1.1875rem;line-height:1.7;color:rgba(243,238,229,0.88);max-width:560px}
 .ap-body-dark p{margin:0}
 .ap-anchor-nav{font-family:Inter;font-size:13px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;margin:18px 0 0}
 .ap-anchor-nav p{display:flex;gap:32px;flex-wrap:wrap;margin:0}
@@ -56,12 +57,12 @@ const PAGE_CSS = `
 .ap-step-num .elementor-heading-title{font-family:Fraunces;font-style:italic;font-size:clamp(4.2rem,2rem + 5vw,6.5rem);font-weight:300;line-height:.9;letter-spacing:-4px;color:#B85C3C;margin:0 0 6px}
 .ap-spec-num .elementor-heading-title{font-family:Fraunces;font-size:clamp(2.4rem,1.4rem + 2vw,3.25rem);font-weight:300;line-height:1;letter-spacing:-1.5px;color:${BONE};margin:0}
 .ap-spec-label .elementor-heading-title{font-family:Inter;font-size:11px;font-weight:500;letter-spacing:1.8px;text-transform:uppercase;color:rgba(243,238,229,0.55);margin:6px 0 0}
-.ap-spec-sub{font-family:Inter;font-size:13px;line-height:1.55;color:rgba(243,238,229,0.7)}
+.ap-spec-sub{font-family:Inter;font-size:15px;line-height:1.6;color:rgba(243,238,229,0.82)}
 .ap-spec-sub p{margin:8px 0 0}
 .ap-step-meta{font-family:Inter;border-top:1px solid rgba(26,26,28,0.15);padding-top:24px;margin-top:6px}
 .ap-step-meta p{margin:0;display:flex;gap:32px;flex-wrap:wrap}
 .ap-step-meta strong{display:block;font-size:10px;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;color:rgba(26,26,28,0.55);margin-bottom:6px}
-.ap-step-meta span{font-size:14px;color:${INK};font-weight:500}
+.ap-step-meta span{font-size:15px;color:${INK};font-weight:500}
 .ap-ds-row{font-family:Inter;border-bottom:1px solid rgba(26,26,28,0.14);padding:30px 0}
 .ap-ds-row:first-of-type{border-top:1px solid rgba(26,26,28,0.14)}
 .ap-ds-row p{display:grid;grid-template-columns:56px 1fr;column-gap:28px;row-gap:10px;margin:0}
@@ -108,7 +109,7 @@ const hero = {
       elements: [
         { ...image('himg', 'https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?w=1200&h=1500&q=80&auto=format&fit=crop', 'ap-hero-img'),
           settings: { image: { url:'https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?w=1200&h=1500&q=80&auto=format&fit=crop' },
-                      image_size:'full', _css_classes:'ap-hero-img',
+                      image_size:'full', _css_classes:'ap-hero-img ap-arch',
                       height:{unit:'px',size:640}, height_tablet:{unit:'px',size:460}, height_mobile:{unit:'px',size:360},
                       _animation:'fadeIn', _animation_delay:300 } }
       ]
@@ -142,10 +143,10 @@ const specStrip = {
     structure:'44'
   },
   elements: [
-    specCol(1, '0.3mm',  'Placement deviation', 'RMS measured across 240 live placements'),
-    specCol(2, '5 min',  'Plan generation',     'Scan → trajectory + clearance map'),
-    specCol(3, '47 min', 'Median case time',    'Down from 84 min baseline'),
-    specCol(4, '24/7',   'Specialist on loop',  'Global rotation of board-cert oversight')
+    specCol(1, 'AI',  'Plans the trajectory', 'Auto-segments anatomy and proposes the implant path; surgeon approves'),
+    specCol(2, 'Arm', 'Holds the trajectory', 'Haptic feedback constrains the drill to the approved plan'),
+    specCol(3, 'MD',  'Stays on the loop',    'Board-certified specialist supervises in real time, with takeover'),
+    specCol(4, 'Lab', 'Built on Ted’s bench', 'Calibrated against the in-house lab Ted runs every day')
   ]
 };
 
@@ -172,7 +173,7 @@ const stepSec = ({i, anchor, kicker, title, body, specs, img, imgRight}) => {
                 margin_tablet:{unit:'px',top:'32',right:'0',bottom:'0',left:'0',isLinked:false} },
     elements: [
       { id: P+'st'+i+'img', elType:'widget', widgetType:'image',
-        settings: { image:{url:img}, image_size:'full', _css_classes:'ap-step-img',
+        settings: { image:{url:img}, image_size:'full', _css_classes:'ap-step-img ap-arch-soft',
                     height:{unit:'px',size:540}, height_tablet:{unit:'px',size:400}, height_mobile:{unit:'px',size:300},
                     _animation:'fadeIn', _animation_delay:200 } }
     ]
@@ -196,33 +197,33 @@ const stepSec = ({i, anchor, kicker, title, body, specs, img, imgRight}) => {
 const step1 = stepSec({
   i:1, anchor:'step01', imgRight:true,
   kicker:'PLANNING AI',
-  title:'From scan to surgical trajectory in five minutes.',
-  body:'We ingest an intraoral scan and a cone-beam CT, auto-segment the mandible, and generate an optimal implant trajectory with clearance checks against the inferior alveolar nerve. The planning surgeon approves or adjusts — the robot never chooses the path itself.',
-  specs:[{k:'Inputs',v:'STL · CBCT (DICOM)'},{k:'Output',v:'Trajectory + clearance map'},{k:'Latency',v:'≈ 4m 30s typical'}],
+  title:'From scan to surgical trajectory.',
+  body:'We ingest an intraoral scan and a cone-beam CT, auto-segment the mandible, and propose an implant trajectory with clearance checks against the inferior alveolar nerve. The planning surgeon approves or adjusts — the robot never chooses the path itself.',
+  specs:[{k:'Inputs',v:'STL · CBCT (DICOM)'},{k:'Output',v:'Trajectory + clearance map'},{k:'Authority',v:'Surgeon signs every plan'}],
   img:'https://images.unsplash.com/photo-1559757175-5700dde675bc?w=1200&h=1400&q=80&auto=format&fit=crop'
 });
 const step2 = stepSec({
   i:2, anchor:'step02', imgRight:false,
   kicker:'HAPTIC ARM',
-  title:'Sub-millimetre placement with active drift correction.',
-  body:'A six-axis haptic arm tracks the patient in real time via fiducial markers. The arm constrains the drill to the planned trajectory — if the surgeon tries to deviate, the arm applies counter-force. Typical placement deviation: 0.3 mm / 1.2°.',
-  specs:[{k:'Axes',v:'6 DOF haptic'},{k:'Tracking',v:'Optical fiducials, 240 Hz'},{k:'Deviation',v:'0.3 mm / 1.2°'}],
+  title:'The arm holds the surgeon to the approved path.',
+  body:'A six-axis haptic arm tracks the patient in real time via fiducial markers and constrains the drill to the planned trajectory. If the surgeon tries to deviate, the arm applies counter-force. Deviation budget is set per case in the planning step and validated by the supervising specialist.',
+  specs:[{k:'Axes',v:'6 DOF haptic'},{k:'Tracking',v:'Optical fiducials, continuous'},{k:'Control',v:'Surgeon-operated, robot-constrained'}],
   img:'https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?w=1200&h=1400&q=80&auto=format&fit=crop'
 });
 const step3 = stepSec({
   i:3, anchor:'step03', imgRight:true,
   kicker:'REMOTE SUPERVISION',
   title:'A board-certified specialist is always on the loop.',
-  body:'Every case is supervised in real time by a board-certified periodontist or oral surgeon on our panel, via ultra-low-latency video. They can pause, reroute, or take over at any moment. Think air-traffic control for implant surgery.',
-  specs:[{k:'Video latency',v:'&lt; 80 ms (p95)'},{k:'Coverage',v:'24 / 7 · global rotation'},{k:'Takeover',v:'Single-button — &lt; 400 ms'}],
+  body:'Every case is supervised in real time by a board-certified periodontist or oral surgeon on our panel. They can pause, reroute, or take over at any moment. Think air-traffic control for implant surgery — the operator flies the plane; the controller has a radio and the override.',
+  specs:[{k:'Oversight',v:'Board-cert periodontist / OS'},{k:'Coverage',v:'24 / 7 · global rotation'},{k:'Takeover',v:'Single-button to pause or reroute'}],
   img:'https://images.unsplash.com/photo-1551601651-bc60f254d532?w=1200&h=1400&q=80&auto=format&fit=crop'
 });
 const step4 = stepSec({
   i:4, anchor:'step04', imgRight:false,
   kicker:'RESTORATION',
   title:'Same-day temporary crown, milled chairside.',
-  body:'As soon as the implant is placed and torque-tested, we mill the temporary crown from a pre-planned STL in your in-clinic mill. Patient walks out with a tooth. Final restoration fitted at week 12.',
-  specs:[{k:'Mill time',v:'≈ 22 min per crown'},{k:'Material',v:'PMMA → zirconia'},{k:'Final fit',v:'Week 12'}],
+  body:'As soon as the implant is placed and torque-tested, the temporary crown is milled from the pre-planned STL on your in-clinic mill. Patient walks out with a tooth. Final restoration is fitted on the standard follow-up visit.',
+  specs:[{k:'Workflow',v:'Same-visit temporary'},{k:'Material',v:'PMMA → zirconia'},{k:'Final fit',v:'Standard follow-up'}],
   img:'https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=1200&h=1400&q=80&auto=format&fit=crop'
 });
 
@@ -243,16 +244,16 @@ const datasheet = {
   elements: [{
     id: P+'dscol', elType:'column', settings:{ _column_size:100, space_between_widgets:{unit:'px',size:0} },
     elements: [
-      heading('dsk', 'ENGINEERING DATA · v2.4 PLATFORM', 'ap-eyebrow',   { h:'h6', set:{ _animation:'fadeInUp', _margin:{unit:'px',top:'0',right:'0',bottom:'22',left:'0',isLinked:false} } }),
-      heading('dsh', 'The numbers, with the asterisks.', 'ap-h2-italic', { h:'h2', set:{ _animation:'fadeInUp', _animation_delay:120, _margin:{unit:'px',top:'0',right:'0',bottom:'72',left:'0',isLinked:false} } }),
-      dsRow(1,'Surgical accuracy (RMS)',    '0.32 mm · 1.2°<em>* n = 240 cases, linear &amp; angular</em>'),
-      dsRow(2,'Median case time',           '47 minutes<em>* anaesthesia to suture</em>'),
-      dsRow(3,'Planning AI latency',        '4 m 30 s<em>* p50 · 6 m 10 s p95</em>'),
-      dsRow(4,'Specialist response time',   '&lt; 12 seconds<em>* from pause-button press</em>'),
-      dsRow(5,'Sterility class',            'ISO 14644-1 Class 8<em>* sealed sterile shroud</em>'),
-      dsRow(6,'Regulatory',                 'FDA 510(k) · EU MDR IIb<em>* Health Canada licensed</em>'),
-      dsRow(7,'Power / footprint',          '110 / 220 V · 1.2 kVA<em>* 0.9 m² floor</em>'),
-      dsRow(8,'Service uptime',             '99.4 %<em>* 12-mo SLA · pilot fleet</em>')
+      heading('dsk', 'PLATFORM PRINCIPLES', 'ap-eyebrow',   { h:'h6', set:{ _animation:'fadeInUp', _margin:{unit:'px',top:'0',right:'0',bottom:'22',left:'0',isLinked:false} } }),
+      heading('dsh', 'What the platform commits to, before it commits to a number.', 'ap-h2-italic', { h:'h2', set:{ _animation:'fadeInUp', _animation_delay:120, _margin:{unit:'px',top:'0',right:'0',bottom:'72',left:'0',isLinked:false} } }),
+      dsRow(1,'Surgical authority',  'The licensed clinician owns the path<em>* the robot constrains, never decides</em>'),
+      dsRow(2,'Robot role',          'Hold the plan, surface deviation<em>* surgeon-operated, robot-constrained</em>'),
+      dsRow(3,'Oversight',           'Live specialist with takeover<em>* board-certified periodontist or OS</em>'),
+      dsRow(4,'Data in / out',       'CBCT + STL → trajectory + clearance map<em>* DICOM-native</em>'),
+      dsRow(5,'Sterility',           'Sealed sterile shroud for the full case<em>* changed per patient</em>'),
+      dsRow(6,'Regulatory path',     'Jurisdiction-by-jurisdiction approval<em>* not deployed outside cleared markets</em>'),
+      dsRow(7,'Footprint',           'Designed for existing dental lab benches<em>* installs alongside, not instead of, the mill</em>'),
+      dsRow(8,'Independence',        'No manufacturer payments accepted<em>* prescription is the only product</em>')
     ]
   }]
 };
@@ -270,11 +271,11 @@ const ctaSec = {
   elements: [{
     id: P+'ctacol', elType:'column', settings:{ _column_size:100, space_between_widgets:{unit:'px',size:32} },
     elements: [
-      heading('ctak', '05 — NEXT', 'ap-cta-eye', { h:'h6', set:{ _animation:'fadeInUp' } }),
+      heading('ctak', 'NEXT', 'ap-cta-eye', { h:'h6', set:{ _animation:'fadeInUp' } }),
       heading('ctah', 'See it run on your scan.', 'ap-cta-h', { h:'h2', set:{ _animation:'fadeInUp', _animation_delay:120 } }),
       text   ('ctab', '<p>Send an anonymised CBCT/STL pair. We plan a case on the live platform and walk you through trajectory, clearance, and surgical sequence on a 30-minute call.</p>', 'ap-body-dark', { set:{ _animation:'fadeInUp', _animation_delay:240 } }),
       { id: P+'ctabtn', elType:'widget', widgetType:'button',
-        settings: { text:'Book a demo', link:{ url:'mailto:info@calldental.ai?subject=Apical%20Dental%20demo' },
+        settings: { text:'Book a demo', link:{ url:'mailto:info@apicaldental.ai?subject=Apical%20Dental%20demo' },
                     background_color:'#B85C3C', button_text_color:BONE, hover_background_color:BONE, hover_color:INK,
                     border_radius:{unit:'px',top:'0',right:'0',bottom:'0',left:'0',isLinked:true},
                     text_padding:{unit:'px',top:'20',right:'32',bottom:'20',left:'32',isLinked:false},
@@ -285,21 +286,7 @@ const ctaSec = {
 };
 
 // ── FOOTER ───────────────────────────────────────────────────────────
-const footer = {
-  id: P+'foot', elType:'section', isInner:false,
-  settings: {
-    layout:'boxed', content_width:{unit:'px',size:1320},
-    padding:        {unit:'px',top:'56',right:'40',bottom:'40',left:'40',isLinked:false},
-    padding_mobile: {unit:'px',top:'40',right:'22',bottom:'28',left:'22',isLinked:false},
-    background_background:'classic', background_color:'#111113'
-  },
-  elements: [{
-    id: P+'fcol', elType:'column', settings:{ _column_size:100 },
-    elements: [
-      text('fbot', '<p><a class="brand" href="/apicaldental/">APICAL</a><span>© 2026 Apical Dental · <a href="mailto:info@calldental.ai">info@calldental.ai</a></span></p>', 'ap-foot')
-    ]
-  }]
-};
+// footer imported from sections/08-footer.json (shared cross-page primitive)
 
 // ── ASSEMBLE ─────────────────────────────────────────────────────────
 const data = [nav, hero, specStrip, step1, step2, step3, step4, datasheet, ctaSec, footer];

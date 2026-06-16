@@ -6,9 +6,9 @@
     "layout": "boxed",
     "content_width": { "unit": "px", "size": 1320 },
     "gap": "extended",
-    "padding":        { "unit": "px", "top": "80", "right": "40", "bottom": "40", "left": "40", "isLinked": false },
-    "padding_tablet": { "unit": "px", "top": "64", "right": "32", "bottom": "32", "left": "32", "isLinked": false },
-    "padding_mobile": { "unit": "px", "top": "56", "right": "22", "bottom": "28", "left": "22", "isLinked": false },
+    "padding":        { "unit": "px", "top": "96",  "right": "40", "bottom": "48", "left": "40", "isLinked": false },
+    "padding_tablet": { "unit": "px", "top": "72",  "right": "32", "bottom": "36", "left": "32", "isLinked": false },
+    "padding_mobile": { "unit": "px", "top": "64",  "right": "22", "bottom": "32", "left": "22", "isLinked": false },
     "background_background": "classic",
     "background_color": "#111113"
   },
@@ -16,52 +16,15 @@
     {
       "id": "colft",
       "elType": "column",
-      "settings": { "_column_size": 100, "space_between_widgets": { "unit": "px", "size": 40 } },
+      "settings": { "_column_size": 100, "space_between_widgets": { "unit": "px", "size": 44 } },
       "elements": [
         {
-          "id": "wft01",
-          "elType": "section",
-          "isInner": true,
-          "settings": { "layout": "boxed", "gap": "extended", "structure": "40" },
-          "elements": [
-            {
-              "id": "cft1",
-              "elType": "column",
-              "settings": { "_column_size": 40, "_inline_size_mobile": 100, "space_between_widgets": { "unit": "px", "size": 16 } },
-              "elements": [
-                { "id": "ft1a", "elType": "widget", "widgetType": "heading", "settings": { "title": "APICAL", "header_size": "div", "typography_typography": "custom", "typography_font_family": "Fraunces", "typography_font_size": { "unit": "px", "size": 22 }, "typography_font_weight": "500", "typography_letter_spacing": { "unit": "px", "size": 2 }, "title_color": "#F3EEE5" } },
-                { "id": "ft1b", "elType": "widget", "widgetType": "text-editor", "settings": { "editor": "<p style=\"margin:0;max-width:320px\">Robot-guided dental surgery for DSOs that refuse to refer out.</p>", "typography_typography": "custom", "typography_font_family": "Inter", "typography_font_size": { "unit": "px", "size": 14 }, "typography_line_height": { "unit": "em", "size": 1.6 }, "text_color": "rgba(243,238,229,0.6)" } },
-                { "id": "ft1c", "elType": "widget", "widgetType": "text-editor", "settings": { "editor": "<p style=\"margin:0\"><a href=\"mailto:info@calldental.ai\" style=\"color:#F3EEE5;text-decoration:none;border-bottom:1px solid rgba(243,238,229,0.3);padding-bottom:2px;font-family:Inter;font-size:14px\">info@calldental.ai</a></p>" } }
-              ]
-            },
-            {
-              "id": "cft2",
-              "elType": "column",
-              "settings": { "_column_size": 20, "_inline_size_mobile": 50, "space_between_widgets": { "unit": "px", "size": 12 } },
-              "elements": [
-                { "id": "ft2h", "elType": "widget", "widgetType": "heading", "settings": { "title": "Product", "header_size": "h6", "typography_typography": "custom", "typography_font_family": "Inter", "typography_font_size": { "unit": "px", "size": 11 }, "typography_font_weight": "500", "typography_letter_spacing": { "unit": "px", "size": 2 }, "typography_text_transform": "uppercase", "title_color": "rgba(243,238,229,0.5)" } },
-                { "id": "ft2l", "elType": "widget", "widgetType": "text-editor", "settings": { "editor": "<p style=\"margin:0;line-height:2.1\"><a href=\"/apicaldental/technology\" style=\"color:#F3EEE5;text-decoration:none;display:block;font-family:Inter;font-size:14px\">Technology</a><a href=\"/apicaldental/#how\" style=\"color:#F3EEE5;text-decoration:none;display:block;font-family:Inter;font-size:14px\">How it works</a><a href=\"/apicaldental/proof\" style=\"color:#F3EEE5;text-decoration:none;display:block;font-family:Inter;font-size:14px\">Proof</a><a href=\"/apicaldental/for-dsos\" style=\"color:#F3EEE5;text-decoration:none;display:block;font-family:Inter;font-size:14px\">For DSOs</a></p>" } }
-              ]
-            },
-            {
-              "id": "cft3",
-              "elType": "column",
-              "settings": { "_column_size": 20, "_inline_size_mobile": 50, "space_between_widgets": { "unit": "px", "size": 12 } },
-              "elements": [
-                { "id": "ft3h", "elType": "widget", "widgetType": "heading", "settings": { "title": "Company", "header_size": "h6", "typography_typography": "custom", "typography_font_family": "Inter", "typography_font_size": { "unit": "px", "size": 11 }, "typography_font_weight": "500", "typography_letter_spacing": { "unit": "px", "size": 2 }, "typography_text_transform": "uppercase", "title_color": "rgba(243,238,229,0.5)" } },
-                { "id": "ft3l", "elType": "widget", "widgetType": "text-editor", "settings": { "editor": "<p style=\"margin:0;line-height:2.1\"><a href=\"/apicaldental/about\" style=\"color:#F3EEE5;text-decoration:none;display:block;font-family:Inter;font-size:14px\">About</a><a href=\"/apicaldental/careers\" style=\"color:#F3EEE5;text-decoration:none;display:block;font-family:Inter;font-size:14px\">Careers</a><a href=\"/apicaldental/press\" style=\"color:#F3EEE5;text-decoration:none;display:block;font-family:Inter;font-size:14px\">Press</a><a href=\"/apicaldental/contact\" style=\"color:#F3EEE5;text-decoration:none;display:block;font-family:Inter;font-size:14px\">Contact</a></p>" } }
-              ]
-            },
-            {
-              "id": "cft4",
-              "elType": "column",
-              "settings": { "_column_size": 20, "_inline_size_mobile": 100, "space_between_widgets": { "unit": "px", "size": 12 } },
-              "elements": [
-                { "id": "ft4h", "elType": "widget", "widgetType": "heading", "settings": { "title": "Elsewhere", "header_size": "h6", "typography_typography": "custom", "typography_font_family": "Inter", "typography_font_size": { "unit": "px", "size": 11 }, "typography_font_weight": "500", "typography_letter_spacing": { "unit": "px", "size": 2 }, "typography_text_transform": "uppercase", "title_color": "rgba(243,238,229,0.5)" } },
-                { "id": "ft4l", "elType": "widget", "widgetType": "text-editor", "settings": { "editor": "<p style=\"margin:0;line-height:2.1\"><a href=\"#\" style=\"color:#F3EEE5;text-decoration:none;display:block;font-family:Inter;font-size:14px\">LinkedIn &nearr;</a><a href=\"#\" style=\"color:#F3EEE5;text-decoration:none;display:block;font-family:Inter;font-size:14px\">X / Twitter &nearr;</a><a href=\"#\" style=\"color:#F3EEE5;text-decoration:none;display:block;font-family:Inter;font-size:14px\">YouTube &nearr;</a></p>" } }
-              ]
-            }
-          ]
+          "id": "wftbrand",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<div style=\"display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:56px;font-family:Inter;color:#F3EEE5\"><div style=\"display:flex;flex-direction:column;gap:18px\"><div style=\"font-family:Fraunces;font-size:26px;font-weight:500;letter-spacing:2.5px;color:#F3EEE5;line-height:1\">APICAL</div><div style=\"font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(243,238,229,0.45)\">Apical Dental &middot; Est. 1984</div><div style=\"font-family:Fraunces;font-style:italic;font-size:1.35rem;font-weight:300;line-height:1.35;letter-spacing:-0.4px;color:#F3EEE5;max-width:320px;margin:6px 0 0\">Human expertise. Robotic precision.</div><div style=\"font-size:13px;line-height:1.7;color:rgba(243,238,229,0.7);max-width:340px\">Founded by <strong style=\"color:#F3EEE5;font-weight:600\">Dr. Ted Lewis, DDS</strong> &mdash; four decades in prosthodontics, implants placed since 1981. Independent of every robotic manufacturer; the prescription stays neutral.</div><div style=\"display:flex;align-items:center;gap:10px;margin-top:6px;font-size:12px;color:rgba(243,238,229,0.55);letter-spacing:0.5px\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 22s8-7.5 8-13a8 8 0 1 0-16 0c0 5.5 8 13 8 13z\"/><circle cx=\"12\" cy=\"9\" r=\"2.5\"/></svg>Indiana, United States &middot; on-site visits by appointment</div></div><div style=\"display:flex;flex-direction:column;gap:18px\"><div style=\"font-size:11px;font-weight:600;letter-spacing:2.2px;text-transform:uppercase;color:rgba(243,238,229,0.45)\">Explore</div><nav style=\"display:flex;flex-direction:column;gap:12px;font-family:Inter;font-size:14px\"><a href=\"/apicaldental/for-dsos\" style=\"color:#F3EEE5;text-decoration:none;line-height:1.4\">For DSO networks</a><a href=\"/apicaldental/technology\" style=\"color:#F3EEE5;text-decoration:none;line-height:1.4\">Technology</a><a href=\"/apicaldental/proof\" style=\"color:#F3EEE5;text-decoration:none;line-height:1.4\">Proof &amp; methodology</a><a href=\"/apicaldental/contact\" style=\"color:#F3EEE5;text-decoration:none;line-height:1.4\">Partner with us</a></nav><div style=\"margin-top:14px;font-size:11px;font-weight:600;letter-spacing:2.2px;text-transform:uppercase;color:rgba(243,238,229,0.45)\">Locked offer</div><div style=\"font-family:Fraunces;font-size:1.5rem;font-weight:300;letter-spacing:-0.4px;color:#F3EEE5;line-height:1.1\">$3,667<span style=\"font-family:Inter;font-size:12px;font-weight:500;color:rgba(243,238,229,0.6);letter-spacing:0.3px\"> / chair / month lease</span></div><div style=\"font-size:12px;line-height:1.5;color:rgba(243,238,229,0.55)\">Consumables billed separately through the approved supply system.</div></div><div style=\"display:flex;flex-direction:column;gap:18px\"><div style=\"font-size:11px;font-weight:600;letter-spacing:2.2px;text-transform:uppercase;color:rgba(243,238,229,0.45)\">Talk to us</div><div style=\"font-size:13px;line-height:1.55;color:rgba(243,238,229,0.7)\">Three intakes routed to the right desk &mdash; one business day, usually faster.</div><div style=\"display:flex;flex-direction:column;gap:10px;font-family:Inter;font-size:13px\"><a href=\"mailto:info@apicaldental.ai?subject=Apical%20Dental%20%E2%80%94%20DSO%20partnership%20intake\" style=\"color:#F3EEE5;text-decoration:none;line-height:1.4;padding:8px 0;border-bottom:1px solid rgba(243,238,229,0.12)\"><span style=\"display:block;font-size:10px;letter-spacing:1.8px;text-transform:uppercase;color:rgba(243,238,229,0.45);margin-bottom:3px\">For networks</span>DSO networks &rarr;</a><a href=\"mailto:info@apicaldental.ai?subject=Apical%20Dental%20%E2%80%94%20independent%20practice%20intake\" style=\"color:#F3EEE5;text-decoration:none;line-height:1.4;padding:8px 0;border-bottom:1px solid rgba(243,238,229,0.12)\"><span style=\"display:block;font-size:10px;letter-spacing:1.8px;text-transform:uppercase;color:rgba(243,238,229,0.45);margin-bottom:3px\">For practices</span>Independent practitioners &rarr;</a><a href=\"mailto:info@apicaldental.ai?subject=Apical%20Dental%20%E2%80%94%20robotics%20manufacturer%20intake\" style=\"color:#F3EEE5;text-decoration:none;line-height:1.4;padding:8px 0\"><span style=\"display:block;font-size:10px;letter-spacing:1.8px;text-transform:uppercase;color:rgba(243,238,229,0.45);margin-bottom:3px\">For manufacturers</span>Robotic manufacturers &rarr;</a></div><div style=\"margin-top:8px;display:flex;align-items:center;gap:10px;font-size:13px;color:#F3EEE5\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"2\"/><path d=\"m3 7 9 7 9-7\"/></svg><a href=\"mailto:info@apicaldental.ai\" style=\"color:#F3EEE5;text-decoration:none;border-bottom:1px solid rgba(243,238,229,0.3);padding-bottom:2px\">info@apicaldental.ai</a></div></div><div style=\"display:flex;flex-direction:column;gap:18px\"><div style=\"font-size:11px;font-weight:600;letter-spacing:2.2px;text-transform:uppercase;color:rgba(243,238,229,0.45)\">Compliance &amp; responsibility</div><ul style=\"list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px\"><li style=\"display:flex;gap:10px;font-size:12.5px;line-height:1.55;color:rgba(243,238,229,0.78)\"><span style=\"color:#B85C3C;flex-shrink:0;font-family:Fraunces;font-style:italic\">&middot;</span><span><strong style=\"color:#F3EEE5;font-weight:600\">HIPAA-compliant production</strong> at every step of the on-site laboratory.</span></li><li style=\"display:flex;gap:10px;font-size:12.5px;line-height:1.55;color:rgba(243,238,229,0.78)\"><span style=\"color:#B85C3C;flex-shrink:0;font-family:Fraunces;font-style:italic\">&middot;</span><span><strong style=\"color:#F3EEE5;font-weight:600\">Sterilization-cleared</strong> appliance, in the doctor&rsquo;s hand.</span></li><li style=\"display:flex;gap:10px;font-size:12.5px;line-height:1.55;color:rgba(243,238,229,0.78)\"><span style=\"color:#B85C3C;flex-shrink:0;font-family:Fraunces;font-style:italic\">&middot;</span><span>Final responsibility for the appliance rests with the <strong style=\"color:#F3EEE5;font-weight:600\">treating dentist</strong>, not Apical or the laboratory.</span></li><li style=\"display:flex;gap:10px;font-size:12.5px;line-height:1.55;color:rgba(243,238,229,0.78)\"><span style=\"color:#B85C3C;flex-shrink:0;font-family:Fraunces;font-style:italic\">&middot;</span><span><strong style=\"color:#F3EEE5;font-weight:600\">Annual renewal</strong> &mdash; no multi-year lock-in.</span></li><li style=\"display:flex;gap:10px;font-size:12.5px;line-height:1.55;color:rgba(243,238,229,0.78)\"><span style=\"color:#B85C3C;flex-shrink:0;font-family:Fraunces;font-style:italic\">&middot;</span><span><strong style=\"color:#F3EEE5;font-weight:600\">$0 in manufacturer payments accepted.</strong> The prescription is independent.</span></li></ul></div></div><style>@media(max-width:1024px){[data-id=\"wftbrand\"] > div{grid-template-columns:1fr 1fr!important;gap:48px 40px!important}}@media(max-width:640px){[data-id=\"wftbrand\"] > div{grid-template-columns:1fr!important;gap:44px!important}}</style>"
+          }
         },
         {
           "id": "wftdiv",
@@ -74,7 +37,7 @@
           "elType": "widget",
           "widgetType": "text-editor",
           "settings": {
-            "editor": "<p style=\"margin:0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-family:Inter;font-size:12px;color:rgba(243,238,229,0.5);letter-spacing:0.3px\"><span>© 2026 Apical Dental. All rights reserved.</span><span><a href=\"#privacy\" style=\"color:rgba(243,238,229,0.5);text-decoration:none;margin-right:20px\">Privacy</a><a href=\"#terms\" style=\"color:rgba(243,238,229,0.5);text-decoration:none\">Terms</a></span></p>"
+            "editor": "<div style=\"display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;font-family:Inter;font-size:12px;color:rgba(243,238,229,0.5);letter-spacing:0.3px\"><span>&copy; 2026 Apical Dental &middot; Indiana, United States &middot; <a href=\"mailto:info@apicaldental.ai\" style=\"color:rgba(243,238,229,0.7);text-decoration:none\">info@apicaldental.ai</a></span><span style=\"font-family:Fraunces;font-style:italic;font-size:13px;color:rgba(243,238,229,0.55);letter-spacing:0\">The bench is the benchmark, not the marketing copy.</span></div>"
           }
         }
       ]
