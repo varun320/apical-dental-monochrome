@@ -11,14 +11,14 @@ import { readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const SITE = 'https://1.josh.wpfarmpowered.com/apicaldental';
+const SITE = process.env.WP_BASE || 'https://9487indianapolis-ilgnv.wpcomstaging.com';
 const ELEMENTOR_VERSION = '4.0.8';
 
 const PAGES = {
-  technology: 20,
-  proof:      21,
-  'for-dsos': 22,
-  contact:    23,
+  technology: 16,
+  proof:      17,
+  'for-dsos': 18,
+  contact:    19,
 };
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -77,6 +77,5 @@ for (const slug of slugs) {
 
   const data = await res.json();
   const live = data?.meta?._elementor_data || '';
-  const hasPrefix = live.includes('/apicaldental/');
-  console.log(`[${slug}#${id}] OK modified=${data.modified} bytes=${live.length} apicaldental=${hasPrefix ? 'yes' : 'NO'}`);
+  console.log(`[${slug}#${id}] OK modified=${data.modified} bytes=${live.length}`);
 }

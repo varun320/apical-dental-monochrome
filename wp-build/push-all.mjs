@@ -14,16 +14,19 @@ const ELEMENTOR_VERSION = '4.0.8';
 
 const PAGES = [
   { id: 12, slug: 'home',       file: resolve(here, 'home-elementor.json') },
-  { id: 20, slug: 'technology', file: resolve(here, 'pages/technology.json') },
-  { id: 64, slug: 'proof',      file: resolve(here, 'pages/proof.json') },
-  { id: 61, slug: 'for-dsos',   file: resolve(here, 'pages/for-dsos.json') },
-  { id: 23, slug: 'contact',    file: resolve(here, 'pages/contact.json') },
+  { id: 16, slug: 'technology', file: resolve(here, 'pages/technology.json') },
+  { id: 17, slug: 'proof',      file: resolve(here, 'pages/proof.json') },
+  { id: 18, slug: 'for-dsos',   file: resolve(here, 'pages/for-dsos.json') },
+  { id: 19, slug: 'contact',    file: resolve(here, 'pages/contact.json') },
 ];
 
-const cfg = JSON.parse(readFileSync(resolve(homedir(), '.claude.json'), 'utf8'));
-// Prefer the apical-elementor MCP env block — its WP_APP_USER/WP_APP_PASSWORD
-// pair has edit permissions. The apical-wordpress Bearer is read-scoped.
+// Env override wins (used for prod pushes). Falls back to MCP config for staging.
 const findAuth = () => {
+  if (process.env.WP_BASE && process.env.WP_USER && process.env.WP_APP_PASSWORD) {
+    const token = Buffer.from(`${process.env.WP_USER}:${process.env.WP_APP_PASSWORD}`).toString('base64');
+    return { auth: `Basic ${token}`, site: process.env.WP_BASE.replace(/\/$/, '') };
+  }
+  const cfg = JSON.parse(readFileSync(resolve(homedir(), '.claude.json'), 'utf8'));
   const tryNodes = [cfg.mcpServers || {}];
   for (const p of Object.values(cfg.projects || {})) tryNodes.push(p.mcpServers || {});
   for (const node of tryNodes) {

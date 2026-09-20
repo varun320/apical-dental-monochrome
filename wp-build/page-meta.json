@@ -1,22 +1,23 @@
 {
   "home_page_id": 12,
-  "kit_post_id": 7,
-  "kit_slug": "default-kit",
-  "site_url": "https://1.josh.wpfarmpowered.com/apicaldental",
-  "captured_at": "2026-04-24",
+  "site_url": "https://9487indianapolis-ilgnv.wpcomstaging.com",
+  "captured_at": "2026-09-20",
   "notes": [
-    "Site started empty; Home page (id=12) created fresh and set as page_on_front with show_on_front=page.",
-    "Only one Elementor kit exists: Default Kit (id=7) — globals will be written into this kit's _elementor_page_settings meta.",
-    "No prior Elementor template exists on this site; widget JSON authored from scratch per Elementor schema.",
-    "Page 22 (for-dsos) was clobbered 2026-06-13 by a diagnostic tiny-payload push; _elementor_data writes via REST silently rejected afterward. Page 58 created 2026-06-15 with full content, slug swapped to 'for-dsos'. Old page 22 demoted to draft slug 'for-dsos-broken'.",
-    "Page 55 (homepage-0) is the pre-session snapshot."
+    "Prod migration 2026-09-20: staging site (1.josh.wpfarmpowered.com/apicaldental) → prod (9487indianapolis-ilgnv.wpcomstaging.com).",
+    "All pages use template=elementor_canvas to bypass the Assembler theme (Hello Elementor not available on wpcomstaging).",
+    "Path prefix /apicaldental/ stripped from all section/page JSON — prod site is at root.",
+    "Elementor + Elementor Pro active. MetForm, Jeg Kit, Code Snippets installed via REST. MetForm forms need manual recreation.",
+    "Staging kit id was 7; prod uses whatever Elementor initializes on first content push."
   ],
   "page_ids": {
     "home": 12,
-    "technology": 20,
-    "proof": 64,
-    "for-dsos": 61,
-    "contact": 23,
-    "homepage-0": 55
+    "technology": 16,
+    "proof": 17,
+    "for-dsos": 18,
+    "contact": 19
+  },
+  "staging_legacy": {
+    "site_url": "https://1.josh.wpfarmpowered.com/apicaldental",
+    "page_ids": { "home": 12, "technology": 20, "proof": 64, "for-dsos": 61, "contact": 23 }
   }
 }

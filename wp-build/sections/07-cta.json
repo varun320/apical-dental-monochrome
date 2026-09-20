@@ -61,7 +61,7 @@
           "elType": "widget",
           "widgetType": "text-editor",
           "settings": {
-            "editor": "<p style=\"max-width:540px\">A 30-minute demo with your clinical director and CFO. We bring the simulator, the case math, and a deployment plan for your network.</p><p style=\"max-width:540px;margin-top:18px;font-size:14px;color:rgba(243,238,229,0.65);letter-spacing:0.3px\"><strong style=\"color:#F3EEE5;font-weight:600\">$3,667 / month lease.</strong> Consumables billed separately. No manufacturer kickbacks &mdash; the prescription stays independent.</p>",
+            "editor": "<p style=\"max-width:540px\">A 30-minute demo with your clinical director and CFO. We bring the simulator, the case math, and a deployment plan for your network.</p><p style=\"max-width:540px;margin-top:18px;font-size:14px;color:rgba(243,238,229,0.65);letter-spacing:0.3px\"><strong style=\"color:#F3EEE5;font-weight:600\">Leases start at $3,667/mo.</strong> Final price varies by the functions you configure. Consumables billed separately. No manufacturer kickbacks &mdash; the prescription stays independent.</p>",
             "typography_typography": "custom",
             "typography_font_family": "Inter",
             "typography_font_size": { "unit": "rem", "size": 1.1875 },
@@ -75,27 +75,9 @@
         {
           "id": "w07a04",
           "elType": "widget",
-          "widgetType": "button",
+          "widgetType": "html",
           "settings": {
-            "text": "Book a demo",
-            "link": { "url": "mailto:info@apicaldental.ai?subject=Apical%20Dental%20demo" },
-            "align": "left",
-            "size": "md",
-            "selected_icon": { "value": "fas fa-arrow-right", "library": "fa-solid" },
-            "icon_align": "right",
-            "icon_indent": { "unit": "px", "size": 10 },
-            "typography_typography": "custom",
-            "typography_font_family": "Inter",
-            "typography_font_size": { "unit": "px", "size": 15 },
-            "typography_font_weight": "500",
-            "typography_letter_spacing": { "unit": "px", "size": 0.5 },
-            "background_color": "#B85C3C",
-            "button_text_color": "#F3EEE5",
-            "hover_background_color": "#F3EEE5",
-            "hover_color": "#1A1A1C",
-            "border_radius": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true },
-            "text_padding": { "unit": "px", "top": "20", "right": "32", "bottom": "20", "left": "32", "isLinked": false },
-            "hover_animation": "grow",
+            "html": "<form class=\"ap-demo-form\" action=\"/wp-admin/admin-ajax.php?action=apical_demo_request\" method=\"post\"><div class=\"ap-demo-row\"><label><span>Name</span><input name=\"name\" type=\"text\" required></label><label><span>Practice / DSO</span><input name=\"practice\" type=\"text\" required></label></div><div class=\"ap-demo-row\"><label><span>Work email</span><input name=\"email\" type=\"email\" required></label><label><span>Robots in scope</span><input name=\"robots\" type=\"number\" min=\"1\" placeholder=\"e.g. 3\"></label></div><label class=\"ap-demo-full\"><span>What would you like the demo to cover?</span><textarea name=\"message\" rows=\"3\" placeholder=\"Case mix, referral leakage, network goals…\"></textarea></label><button type=\"submit\">Request demo &rarr;</button></form><style>.ap-demo-form{max-width:620px;display:grid;gap:18px;font-family:Inter;color:#F3EEE5}.ap-demo-form .ap-demo-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}.ap-demo-form label{display:flex;flex-direction:column;gap:6px;font-size:11px;font-weight:500;letter-spacing:1.4px;text-transform:uppercase;color:rgba(243,238,229,0.55)}.ap-demo-form input,.ap-demo-form textarea{background:transparent;border:0;border-bottom:1px solid rgba(243,238,229,0.3);color:#F3EEE5;font-family:Inter;font-size:15px;padding:10px 0;letter-spacing:0;text-transform:none;font-weight:400}.ap-demo-form input:focus,.ap-demo-form textarea:focus{outline:none;border-bottom-color:#B85C3C}.ap-demo-form textarea{resize:vertical;min-height:80px}.ap-demo-form button{justify-self:start;margin-top:4px;background:#B85C3C;color:#F3EEE5;border:0;padding:18px 30px;font-family:Inter;font-size:15px;font-weight:500;letter-spacing:0.5px;cursor:pointer;transition:background .2s ease,color .2s ease}.ap-demo-form button:hover{background:#F3EEE5;color:#1A1A1C}@media(max-width:640px){.ap-demo-form .ap-demo-row{grid-template-columns:1fr}}</style>",
             "_animation": "fadeInUp",
             "_animation_delay": 360
           }
