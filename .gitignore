@@ -1,21 +1,18 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Diagnostic dumps and scratch files — not source of truth
+wp-build/.*.json
+wp-build/.*.html
+wp-build/.*.txt
+wp-build/proof_live.html
+wp-build/.tmp_*
 
-# misc
+# Environment
+.env
+.env.*
+!.env.example
+
+# OS
 .DS_Store
-*.pem
-
-# env files
-.env*
-
-# editor / OS
-*.swp
 Thumbs.db
 
-# project-private docs / config
-docs/
-CLAUDE.md
-.claude
-
-# wp-build local artifacts
-wp-build/verify
-wp-build/.wp-creds.env
+# Node
+node_modules/
