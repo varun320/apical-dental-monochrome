@@ -22,9 +22,10 @@ const PAGES = [
 
 // Env override wins (used for prod pushes). Falls back to MCP config for staging.
 const findAuth = () => {
-  if (process.env.WP_BASE && process.env.WP_USER && process.env.WP_APP_PASSWORD) {
+  const base = process.env.WP_BASE || 'https://apicaldental.com';
+  if (process.env.WP_USER && process.env.WP_APP_PASSWORD) {
     const token = Buffer.from(`${process.env.WP_USER}:${process.env.WP_APP_PASSWORD}`).toString('base64');
-    return { auth: `Basic ${token}`, site: process.env.WP_BASE.replace(/\/$/, '') };
+    return { auth: `Basic ${token}`, site: base.replace(/\/$/, '') };
   }
   const cfg = JSON.parse(readFileSync(resolve(homedir(), '.claude.json'), 'utf8'));
   const tryNodes = [cfg.mcpServers || {}];

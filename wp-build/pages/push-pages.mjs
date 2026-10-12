@@ -11,7 +11,7 @@ import { readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const SITE = process.env.WP_BASE || 'https://9487indianapolis-ilgnv.wpcomstaging.com';
+const SITE = process.env.WP_BASE || 'https://apicaldental.com';
 const ELEMENTOR_VERSION = '4.0.8';
 
 const PAGES = {
